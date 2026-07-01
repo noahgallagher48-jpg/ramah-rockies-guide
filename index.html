@@ -58,13 +58,42 @@
   .legend{max-width:1180px;margin:6px auto 0;padding:0 24px;display:flex;gap:14px;flex-wrap:wrap;color:var(--mut);font-size:12.5px}
   .legend span b{color:var(--ink);font-weight:600}
   footer{max-width:1180px;margin:0 auto;padding:30px 24px 70px;color:var(--mut);font-size:13px;border-top:1px solid var(--line);margin-top:30px}
+
+  .heart{position:absolute;top:8px;right:10px;background:rgba(0,0,0,.45);border:0;color:#fff;
+         font-size:16px;line-height:1;padding:6px 9px;border-radius:999px;cursor:pointer}
+  .heart:hover{background:rgba(0,0,0,.7)}
+  .heart.faved{color:#ff5a7a}
+  .why{font-size:12.5px;color:var(--art);font-style:italic}
+  .mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:14px 0 18px}
+  .move{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+  .move>a img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
+  .move .mb{padding:10px 12px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .move .ml{font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:var(--copy);font-weight:600}
+  .move .mt{font-size:13.5px;color:var(--ink)}
+  .move .mb>a{font-size:12px;color:var(--mut);text-decoration:none;margin-top:auto}
+  .move .mb>a:hover{color:var(--ink)}
+  .favhint{margin-top:10px}
+  .favhint b{color:var(--ink)}
+  .favbar[hidden]{display:none}
+  .favbar{position:fixed;right:18px;bottom:18px;z-index:40;background:#1d1d21;border:1px solid #34343a;
+          border-radius:999px;display:flex;align-items:center;gap:10px;padding:8px 9px 8px 16px;
+          font-size:13px;box-shadow:0 6px 24px rgba(0,0,0,.5)}
+  .favbar button{background:#e9e9ec;color:#0a0a0b;border:0;border-radius:999px;padding:7px 12px;
+                 font-weight:600;font-size:12.5px;cursor:pointer}
+  .favbar button:hover{background:#fff}
+  .favbar #favclear{background:transparent;color:var(--mut);font-size:15px;padding:4px 6px}
+  .sig{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink);font-size:14px}
+  .sig .th{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:#cfcfd4;margin-bottom:6px}
+  .sig a{color:var(--art);text-decoration:none}
+
 </style>
 </head>
 <body>
 <header>
   <h1>Ramah in the Rockies</h1>
-  <p class="sub">Every image from the residency, organized by how it can be used. Each photo links to a full-resolution download. The fine-art frames are gathered first; the full set follows, grouped by part of camp.</p>
+  <p class="sub">Every image from the residency, organized by how it can be used. Each photo links to a full-resolution download. Five ready deployments come first, then the fine-art frames; the full set follows, grouped by part of camp.</p>
   <p class="stat"><b>134</b> images &nbsp;·&nbsp; <b>22</b> fine-art frames &nbsp;·&nbsp; <b>24</b> in the donor book &nbsp;·&nbsp; <b>48</b> with copy-space for text or logo</p>
+  <p class="stat favhint">&#9825; <b>Heart the frames you love</b>, and share this page with your staff, board, and families. The picks tell us what to print, post, and put in front of donors.</p>
 </header>
 <div class="legend">
   <span><b style="color:var(--art)">Fine Art</b> wall-worthy print</span>
@@ -73,6 +102,7 @@
   <span><b style="color:var(--brand)">Branded</b> a Ramah logo is visible</span>
 </div>
 <nav><div class="in">
+<a href="#firstfive">First Five Moves</a>
 <a href="#fineart">Fine Art Prints</a>
 <a href="#donorbook">Donor Book</a>
 <a href="#arrival-reunion">Arrival &amp; Reunion <i>6</i></a>
@@ -98,6 +128,53 @@
 <a href="#signs-details">Signs &amp; Details <i>1</i></a>
 </div></nav>
 
+<section id="firstfive">
+  <div class="lead">
+    <h2>First Five Moves</h2>
+    <p class="sub" style="margin-top:6px">Five deployments, already decided. If nothing else happens this month, these five put the work to work.</p>
+    <div class="mgrid"><div class="move">
+  <a href="https://drive.google.com/file/d/1wFyyj75fzUQcuWiFsZnC8FxDHINubyry/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/21.jpg" alt=""></a>
+  <div class="mb">
+    <div class="ml">Annual report cover</div>
+    <div class="mt">Vertical, with a sky that holds your title.</div>
+    <a href="https://drive.google.com/uc?export=download&id=1wFyyj75fzUQcuWiFsZnC8FxDHINubyry">Download #21</a>
+  </div>
+</div>
+<div class="move">
+  <a href="https://drive.google.com/file/d/1By5ziCYVgH0KUZyXs3AW7x5ebIJRm3EO/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/4.jpg" alt=""></a>
+  <div class="mb">
+    <div class="ml">Fall enrollment email header</div>
+    <div class="mt">Crop 16:9. The joy in the brand shirts does the recruiting.</div>
+    <a href="https://drive.google.com/uc?export=download&id=1By5ziCYVgH0KUZyXs3AW7x5ebIJRm3EO">Download #4</a>
+  </div>
+</div>
+<div class="move">
+  <a href="https://drive.google.com/file/d/1xMra4iYDL6pPEnBezLypX8_b_7jtRUaK/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/100.jpg" alt=""></a>
+  <div class="mb">
+    <div class="ml">Donor thank-you card</div>
+    <div class="mt">The pond they know, under a sky they have never seen it with.</div>
+    <a href="https://drive.google.com/uc?export=download&id=1xMra4iYDL6pPEnBezLypX8_b_7jtRUaK">Download #100</a>
+  </div>
+</div>
+<div class="move">
+  <a href="https://drive.google.com/file/d/1HG-DPfEhf8eyLdKWsj_rwODaR3fm9ZDY/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/106.jpg" alt=""></a>
+  <div class="mb">
+    <div class="ml">Lobby statement print</div>
+    <div class="mt">The whole camp asleep under the ridge. The marquee frame.</div>
+    <a href="https://drive.google.com/uc?export=download&id=1HG-DPfEhf8eyLdKWsj_rwODaR3fm9ZDY">Download #106</a>
+  </div>
+</div>
+<div class="move">
+  <a href="https://drive.google.com/file/d/1zNRTIqoH-9UORvNAS9Pye6s1HySKQDZ0/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/17.jpg" alt=""></a>
+  <div class="mb">
+    <div class="ml">This week&#x27;s social post</div>
+    <div class="mt">One face carrying what the season felt like.</div>
+    <a href="https://drive.google.com/uc?export=download&id=1zNRTIqoH-9UORvNAS9Pye6s1HySKQDZ0">Download #17</a>
+  </div>
+</div></div>
+  </div>
+</section>
+
 <section id="fineart">
   <div class="lead">
     <h2>Fine Art Prints</h2>
@@ -113,199 +190,199 @@
     <p class="provnote">Examples of past print use at <a href="https://www.abba-photo.com" target="_blank" rel="noopener">abba-photo.com</a></p>
   </div>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1wFyyj75fzUQcuWiFsZnC8FxDHINubyry/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/21.jpg" alt=""><span class="num">#21</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1wFyyj75fzUQcuWiFsZnC8FxDHINubyry/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/21.jpg" alt=""><span class="num">#21</span><button class="heart" data-fav-id="21" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">landscape sunset vertical, trail with colorful sky</div>
-    <div class="pills"><span class="pill copy">Copy-space</span></div>
+    <div class="why">The tall pine carries your eye up into the color, and the upper sky holds a title.</div><div class="pills"><span class="pill copy">Copy-space</span></div>
     
     <a class="dl" href="https://drive.google.com/uc?export=download&id=1wFyyj75fzUQcuWiFsZnC8FxDHINubyry">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/150tvE8_IOdrFQJXcgOOQxkX3H2qOKMLC/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/23.jpg" alt=""><span class="num">#23</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/150tvE8_IOdrFQJXcgOOQxkX3H2qOKMLC/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/23.jpg" alt=""><span class="num">#23</span><button class="heart" data-fav-id="23" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">path with milky way, pikes peak</div>
-    <div class="pills"><span class="pill copy">Copy-space</span></div>
+    <div class="why">Notice the pale road curving in from the corner; it hands your eye to the sky.</div><div class="pills"><span class="pill copy">Copy-space</span></div>
     
     <a class="dl" href="https://drive.google.com/uc?export=download&id=150tvE8_IOdrFQJXcgOOQxkX3H2qOKMLC">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1insfDYEUiVGb7MEgeyqNTsLosM3qFa8u/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/24.jpg" alt=""><span class="num">#24</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1insfDYEUiVGb7MEgeyqNTsLosM3qFa8u/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/24.jpg" alt=""><span class="num">#24</span><button class="heart" data-fav-id="24" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">&#x27;Prospector&#x27; building under night sky</div>
-    <div class="pills"><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span></div>
+    <div class="why">One warm window balances an entire cold sky; that is what a single light source buys you.</div><div class="pills"><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span></div>
     
     <a class="dl" href="https://drive.google.com/uc?export=download&id=1insfDYEUiVGb7MEgeyqNTsLosM3qFa8u">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1ijTTOAs2xStOt3v-_UAxztLmTxV8_HnK/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/25.jpg" alt=""><span class="num">#25</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1ijTTOAs2xStOt3v-_UAxztLmTxV8_HnK/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/25.jpg" alt=""><span class="num">#25</span><button class="heart" data-fav-id="25" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">light path through tents</div>
-    <div class="pills"><span class="pill book">Donor Book</span></div>
+    <div class="why">The groundlights burst like small suns and walk your eye straight to the glowing canvas.</div><div class="pills"><span class="pill book">Donor Book</span></div>
     
     <a class="dl" href="https://drive.google.com/uc?export=download&id=1ijTTOAs2xStOt3v-_UAxztLmTxV8_HnK">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1KX9j1LGFM_A1InRhgbgVQbcgCGlVvS24/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/26.jpg" alt=""><span class="num">#26</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1KX9j1LGFM_A1InRhgbgVQbcgCGlVvS24/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/26.jpg" alt=""><span class="num">#26</span><button class="heart" data-fav-id="26" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">tent village night sky</div>
-    <div class="pills"><span class="pill book">Donor Book</span></div>
+    <div class="why">Trees frame the shot on both sides, so the open sky in the gap reads as deliberate, not empty.</div><div class="pills"><span class="pill book">Donor Book</span></div>
     <div class="note">signature nocturne</div>
     <a class="dl" href="https://drive.google.com/uc?export=download&id=1KX9j1LGFM_A1InRhgbgVQbcgCGlVvS24">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/11VWs48RdUBLHS-o09Nhdsj8nK-W-VtRn/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/27.jpg" alt=""><span class="num">#27</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/11VWs48RdUBLHS-o09Nhdsj8nK-W-VtRn/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/27.jpg" alt=""><span class="num">#27</span><button class="heart" data-fav-id="27" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">single tent night sky</div>
-    <div class="pills"></div>
+    <div class="why">Symmetry does the work here; the centered tent and rising trees make it feel composed, not found.</div><div class="pills"></div>
     
     <a class="dl" href="https://drive.google.com/uc?export=download&id=11VWs48RdUBLHS-o09Nhdsj8nK-W-VtRn">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1VD8DRru1txNLOpG8nK20AwuA8vdVlTRu/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/28.jpg" alt=""><span class="num">#28</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1VD8DRru1txNLOpG8nK20AwuA8vdVlTRu/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/28.jpg" alt=""><span class="num">#28</span><button class="heart" data-fav-id="28" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">tent village night sky</div>
-    <div class="pills"></div>
+    <div class="why">Wide horizon, tents low, sky high; the room above the roofs is where a headline lives.</div><div class="pills"></div>
     <div class="note">alt of 26</div>
     <a class="dl" href="https://drive.google.com/uc?export=download&id=1VD8DRru1txNLOpG8nK20AwuA8vdVlTRu">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/16HvuZVICj3C4TZl5me4Hkx5K-fn1ayTA/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/30.jpg" alt=""><span class="num">#30</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/16HvuZVICj3C4TZl5me4Hkx5K-fn1ayTA/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/30.jpg" alt=""><span class="num">#30</span><button class="heart" data-fav-id="30" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">tent, woods glowing</div>
-    <div class="pills"></div>
+    <div class="why">Glow spills from inside the canvas while the far light hints at people you never see.</div><div class="pills"></div>
     
     <a class="dl" href="https://drive.google.com/uc?export=download&id=16HvuZVICj3C4TZl5me4Hkx5K-fn1ayTA">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1yx9TPkffna8Wy6LfXP2xpPpUDghBCmqy/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/41.jpg" alt=""><span class="num">#41</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1yx9TPkffna8Wy6LfXP2xpPpUDghBCmqy/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/41.jpg" alt=""><span class="num">#41</span><button class="heart" data-fav-id="41" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">pikes peak, washed color landscape</div>
-    <div class="pills"><span class="pill copy">Copy-space</span></div>
+    <div class="why">Two trees frame the peak like a window, which is why the distance feels earned, not flat.</div><div class="pills"><span class="pill copy">Copy-space</span></div>
     
     <a class="dl" href="https://drive.google.com/uc?export=download&id=1yx9TPkffna8Wy6LfXP2xpPpUDghBCmqy">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1bDQhdagUasWb-eUl6gWJb0Urj5DSVK3g/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/69.jpg" alt=""><span class="num">#69</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1bDQhdagUasWb-eUl6gWJb0Urj5DSVK3g/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/69.jpg" alt=""><span class="num">#69</span><button class="heart" data-fav-id="69" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">ramah valley camping</div>
-    <div class="pills"><span class="pill copy">Copy-space</span></div>
+    <div class="why">The break in the cloud does the lighting; the scattered figures give the valley scale and life.</div><div class="pills"><span class="pill copy">Copy-space</span></div>
     
     <a class="dl" href="https://drive.google.com/uc?export=download&id=1bDQhdagUasWb-eUl6gWJb0Urj5DSVK3g">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/14a_FfDamS7L1NdMmEqToaVdHlhNn5z2z/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/75.jpg" alt=""><span class="num">#75</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/14a_FfDamS7L1NdMmEqToaVdHlhNn5z2z/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/75.jpg" alt=""><span class="num">#75</span><button class="heart" data-fav-id="75" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">ramah valley, pikes peak, person on path</div>
-    <div class="pills"><span class="pill copy">Copy-space</span></div>
+    <div class="why">One small figure turns scenery into a place someone belongs, and the muted color keeps it calm.</div><div class="pills"><span class="pill copy">Copy-space</span></div>
     
     <a class="dl" href="https://drive.google.com/uc?export=download&id=14a_FfDamS7L1NdMmEqToaVdHlhNn5z2z">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/13pNQbT_X_sy-sTTOLgvIp_oy9ZLl0EoP/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/76.jpg" alt=""><span class="num">#76</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/13pNQbT_X_sy-sTTOLgvIp_oy9ZLl0EoP/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/76.jpg" alt=""><span class="num">#76</span><button class="heart" data-fav-id="76" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">pike peak path, dusk, colorful</div>
-    <div class="pills"><span class="pill copy">Copy-space</span></div>
+    <div class="why">Almost all sky, and the soft purple carries text easily while the small pavilion anchors the corner.</div><div class="pills"><span class="pill copy">Copy-space</span></div>
     
     <a class="dl" href="https://drive.google.com/uc?export=download&id=13pNQbT_X_sy-sTTOLgvIp_oy9ZLl0EoP">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1wItiHna5vfRpQZfS1Lpi_FhpTEzarzCi/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/79.jpg" alt=""><span class="num">#79</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1wItiHna5vfRpQZfS1Lpi_FhpTEzarzCi/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/79.jpg" alt=""><span class="num">#79</span><button class="heart" data-fav-id="79" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">prospector, pikes, colorful dusk</div>
-    <div class="pills"><span class="pill copy">Copy-space</span></div>
+    <div class="why">People tucked under the roof reward a second look; the empty left side stays open for type.</div><div class="pills"><span class="pill copy">Copy-space</span></div>
     
     <a class="dl" href="https://drive.google.com/uc?export=download&id=1wItiHna5vfRpQZfS1Lpi_FhpTEzarzCi">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1bl737Z4hfk04xTgYGe24Jft2mp3vVtz6/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/81.jpg" alt=""><span class="num">#81</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1bl737Z4hfk04xTgYGe24Jft2mp3vVtz6/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/81.jpg" alt=""><span class="num">#81</span><button class="heart" data-fav-id="81" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">moon and Jupiter over valley</div>
-    <div class="pills"><span class="pill copy">Copy-space</span></div>
+    <div class="why">A pocket of gold camp-light nested under the dark ridge pulls your eye down from the moon.</div><div class="pills"><span class="pill copy">Copy-space</span></div>
     
     <a class="dl" href="https://drive.google.com/uc?export=download&id=1bl737Z4hfk04xTgYGe24Jft2mp3vVtz6">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1g9lenSU03xw4pQcDIzYeCEyoD3vEtDXz/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/82.jpg" alt=""><span class="num">#82</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1g9lenSU03xw4pQcDIzYeCEyoD3vEtDXz/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/82.jpg" alt=""><span class="num">#82</span><button class="heart" data-fav-id="82" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">moonset over valley</div>
-    <div class="pills"><span class="pill copy">Copy-space</span></div>
+    <div class="why">That dead tree anchors the left edge so the wide valley and rising moonglow have something to push against.</div><div class="pills"><span class="pill copy">Copy-space</span></div>
     
     <a class="dl" href="https://drive.google.com/uc?export=download&id=1g9lenSU03xw4pQcDIzYeCEyoD3vEtDXz">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1xMra4iYDL6pPEnBezLypX8_b_7jtRUaK/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/100.jpg" alt=""><span class="num">#100</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1xMra4iYDL6pPEnBezLypX8_b_7jtRUaK/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/100.jpg" alt=""><span class="num">#100</span><button class="heart" data-fav-id="100" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Statement / large format</div><div class="desc">pond with reflection, sharp stars</div>
-    <div class="pills"><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span></div>
+    <div class="why">Still water doubles the sky, and that top-to-bottom symmetry is what makes it print-worthy at size.</div><div class="pills"><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span></div>
     <div class="note">marquee nightscape</div>
     <a class="dl" href="https://drive.google.com/uc?export=download&id=1xMra4iYDL6pPEnBezLypX8_b_7jtRUaK">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1L2JxoZ-4j2nHalZHfDSs223SkJkyCJpm/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/101.jpg" alt=""><span class="num">#101</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1L2JxoZ-4j2nHalZHfDSs223SkJkyCJpm/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/101.jpg" alt=""><span class="num">#101</span><button class="heart" data-fav-id="101" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">pond with reflection, trailed stars</div>
-    <div class="pills"><span class="pill copy">Copy-space</span></div>
+    <div class="why">Star trails record time passing while the reflection repeats it, so the frame feels long and quiet.</div><div class="pills"><span class="pill copy">Copy-space</span></div>
     <div class="note">star trails are intentional; the place is the subject, Milky Way secondary</div>
     <a class="dl" href="https://drive.google.com/uc?export=download&id=1L2JxoZ-4j2nHalZHfDSs223SkJkyCJpm">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1GyxejLlk9HFWNb_4aCfrzbX-AbmdR4Fl/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/102.jpg" alt=""><span class="num">#102</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1GyxejLlk9HFWNb_4aCfrzbX-AbmdR4Fl/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/102.jpg" alt=""><span class="num">#102</span><button class="heart" data-fav-id="102" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">historic cabin, night, glowing</div>
-    <div class="pills"></div>
+    <div class="why">Light from inside the old structure makes a decaying cabin feel occupied, not abandoned.</div><div class="pills"></div>
     
     <a class="dl" href="https://drive.google.com/uc?export=download&id=1GyxejLlk9HFWNb_4aCfrzbX-AbmdR4Fl">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1HG-DPfEhf8eyLdKWsj_rwODaR3fm9ZDY/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/106.jpg" alt=""><span class="num">#106</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1HG-DPfEhf8eyLdKWsj_rwODaR3fm9ZDY/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/106.jpg" alt=""><span class="num">#106</span><button class="heart" data-fav-id="106" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Statement / large format</div><div class="desc">night pano, marquee image</div>
-    <div class="pills"><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span></div>
+    <div class="why">Built wide for a spread; the ribbon of lit trees keeps the dark valley from going dead.</div><div class="pills"><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span></div>
     <div class="note">marquee; panorama (stitched), no single-exposure claim</div>
     <a class="dl" href="https://drive.google.com/uc?export=download&id=1HG-DPfEhf8eyLdKWsj_rwODaR3fm9ZDY">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1wgIqjlFDjwASDTLkgfJjuW8fRGf7W4ZW/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/107.jpg" alt=""><span class="num">#107</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1wgIqjlFDjwASDTLkgfJjuW8fRGf7W4ZW/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/107.jpg" alt=""><span class="num">#107</span><button class="heart" data-fav-id="107" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">sunrise on mountain</div>
-    <div class="pills"><span class="pill copy">Copy-space</span></div>
+    <div class="why">First light lands as a single warm line across the ridge, and the dark forest keeps it from getting busy.</div><div class="pills"><span class="pill copy">Copy-space</span></div>
     
     <a class="dl" href="https://drive.google.com/uc?export=download&id=1wgIqjlFDjwASDTLkgfJjuW8fRGf7W4ZW">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1KBaEnfXktCCtuZiwK7NQyASM2xVj8r67/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/108.jpg" alt=""><span class="num">#108</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1KBaEnfXktCCtuZiwK7NQyASM2xVj8r67/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/108.jpg" alt=""><span class="num">#108</span><button class="heart" data-fav-id="108" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">dual peaks, b&amp;w</div>
-    <div class="pills"><span class="pill copy">Copy-space</span></div>
+    <div class="why">Stripped to black and white, the rock reads as pure shape, and the framing pines sharpen the two forms.</div><div class="pills"><span class="pill copy">Copy-space</span></div>
     <div class="note">B&amp;W</div>
     <a class="dl" href="https://drive.google.com/uc?export=download&id=1KBaEnfXktCCtuZiwK7NQyASM2xVj8r67">Download full size</a>
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1JYXD0KllrGm7VFCwe3P2QJaSMlKWh1GI/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/109.jpg" alt=""><span class="num">#109</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1JYXD0KllrGm7VFCwe3P2QJaSMlKWh1GI/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/109.jpg" alt=""><span class="num">#109</span><button class="heart" data-fav-id="109" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="tier">Framed print</div><div class="desc">dual peaks, color</div>
-    <div class="pills"><span class="pill copy">Copy-space</span></div>
+    <div class="why">This color version trades drama for calm; hold it when you want the peaks quiet, not graphic.</div><div class="pills"><span class="pill copy">Copy-space</span></div>
     <div class="note">color alt of 108</div>
     <a class="dl" href="https://drive.google.com/uc?export=download&id=1JYXD0KllrGm7VFCwe3P2QJaSMlKWh1GI">Download full size</a>
   </div>
@@ -318,7 +395,7 @@
     <p class="sub" style="margin-top:6px">Candidates for the donor book, in the order the camp day unfolds. The book is a linen hardcover, 20 images one per page, with dust jacket and embossing, about $100. These 24 are the shortlist; copies are gathered in a separate folder in the Drive.</p>
   </div>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1h0DkFx2B__OnpxL2jfe12I_n7_2T5xC3/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/2.jpg" alt=""><span class="num">#2</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1h0DkFx2B__OnpxL2jfe12I_n7_2T5xC3/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/2.jpg" alt=""><span class="num">#2</span><button class="heart" data-fav-id="2" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">off the bus, seeing friends again</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -327,7 +404,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1By5ziCYVgH0KUZyXs3AW7x5ebIJRm3EO/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/4.jpg" alt=""><span class="num">#4</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1By5ziCYVgH0KUZyXs3AW7x5ebIJRm3EO/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/4.jpg" alt=""><span class="num">#4</span><button class="heart" data-fav-id="4" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">off the bus, seeing friends again</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -336,7 +413,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1MLso07FwAQTriurEOnr4A5s1rCs53Cbi/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/13.jpg" alt=""><span class="num">#13</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1MLso07FwAQTriurEOnr4A5s1rCs53Cbi/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/13.jpg" alt=""><span class="num">#13</span><button class="heart" data-fav-id="13" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">rikud</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -345,7 +422,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1insfDYEUiVGb7MEgeyqNTsLosM3qFa8u/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/24.jpg" alt=""><span class="num">#24</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1insfDYEUiVGb7MEgeyqNTsLosM3qFa8u/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/24.jpg" alt=""><span class="num">#24</span><button class="heart" data-fav-id="24" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">&#x27;Prospector&#x27; building under night sky</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill copy">Copy-space</span></div>
@@ -354,7 +431,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1ijTTOAs2xStOt3v-_UAxztLmTxV8_HnK/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/25.jpg" alt=""><span class="num">#25</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1ijTTOAs2xStOt3v-_UAxztLmTxV8_HnK/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/25.jpg" alt=""><span class="num">#25</span><button class="heart" data-fav-id="25" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">light path through tents</div>
     <div class="pills"><span class="pill art">Fine Art</span></div>
@@ -363,7 +440,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1KX9j1LGFM_A1InRhgbgVQbcgCGlVvS24/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/26.jpg" alt=""><span class="num">#26</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1KX9j1LGFM_A1InRhgbgVQbcgCGlVvS24/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/26.jpg" alt=""><span class="num">#26</span><button class="heart" data-fav-id="26" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">tent village night sky</div>
     <div class="pills"><span class="pill art">Fine Art</span></div>
@@ -372,7 +449,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1On0i_rGTbFkwWPSeuTGnuEf9wIWODyQe/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/47.jpg" alt=""><span class="num">#47</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1On0i_rGTbFkwWPSeuTGnuEf9wIWODyQe/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/47.jpg" alt=""><span class="num">#47</span><button class="heart" data-fav-id="47" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">art room</div>
     <div class="pills"></div>
@@ -381,7 +458,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1RR-J2LH1t6SqS-bem3GR2-Iw_-Ck886F/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/48.jpg" alt=""><span class="num">#48</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1RR-J2LH1t6SqS-bem3GR2-Iw_-Ck886F/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/48.jpg" alt=""><span class="num">#48</span><button class="heart" data-fav-id="48" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">barn, wide shot with horses</div>
     <div class="pills"><span class="pill copy">Copy-space</span><span class="pill brand">Branded</span></div>
@@ -390,7 +467,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1Jyt6j1kqTPKGyNSti5LEcO2nac0cvXm-/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/53.jpg" alt=""><span class="num">#53</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1Jyt6j1kqTPKGyNSti5LEcO2nac0cvXm-/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/53.jpg" alt=""><span class="num">#53</span><button class="heart" data-fav-id="53" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">walk from farm with flags</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -399,7 +476,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1NIbKHvkviX-e8axFWWZdpA0AIx2IPi80/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/62.jpg" alt=""><span class="num">#62</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1NIbKHvkviX-e8axFWWZdpA0AIx2IPi80/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/62.jpg" alt=""><span class="num">#62</span><button class="heart" data-fav-id="62" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">campfire sunset no fire</div>
     <div class="pills"></div>
@@ -408,7 +485,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1EwTGVGbNQxTqP4nYHwnw7tDeYbev-3h_/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/68.jpg" alt=""><span class="num">#68</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1EwTGVGbNQxTqP4nYHwnw7tDeYbev-3h_/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/68.jpg" alt=""><span class="num">#68</span><button class="heart" data-fav-id="68" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">chadar ochel wide interior</div>
     <div class="pills"><span class="pill copy">Copy-space</span><span class="pill brand">Branded</span></div>
@@ -417,7 +494,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1A4G-YI_fRv4zRAVeOgK6mg6-2Pap5A-3/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/70.jpg" alt=""><span class="num">#70</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1A4G-YI_fRv4zRAVeOgK6mg6-2Pap5A-3/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/70.jpg" alt=""><span class="num">#70</span><button class="heart" data-fav-id="70" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">ramah valley camping</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -426,7 +503,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1l_7ZrG9tI8edQMkDpsWcbGrZLEFx6-Xp/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/71.jpg" alt=""><span class="num">#71</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1l_7ZrG9tI8edQMkDpsWcbGrZLEFx6-Xp/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/71.jpg" alt=""><span class="num">#71</span><button class="heart" data-fav-id="71" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">ramah valley camping</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -435,7 +512,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1xhvvuQy-Uq_hwSy6HO1wt3AWWyOdJKMs/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/83.jpg" alt=""><span class="num">#83</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1xhvvuQy-Uq_hwSy6HO1wt3AWWyOdJKMs/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/83.jpg" alt=""><span class="num">#83</span><button class="heart" data-fav-id="83" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">flags with stars</div>
     <div class="pills"><span class="pill copy">Copy-space</span><span class="pill brand">Branded</span></div>
@@ -444,7 +521,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/12Cjwb3fwBlG1vD5fkg9-NY5ko5e1vCQb/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/86.jpg" alt=""><span class="num">#86</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/12Cjwb3fwBlG1vD5fkg9-NY5ko5e1vCQb/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/86.jpg" alt=""><span class="num">#86</span><button class="heart" data-fav-id="86" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">court, flags, wide with stars</div>
     <div class="pills"><span class="pill copy">Copy-space</span><span class="pill brand">Branded</span></div>
@@ -453,7 +530,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1In9czLPwN-FxTAPbsj8ZbteWmzlreWDV/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/88.jpg" alt=""><span class="num">#88</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1In9czLPwN-FxTAPbsj8ZbteWmzlreWDV/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/88.jpg" alt=""><span class="num">#88</span><button class="heart" data-fav-id="88" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">wide with hikers</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -462,7 +539,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/16dQeZfGhocUOOnyJM8JPmlOL8-l_1la9/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/97.jpg" alt=""><span class="num">#97</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/16dQeZfGhocUOOnyJM8JPmlOL8-l_1la9/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/97.jpg" alt=""><span class="num">#97</span><button class="heart" data-fav-id="97" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">flags, daylight</div>
     <div class="pills"><span class="pill copy">Copy-space</span><span class="pill brand">Branded</span></div>
@@ -471,7 +548,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1rKCRgmD6BpJVLQ2AFjifYoaYgDbTRYu7/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/98.jpg" alt=""><span class="num">#98</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1rKCRgmD6BpJVLQ2AFjifYoaYgDbTRYu7/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/98.jpg" alt=""><span class="num">#98</span><button class="heart" data-fav-id="98" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">goat kids</div>
     <div class="pills"></div>
@@ -480,7 +557,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1xMra4iYDL6pPEnBezLypX8_b_7jtRUaK/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/100.jpg" alt=""><span class="num">#100</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1xMra4iYDL6pPEnBezLypX8_b_7jtRUaK/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/100.jpg" alt=""><span class="num">#100</span><button class="heart" data-fav-id="100" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">pond with reflection, sharp stars</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill copy">Copy-space</span></div>
@@ -489,7 +566,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1HG-DPfEhf8eyLdKWsj_rwODaR3fm9ZDY/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/106.jpg" alt=""><span class="num">#106</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1HG-DPfEhf8eyLdKWsj_rwODaR3fm9ZDY/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/106.jpg" alt=""><span class="num">#106</span><button class="heart" data-fav-id="106" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">night pano, marquee image</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill copy">Copy-space</span></div>
@@ -498,7 +575,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1j-jGIOGM3UmzNlR13pk3mSEOe17RFxnH/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/117.jpg" alt=""><span class="num">#117</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1j-jGIOGM3UmzNlR13pk3mSEOe17RFxnH/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/117.jpg" alt=""><span class="num">#117</span><button class="heart" data-fav-id="117" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">kabbalat</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -507,7 +584,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1nppPHqFEEyr8LF-_8bfSr6CoNqbdr2ru/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/121.jpg" alt=""><span class="num">#121</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1nppPHqFEEyr8LF-_8bfSr6CoNqbdr2ru/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/121.jpg" alt=""><span class="num">#121</span><button class="heart" data-fav-id="121" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">men, boys, prayer</div>
     <div class="pills"></div>
@@ -516,7 +593,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1fssnWj87twOdFY1DHAnJJN3YgoAWq5X-/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/127.jpg" alt=""><span class="num">#127</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1fssnWj87twOdFY1DHAnJJN3YgoAWq5X-/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/127.jpg" alt=""><span class="num">#127</span><button class="heart" data-fav-id="127" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">campers, tents, shabbat</div>
     <div class="pills"></div>
@@ -525,7 +602,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1IIBgLyTHeNQWtjEb2vQIOUJBm1Ryr1j4/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/136.jpg" alt=""><span class="num">#136</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1IIBgLyTHeNQWtjEb2vQIOUJBm1Ryr1j4/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/136.jpg" alt=""><span class="num">#136</span><button class="heart" data-fav-id="136" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">havdalah, moon, wide</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -538,7 +615,7 @@
 <section id="arrival-reunion">
   <h2>Arrival &amp; Reunion <span class="cnt">6</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1CavgRJOPIInSAXuek7hJS4PXySUhPTTV/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/1.jpg" alt=""><span class="num">#1</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1CavgRJOPIInSAXuek7hJS4PXySUhPTTV/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/1.jpg" alt=""><span class="num">#1</span><button class="heart" data-fav-id="1" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">off the bus, seeing friends again</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -547,7 +624,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1h0DkFx2B__OnpxL2jfe12I_n7_2T5xC3/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/2.jpg" alt=""><span class="num">#2</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1h0DkFx2B__OnpxL2jfe12I_n7_2T5xC3/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/2.jpg" alt=""><span class="num">#2</span><button class="heart" data-fav-id="2" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">off the bus, seeing friends again</div>
     <div class="pills"><span class="pill book">Donor Book</span><span class="pill brand">Branded</span></div>
@@ -556,7 +633,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1bSQQ0Lmz3M2wV4sdniN1-cCngRa_ZqUB/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/3.jpg" alt=""><span class="num">#3</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1bSQQ0Lmz3M2wV4sdniN1-cCngRa_ZqUB/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/3.jpg" alt=""><span class="num">#3</span><button class="heart" data-fav-id="3" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">off the bus, seeing friends again</div>
     <div class="pills"></div>
@@ -565,7 +642,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1By5ziCYVgH0KUZyXs3AW7x5ebIJRm3EO/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/4.jpg" alt=""><span class="num">#4</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1By5ziCYVgH0KUZyXs3AW7x5ebIJRm3EO/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/4.jpg" alt=""><span class="num">#4</span><button class="heart" data-fav-id="4" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">off the bus, seeing friends again</div>
     <div class="pills"><span class="pill book">Donor Book</span><span class="pill brand">Branded</span></div>
@@ -574,7 +651,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1THYmOwRPRH84bUVp414ZoJOMF5rM7IS0/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/5.jpg" alt=""><span class="num">#5</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1THYmOwRPRH84bUVp414ZoJOMF5rM7IS0/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/5.jpg" alt=""><span class="num">#5</span><button class="heart" data-fav-id="5" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">off the bus, seeing friends again</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -583,7 +660,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1XnErbTDbQ2xQ4NjYiqFnEVT3UKSVDIFL/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/6.jpg" alt=""><span class="num">#6</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1XnErbTDbQ2xQ4NjYiqFnEVT3UKSVDIFL/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/6.jpg" alt=""><span class="num">#6</span><button class="heart" data-fav-id="6" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">off the bus, seeing friends again</div>
     <div class="pills"></div>
@@ -595,7 +672,7 @@
 <section id="rikud-dance">
   <h2>Rikud / Dance <span class="cnt">8</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/12UTqa_2piaJlE7YUDnhVcNhJhYIMTArH/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/7.jpg" alt=""><span class="num">#7</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/12UTqa_2piaJlE7YUDnhVcNhJhYIMTArH/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/7.jpg" alt=""><span class="num">#7</span><button class="heart" data-fav-id="7" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">rikud</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -604,7 +681,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1E5A4b7BeqjktCkyGcZbQQWQsvTONCdKG/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/8.jpg" alt=""><span class="num">#8</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1E5A4b7BeqjktCkyGcZbQQWQsvTONCdKG/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/8.jpg" alt=""><span class="num">#8</span><button class="heart" data-fav-id="8" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">rikud</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -613,7 +690,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1PjFUQPmPw4g0RWex8qg0ZX8s5SLLxbAd/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/9.jpg" alt=""><span class="num">#9</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1PjFUQPmPw4g0RWex8qg0ZX8s5SLLxbAd/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/9.jpg" alt=""><span class="num">#9</span><button class="heart" data-fav-id="9" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">rikud</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -622,7 +699,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1XmCecxZ-ICKqi0PjXESNamYlqzdP8-1D/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/10.jpg" alt=""><span class="num">#10</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1XmCecxZ-ICKqi0PjXESNamYlqzdP8-1D/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/10.jpg" alt=""><span class="num">#10</span><button class="heart" data-fav-id="10" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">rikud</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -631,7 +708,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1n4OpOTwdud1BDhaDayiBc4uxUlPPLBk0/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/12.jpg" alt=""><span class="num">#12</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1n4OpOTwdud1BDhaDayiBc4uxUlPPLBk0/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/12.jpg" alt=""><span class="num">#12</span><button class="heart" data-fav-id="12" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">rikud</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -640,7 +717,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1MLso07FwAQTriurEOnr4A5s1rCs53Cbi/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/13.jpg" alt=""><span class="num">#13</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1MLso07FwAQTriurEOnr4A5s1rCs53Cbi/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/13.jpg" alt=""><span class="num">#13</span><button class="heart" data-fav-id="13" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">rikud</div>
     <div class="pills"><span class="pill book">Donor Book</span><span class="pill brand">Branded</span></div>
@@ -649,7 +726,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1yKr3_1NHHy1hXpOg5Kuqs_C7cM2D3XRA/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/16.jpg" alt=""><span class="num">#16</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1yKr3_1NHHy1hXpOg5Kuqs_C7cM2D3XRA/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/16.jpg" alt=""><span class="num">#16</span><button class="heart" data-fav-id="16" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">rikud</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -658,7 +735,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1O_jU_rrk-WG6pqIjqohxkE0a05LTlsiD/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/19.jpg" alt=""><span class="num">#19</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1O_jU_rrk-WG6pqIjqohxkE0a05LTlsiD/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/19.jpg" alt=""><span class="num">#19</span><button class="heart" data-fav-id="19" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">rikud</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -670,7 +747,7 @@
 <section id="faces-expression">
   <h2>Faces &amp; Expression <span class="cnt">3</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1Dcy8kueD8U0_8PKdG4yP1gfcVINnEOTd/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/11.jpg" alt=""><span class="num">#11</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1Dcy8kueD8U0_8PKdG4yP1gfcVINnEOTd/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/11.jpg" alt=""><span class="num">#11</span><button class="heart" data-fav-id="11" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">face</div>
     <div class="pills"></div>
@@ -679,7 +756,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1zNRTIqoH-9UORvNAS9Pye6s1HySKQDZ0/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/17.jpg" alt=""><span class="num">#17</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1zNRTIqoH-9UORvNAS9Pye6s1HySKQDZ0/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/17.jpg" alt=""><span class="num">#17</span><button class="heart" data-fav-id="17" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">emotional face</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -688,7 +765,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1AlHxhILNtMGnZZg9V6fDlqn6ipXPrT7l/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/110.jpg" alt=""><span class="num">#110</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1AlHxhILNtMGnZZg9V6fDlqn6ipXPrT7l/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/110.jpg" alt=""><span class="num">#110</span><button class="heart" data-fav-id="110" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">smiling duo</div>
     <div class="pills"></div>
@@ -700,7 +777,7 @@
 <section id="meals">
   <h2>Meals <span class="cnt">1</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1swAI9Zqb57gXCf5EMqrEBTqqjemjptSU/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/14.jpg" alt=""><span class="num">#14</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1swAI9Zqb57gXCf5EMqrEBTqqjemjptSU/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/14.jpg" alt=""><span class="num">#14</span><button class="heart" data-fav-id="14" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">meal</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -712,7 +789,7 @@
 <section id="limud-art">
   <h2>Limud &amp; Art <span class="cnt">3</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/10QjSWKGb_LlLvI30zBuFiZzE2s6FoEHj/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/45.jpg" alt=""><span class="num">#45</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/10QjSWKGb_LlLvI30zBuFiZzE2s6FoEHj/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/45.jpg" alt=""><span class="num">#45</span><button class="heart" data-fav-id="45" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">group limud</div>
     <div class="pills"></div>
@@ -721,7 +798,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1sFlo3ZBRDK81rnoQseOo439gUhG7fqgp/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/46.jpg" alt=""><span class="num">#46</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1sFlo3ZBRDK81rnoQseOo439gUhG7fqgp/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/46.jpg" alt=""><span class="num">#46</span><button class="heart" data-fav-id="46" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">group limud (Tiber)</div>
     <div class="pills"></div>
@@ -730,7 +807,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1On0i_rGTbFkwWPSeuTGnuEf9wIWODyQe/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/47.jpg" alt=""><span class="num">#47</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1On0i_rGTbFkwWPSeuTGnuEf9wIWODyQe/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/47.jpg" alt=""><span class="num">#47</span><button class="heart" data-fav-id="47" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">art room</div>
     <div class="pills"><span class="pill book">Donor Book</span></div>
@@ -742,7 +819,7 @@
 <section id="camp-life-play">
   <h2>Camp Life &amp; Play <span class="cnt">2</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1nkkJG7MEKn-rXkY6mfqp2wol58wOZzuY/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/56.jpg" alt=""><span class="num">#56</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1nkkJG7MEKn-rXkY6mfqp2wol58wOZzuY/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/56.jpg" alt=""><span class="num">#56</span><button class="heart" data-fav-id="56" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">boys spikeball</div>
     <div class="pills"></div>
@@ -751,7 +828,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1fLpoZ7nUw1lIT6cTj08rYBD6JIVB7lJ2/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/111.jpg" alt=""><span class="num">#111</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1fLpoZ7nUw1lIT6cTj08rYBD6JIVB7lJ2/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/111.jpg" alt=""><span class="num">#111</span><button class="heart" data-fav-id="111" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">shabbat ping pong</div>
     <div class="pills"></div>
@@ -763,7 +840,7 @@
 <section id="biking">
   <h2>Biking <span class="cnt">2</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1KoDqpx7rSAEOEdr1Gcwti9SCQO_TiA1y/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/42.jpg" alt=""><span class="num">#42</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1KoDqpx7rSAEOEdr1Gcwti9SCQO_TiA1y/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/42.jpg" alt=""><span class="num">#42</span><button class="heart" data-fav-id="42" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">bike tent, wide daylight</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -772,7 +849,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1WkCoDDJtDQ2JEswHjdoWIZqppHn7nRAg/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/43.jpg" alt=""><span class="num">#43</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1WkCoDDJtDQ2JEswHjdoWIZqppHn7nRAg/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/43.jpg" alt=""><span class="num">#43</span><button class="heart" data-fav-id="43" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">biker</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -784,7 +861,7 @@
 <section id="climbing">
   <h2>Climbing <span class="cnt">11</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1RS2lj0aTI5tVjBouMH9a25B31Lcia8Lz/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/35.jpg" alt=""><span class="num">#35</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1RS2lj0aTI5tVjBouMH9a25B31Lcia8Lz/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/35.jpg" alt=""><span class="num">#35</span><button class="heart" data-fav-id="35" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">climber</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -793,7 +870,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1iz13FD2LdKUacxoTMPfsSTUGv5tgaMlq/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/36.jpg" alt=""><span class="num">#36</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1iz13FD2LdKUacxoTMPfsSTUGv5tgaMlq/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/36.jpg" alt=""><span class="num">#36</span><button class="heart" data-fav-id="36" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">climber</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -802,7 +879,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1nUogZfN40qawqLsDjhnqgn6p3HVgFCHa/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/37.jpg" alt=""><span class="num">#37</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1nUogZfN40qawqLsDjhnqgn6p3HVgFCHa/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/37.jpg" alt=""><span class="num">#37</span><button class="heart" data-fav-id="37" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">staff belay</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -811,7 +888,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1Ja_FsTyOsVHjJ0EkxNdjAoGtVtsneR5W/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/38.jpg" alt=""><span class="num">#38</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1Ja_FsTyOsVHjJ0EkxNdjAoGtVtsneR5W/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/38.jpg" alt=""><span class="num">#38</span><button class="heart" data-fav-id="38" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">climber</div>
     <div class="pills"></div>
@@ -820,7 +897,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1YsOKOiCmHPEhG-FrsOAOkjpXPdKUDqZy/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/39.jpg" alt=""><span class="num">#39</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1YsOKOiCmHPEhG-FrsOAOkjpXPdKUDqZy/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/39.jpg" alt=""><span class="num">#39</span><button class="heart" data-fav-id="39" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">climber</div>
     <div class="pills"></div>
@@ -829,7 +906,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/12NFhJS1sfd5IiyhoaZYWC2Y1Sn-I5UFw/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/40.jpg" alt=""><span class="num">#40</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/12NFhJS1sfd5IiyhoaZYWC2Y1Sn-I5UFw/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/40.jpg" alt=""><span class="num">#40</span><button class="heart" data-fav-id="40" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">climber</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -838,7 +915,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1Px3vnCFj2td4h3JkrOQEOEhO6trsFsSh/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/90.jpg" alt=""><span class="num">#90</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1Px3vnCFj2td4h3JkrOQEOEhO6trsFsSh/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/90.jpg" alt=""><span class="num">#90</span><button class="heart" data-fav-id="90" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">sharona, climbing</div>
     <div class="pills"></div>
@@ -847,7 +924,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1p34-SWlVOoezE2TAGVLHWzgWjdEYHYKQ/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/91.jpg" alt=""><span class="num">#91</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1p34-SWlVOoezE2TAGVLHWzgWjdEYHYKQ/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/91.jpg" alt=""><span class="num">#91</span><button class="heart" data-fav-id="91" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">sharona climbing looking at camera</div>
     <div class="pills"></div>
@@ -856,7 +933,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/16wFpuCM0nh0dYz7Mnja40_IX42ka078J/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/92.jpg" alt=""><span class="num">#92</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/16wFpuCM0nh0dYz7Mnja40_IX42ka078J/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/92.jpg" alt=""><span class="num">#92</span><button class="heart" data-fav-id="92" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">climber looking at camera</div>
     <div class="pills"><span class="pill copy">Copy-space</span><span class="pill brand">Branded</span></div>
@@ -865,7 +942,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1GXN1SU2PBIPp_cPb-fgH2I7mvW8OSv5j/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/93.jpg" alt=""><span class="num">#93</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1GXN1SU2PBIPp_cPb-fgH2I7mvW8OSv5j/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/93.jpg" alt=""><span class="num">#93</span><button class="heart" data-fav-id="93" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">climber reaching</div>
     <div class="pills"></div>
@@ -874,7 +951,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1xHQeF1QOCs4gVnCTHVAS14FFKCKbxKa4/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/94.jpg" alt=""><span class="num">#94</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1xHQeF1QOCs4gVnCTHVAS14FFKCKbxKa4/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/94.jpg" alt=""><span class="num">#94</span><button class="heart" data-fav-id="94" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">vertical climber</div>
     <div class="pills"></div>
@@ -886,7 +963,7 @@
 <section id="rocks-granite">
   <h2>Rocks &amp; Granite <span class="cnt">6</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1dq_Lcdxu1LaT_0m5YG1BiuiTBjKVxRt5/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/20.jpg" alt=""><span class="num">#20</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1dq_Lcdxu1LaT_0m5YG1BiuiTBjKVxRt5/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/20.jpg" alt=""><span class="num">#20</span><button class="heart" data-fav-id="20" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">rocks</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -895,7 +972,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1KH9rakosfJx87CeHeVKdgKzSybqWwl9T/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/57.jpg" alt=""><span class="num">#57</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1KH9rakosfJx87CeHeVKdgKzSybqWwl9T/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/57.jpg" alt=""><span class="num">#57</span><button class="heart" data-fav-id="57" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">rocks</div>
     <div class="pills"></div>
@@ -904,7 +981,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1f3vZUSODygZ8K6JRGlwRY3B7TuIp-24h/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/58.jpg" alt=""><span class="num">#58</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1f3vZUSODygZ8K6JRGlwRY3B7TuIp-24h/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/58.jpg" alt=""><span class="num">#58</span><button class="heart" data-fav-id="58" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">rocks, vertical, sunset pair</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -913,7 +990,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/19mrcM_XAGQQWyHH0K6WmZBEjKtq0-dPb/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/65.jpg" alt=""><span class="num">#65</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/19mrcM_XAGQQWyHH0K6WmZBEjKtq0-dPb/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/65.jpg" alt=""><span class="num">#65</span><button class="heart" data-fav-id="65" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">rocks, vertical</div>
     <div class="pills"></div>
@@ -922,7 +999,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1PSGnVG-Ef7RwnCTZgkOK83w-PA3u-vgE/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/66.jpg" alt=""><span class="num">#66</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1PSGnVG-Ef7RwnCTZgkOK83w-PA3u-vgE/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/66.jpg" alt=""><span class="num">#66</span><button class="heart" data-fav-id="66" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">rocks</div>
     <div class="pills"></div>
@@ -931,7 +1008,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1e7ppHdbBMI3N7vuE5beyFEn4U9jYAkuG/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/67.jpg" alt=""><span class="num">#67</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1e7ppHdbBMI3N7vuE5beyFEn4U9jYAkuG/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/67.jpg" alt=""><span class="num">#67</span><button class="heart" data-fav-id="67" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">rocks</div>
     <div class="pills"></div>
@@ -943,7 +1020,7 @@
 <section id="the-land-ramah-valley">
   <h2>The Land: Ramah Valley <span class="cnt">14</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1vqJcw-XIk79v8zdaQ_pHpqX8OxwmYtF4/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/44.jpg" alt=""><span class="num">#44</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1vqJcw-XIk79v8zdaQ_pHpqX8OxwmYtF4/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/44.jpg" alt=""><span class="num">#44</span><button class="heart" data-fav-id="44" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">hiking from ramah valley</div>
     <div class="pills"><span class="pill copy">Copy-space</span><span class="pill brand">Branded</span></div>
@@ -952,7 +1029,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1bDQhdagUasWb-eUl6gWJb0Urj5DSVK3g/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/69.jpg" alt=""><span class="num">#69</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1bDQhdagUasWb-eUl6gWJb0Urj5DSVK3g/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/69.jpg" alt=""><span class="num">#69</span><button class="heart" data-fav-id="69" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">ramah valley camping</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill copy">Copy-space</span></div>
@@ -961,7 +1038,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1A4G-YI_fRv4zRAVeOgK6mg6-2Pap5A-3/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/70.jpg" alt=""><span class="num">#70</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1A4G-YI_fRv4zRAVeOgK6mg6-2Pap5A-3/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/70.jpg" alt=""><span class="num">#70</span><button class="heart" data-fav-id="70" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">ramah valley camping</div>
     <div class="pills"><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span></div>
@@ -970,7 +1047,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1l_7ZrG9tI8edQMkDpsWcbGrZLEFx6-Xp/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/71.jpg" alt=""><span class="num">#71</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1l_7ZrG9tI8edQMkDpsWcbGrZLEFx6-Xp/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/71.jpg" alt=""><span class="num">#71</span><button class="heart" data-fav-id="71" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">ramah valley camping</div>
     <div class="pills"><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span></div>
@@ -979,7 +1056,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1WC4NM09fdt82DwoJaesAtauqSELZyi5A/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/72.jpg" alt=""><span class="num">#72</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1WC4NM09fdt82DwoJaesAtauqSELZyi5A/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/72.jpg" alt=""><span class="num">#72</span><button class="heart" data-fav-id="72" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">ramah valley camping</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -988,7 +1065,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/176klkk8j7fStsiPUWS_RysdlqR5SD75n/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/73.jpg" alt=""><span class="num">#73</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/176klkk8j7fStsiPUWS_RysdlqR5SD75n/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/73.jpg" alt=""><span class="num">#73</span><button class="heart" data-fav-id="73" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">ramah valley camping</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -997,7 +1074,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1DoAYuYBsyMBenHPR6pNxt5BJxqSS1b6R/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/74.jpg" alt=""><span class="num">#74</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1DoAYuYBsyMBenHPR6pNxt5BJxqSS1b6R/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/74.jpg" alt=""><span class="num">#74</span><button class="heart" data-fav-id="74" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">ramah valley camping</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -1006,7 +1083,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/14a_FfDamS7L1NdMmEqToaVdHlhNn5z2z/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/75.jpg" alt=""><span class="num">#75</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/14a_FfDamS7L1NdMmEqToaVdHlhNn5z2z/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/75.jpg" alt=""><span class="num">#75</span><button class="heart" data-fav-id="75" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">ramah valley, pikes peak, person on path</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill copy">Copy-space</span></div>
@@ -1015,7 +1092,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1_Pfx_MHHlMX_ViaOh3ERiYEp7GoGKwfr/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/77.jpg" alt=""><span class="num">#77</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1_Pfx_MHHlMX_ViaOh3ERiYEp7GoGKwfr/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/77.jpg" alt=""><span class="num">#77</span><button class="heart" data-fav-id="77" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">ramah valley, pikes peak, group, vertical</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -1024,7 +1101,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1_E8sQf486PkEnXkZSH-LDqUekgCfTLMw/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/78.jpg" alt=""><span class="num">#78</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1_E8sQf486PkEnXkZSH-LDqUekgCfTLMw/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/78.jpg" alt=""><span class="num">#78</span><button class="heart" data-fav-id="78" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">ramah valley, pike peak, group</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -1033,7 +1110,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1g6yzGREEikXh9t17n7HzCcxrll0aXuNK/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/80.jpg" alt=""><span class="num">#80</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1g6yzGREEikXh9t17n7HzCcxrll0aXuNK/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/80.jpg" alt=""><span class="num">#80</span><button class="heart" data-fav-id="80" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">ramah valley, pikes peak, group</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -1042,7 +1119,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1Eaw4M2eaVjuiL9MxukNmWFy9kvYyIjFE/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/87.jpg" alt=""><span class="num">#87</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1Eaw4M2eaVjuiL9MxukNmWFy9kvYyIjFE/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/87.jpg" alt=""><span class="num">#87</span><button class="heart" data-fav-id="87" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">tree vertical with hikers</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -1051,7 +1128,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1In9czLPwN-FxTAPbsj8ZbteWmzlreWDV/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/88.jpg" alt=""><span class="num">#88</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1In9czLPwN-FxTAPbsj8ZbteWmzlreWDV/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/88.jpg" alt=""><span class="num">#88</span><button class="heart" data-fav-id="88" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">wide with hikers</div>
     <div class="pills"><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span></div>
@@ -1060,7 +1137,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1TeBtui27XMIc7VEKl3vLib--BTB9n7ha/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/89.jpg" alt=""><span class="num">#89</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1TeBtui27XMIc7VEKl3vLib--BTB9n7ha/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/89.jpg" alt=""><span class="num">#89</span><button class="heart" data-fav-id="89" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">wide with hikers</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -1072,7 +1149,7 @@
 <section id="farm-barn-animals">
   <h2>Farm, Barn &amp; Animals <span class="cnt">7</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1RR-J2LH1t6SqS-bem3GR2-Iw_-Ck886F/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/48.jpg" alt=""><span class="num">#48</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1RR-J2LH1t6SqS-bem3GR2-Iw_-Ck886F/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/48.jpg" alt=""><span class="num">#48</span><button class="heart" data-fav-id="48" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">barn, wide shot with horses</div>
     <div class="pills"><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span><span class="pill brand">Branded</span></div>
@@ -1081,7 +1158,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1ca4IPluTpCcqAyZGzufzLbBcFVEeFWF4/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/49.jpg" alt=""><span class="num">#49</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1ca4IPluTpCcqAyZGzufzLbBcFVEeFWF4/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/49.jpg" alt=""><span class="num">#49</span><button class="heart" data-fav-id="49" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">walk from farm with flags</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -1090,7 +1167,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1OA7gzszVOcxCQ9x9c5o_I-TCjJhoaW8j/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/50.jpg" alt=""><span class="num">#50</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1OA7gzszVOcxCQ9x9c5o_I-TCjJhoaW8j/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/50.jpg" alt=""><span class="num">#50</span><button class="heart" data-fav-id="50" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">walk from farm with flags</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -1099,7 +1176,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1dom3vd7fD3p3gZFjdR2xibSiunIJDTiE/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/51.jpg" alt=""><span class="num">#51</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1dom3vd7fD3p3gZFjdR2xibSiunIJDTiE/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/51.jpg" alt=""><span class="num">#51</span><button class="heart" data-fav-id="51" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">walk from farm with flags</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -1108,7 +1185,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1Jyt6j1kqTPKGyNSti5LEcO2nac0cvXm-/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/53.jpg" alt=""><span class="num">#53</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1Jyt6j1kqTPKGyNSti5LEcO2nac0cvXm-/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/53.jpg" alt=""><span class="num">#53</span><button class="heart" data-fav-id="53" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">walk from farm with flags</div>
     <div class="pills"><span class="pill book">Donor Book</span><span class="pill brand">Branded</span></div>
@@ -1117,7 +1194,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1rKCRgmD6BpJVLQ2AFjifYoaYgDbTRYu7/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/98.jpg" alt=""><span class="num">#98</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1rKCRgmD6BpJVLQ2AFjifYoaYgDbTRYu7/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/98.jpg" alt=""><span class="num">#98</span><button class="heart" data-fav-id="98" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">goat kids</div>
     <div class="pills"><span class="pill book">Donor Book</span></div>
@@ -1126,7 +1203,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/14dxzGnnsPKC-mASKEr9DhKZabiC5-nPP/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/99.jpg" alt=""><span class="num">#99</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/14dxzGnnsPKC-mASKEr9DhKZabiC5-nPP/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/99.jpg" alt=""><span class="num">#99</span><button class="heart" data-fav-id="99" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">goat profile</div>
     <div class="pills"></div>
@@ -1138,7 +1215,7 @@
 <section id="campfire-evening">
   <h2>Campfire &amp; Evening <span class="cnt">4</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/17jHM0W6duCBlqu4kxUrZzB_il4b95zRZ/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/60.jpg" alt=""><span class="num">#60</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/17jHM0W6duCBlqu4kxUrZzB_il4b95zRZ/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/60.jpg" alt=""><span class="num">#60</span><button class="heart" data-fav-id="60" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">campfire sunset no fire</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -1147,7 +1224,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1A7ok2iM8EXtR22EsOE1alC319P-4qaV8/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/61.jpg" alt=""><span class="num">#61</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1A7ok2iM8EXtR22EsOE1alC319P-4qaV8/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/61.jpg" alt=""><span class="num">#61</span><button class="heart" data-fav-id="61" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">campfire sunset no fire</div>
     <div class="pills"></div>
@@ -1156,7 +1233,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1NIbKHvkviX-e8axFWWZdpA0AIx2IPi80/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/62.jpg" alt=""><span class="num">#62</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1NIbKHvkviX-e8axFWWZdpA0AIx2IPi80/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/62.jpg" alt=""><span class="num">#62</span><button class="heart" data-fav-id="62" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">campfire sunset no fire</div>
     <div class="pills"><span class="pill book">Donor Book</span></div>
@@ -1165,7 +1242,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1GJc_uO_S337zftPCaM11UW-D-kX2YHW-/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/63.jpg" alt=""><span class="num">#63</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1GJc_uO_S337zftPCaM11UW-D-kX2YHW-/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/63.jpg" alt=""><span class="num">#63</span><button class="heart" data-fav-id="63" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">boys, marshmallows</div>
     <div class="pills"></div>
@@ -1177,7 +1254,7 @@
 <section id="community-staff">
   <h2>Community &amp; Staff <span class="cnt">5</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1akK5zpq1fw8QsjdTv1GBbOe--LSq1uXO/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/18.jpg" alt=""><span class="num">#18</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1akK5zpq1fw8QsjdTv1GBbOe--LSq1uXO/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/18.jpg" alt=""><span class="num">#18</span><button class="heart" data-fav-id="18" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">staff kids</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -1186,7 +1263,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1L5i5LXo6MGwi-aYuLaTMh8HE0G1MLdTU/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/54.jpg" alt=""><span class="num">#54</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1L5i5LXo6MGwi-aYuLaTMh8HE0G1MLdTU/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/54.jpg" alt=""><span class="num">#54</span><button class="heart" data-fav-id="54" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">curious group</div>
     <div class="pills"></div>
@@ -1195,7 +1272,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1OveUd5WGgkuFFaSoapXXFToYxLFaiy5B/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/59.jpg" alt=""><span class="num">#59</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1OveUd5WGgkuFFaSoapXXFToYxLFaiy5B/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/59.jpg" alt=""><span class="num">#59</span><button class="heart" data-fav-id="59" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">staff kids</div>
     <div class="pills"></div>
@@ -1204,7 +1281,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/17KQiIkixrticlCkScOynUeNp7ZGs9bag/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/64.jpg" alt=""><span class="num">#64</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/17KQiIkixrticlCkScOynUeNp7ZGs9bag/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/64.jpg" alt=""><span class="num">#64</span><button class="heart" data-fav-id="64" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">staff pose</div>
     <div class="pills"></div>
@@ -1213,7 +1290,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1WHgq-a0VUghzm3O-GFB6hUFmgVan6N1s/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/113.jpg" alt=""><span class="num">#113</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1WHgq-a0VUghzm3O-GFB6hUFmgVan6N1s/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/113.jpg" alt=""><span class="num">#113</span><button class="heart" data-fav-id="113" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">bock flock</div>
     <div class="pills"></div>
@@ -1225,7 +1302,7 @@
 <section id="director-staff">
   <h2>Director &amp; Staff <span class="cnt">2</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1shsdPMaf6M-8jhWMZFi9uCnXkWjLHC2j/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/15.jpg" alt=""><span class="num">#15</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1shsdPMaf6M-8jhWMZFi9uCnXkWjLHC2j/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/15.jpg" alt=""><span class="num">#15</span><button class="heart" data-fav-id="15" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">director (Eliav Bock)</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -1234,7 +1311,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/195PcSPJj42rgSp4MMP-il3JDMvfJ2xCT/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/55.jpg" alt=""><span class="num">#55</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/195PcSPJj42rgSp4MMP-il3JDMvfJ2xCT/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/55.jpg" alt=""><span class="num">#55</span><button class="heart" data-fav-id="55" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">smiling staff</div>
     <div class="pills"></div>
@@ -1246,7 +1323,7 @@
 <section id="court-flags">
   <h2>Court &amp; Flags <span class="cnt">2</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1hgcQQKhmEeLQalNZfEHV-RrNEDSVOnKc/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/96.jpg" alt=""><span class="num">#96</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1hgcQQKhmEeLQalNZfEHV-RrNEDSVOnKc/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/96.jpg" alt=""><span class="num">#96</span><button class="heart" data-fav-id="96" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">wide daylight court with flags</div>
     <div class="pills"><span class="pill copy">Copy-space</span><span class="pill brand">Branded</span></div>
@@ -1255,7 +1332,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/16dQeZfGhocUOOnyJM8JPmlOL8-l_1la9/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/97.jpg" alt=""><span class="num">#97</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/16dQeZfGhocUOOnyJM8JPmlOL8-l_1la9/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/97.jpg" alt=""><span class="num">#97</span><button class="heart" data-fav-id="97" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">flags, daylight</div>
     <div class="pills"><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span><span class="pill brand">Branded</span></div>
@@ -1267,7 +1344,7 @@
 <section id="place-facilities">
   <h2>Place &amp; Facilities <span class="cnt">4</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1hjuOE7Luv2pUjIT49S3CgUZibQ_rGZJf/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/31.jpg" alt=""><span class="num">#31</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1hjuOE7Luv2pUjIT49S3CgUZibQ_rGZJf/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/31.jpg" alt=""><span class="num">#31</span><button class="heart" data-fav-id="31" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">van fleet at night</div>
     <div class="pills"></div>
@@ -1276,7 +1353,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1EwTGVGbNQxTqP4nYHwnw7tDeYbev-3h_/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/68.jpg" alt=""><span class="num">#68</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1EwTGVGbNQxTqP4nYHwnw7tDeYbev-3h_/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/68.jpg" alt=""><span class="num">#68</span><button class="heart" data-fav-id="68" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">chadar ochel wide interior</div>
     <div class="pills"><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span><span class="pill brand">Branded</span></div>
@@ -1285,7 +1362,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1NplWgUI9PiymkiRG6IEsQiQ3uGcuETnZ/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/103.jpg" alt=""><span class="num">#103</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1NplWgUI9PiymkiRG6IEsQiQ3uGcuETnZ/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/103.jpg" alt=""><span class="num">#103</span><button class="heart" data-fav-id="103" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">equipment, stars</div>
     <div class="pills"></div>
@@ -1294,7 +1371,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/15gR4wh4XPcLbpMAGze3Y5SoSCWsvVWw8/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/138.jpg" alt=""><span class="num">#138</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/15gR4wh4XPcLbpMAGze3Y5SoSCWsvVWw8/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/138.jpg" alt=""><span class="num">#138</span><button class="heart" data-fav-id="138" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">homestead</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -1306,7 +1383,7 @@
 <section id="daylight-landscapes-peaks">
   <h2>Daylight Landscapes &amp; Peaks <span class="cnt">8</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1wFyyj75fzUQcuWiFsZnC8FxDHINubyry/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/21.jpg" alt=""><span class="num">#21</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1wFyyj75fzUQcuWiFsZnC8FxDHINubyry/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/21.jpg" alt=""><span class="num">#21</span><button class="heart" data-fav-id="21" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">landscape sunset vertical, trail with colorful sky</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill copy">Copy-space</span></div>
@@ -1315,7 +1392,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1yx9TPkffna8Wy6LfXP2xpPpUDghBCmqy/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/41.jpg" alt=""><span class="num">#41</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1yx9TPkffna8Wy6LfXP2xpPpUDghBCmqy/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/41.jpg" alt=""><span class="num">#41</span><button class="heart" data-fav-id="41" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">pikes peak, washed color landscape</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill copy">Copy-space</span></div>
@@ -1324,7 +1401,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/13pNQbT_X_sy-sTTOLgvIp_oy9ZLl0EoP/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/76.jpg" alt=""><span class="num">#76</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/13pNQbT_X_sy-sTTOLgvIp_oy9ZLl0EoP/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/76.jpg" alt=""><span class="num">#76</span><button class="heart" data-fav-id="76" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">pike peak path, dusk, colorful</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill copy">Copy-space</span></div>
@@ -1333,7 +1410,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1wItiHna5vfRpQZfS1Lpi_FhpTEzarzCi/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/79.jpg" alt=""><span class="num">#79</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1wItiHna5vfRpQZfS1Lpi_FhpTEzarzCi/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/79.jpg" alt=""><span class="num">#79</span><button class="heart" data-fav-id="79" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">prospector, pikes, colorful dusk</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill copy">Copy-space</span></div>
@@ -1342,7 +1419,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/14jjyo2kkbeYy88oxgL2pIChmlfYAel75/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/95.jpg" alt=""><span class="num">#95</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/14jjyo2kkbeYy88oxgL2pIChmlfYAel75/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/95.jpg" alt=""><span class="num">#95</span><button class="heart" data-fav-id="95" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">wide mountain with bolts</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -1351,7 +1428,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1wgIqjlFDjwASDTLkgfJjuW8fRGf7W4ZW/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/107.jpg" alt=""><span class="num">#107</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1wgIqjlFDjwASDTLkgfJjuW8fRGf7W4ZW/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/107.jpg" alt=""><span class="num">#107</span><button class="heart" data-fav-id="107" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">sunrise on mountain</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill copy">Copy-space</span></div>
@@ -1360,7 +1437,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1KBaEnfXktCCtuZiwK7NQyASM2xVj8r67/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/108.jpg" alt=""><span class="num">#108</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1KBaEnfXktCCtuZiwK7NQyASM2xVj8r67/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/108.jpg" alt=""><span class="num">#108</span><button class="heart" data-fav-id="108" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">dual peaks, b&amp;w</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill copy">Copy-space</span></div>
@@ -1369,7 +1446,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1JYXD0KllrGm7VFCwe3P2QJaSMlKWh1GI/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/109.jpg" alt=""><span class="num">#109</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1JYXD0KllrGm7VFCwe3P2QJaSMlKWh1GI/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/109.jpg" alt=""><span class="num">#109</span><button class="heart" data-fav-id="109" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">dual peaks, color</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill copy">Copy-space</span></div>
@@ -1381,7 +1458,7 @@
 <section id="nightscapes-astro">
   <h2>Nightscapes / Astro <span class="cnt">21</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1yff7GKiBbMzT9Zrg0pSyteFKAeD_a1bA/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/22.jpg" alt=""><span class="num">#22</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1yff7GKiBbMzT9Zrg0pSyteFKAeD_a1bA/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/22.jpg" alt=""><span class="num">#22</span><button class="heart" data-fav-id="22" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">vertical, tents below bright overcast night sky</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -1390,7 +1467,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/150tvE8_IOdrFQJXcgOOQxkX3H2qOKMLC/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/23.jpg" alt=""><span class="num">#23</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/150tvE8_IOdrFQJXcgOOQxkX3H2qOKMLC/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/23.jpg" alt=""><span class="num">#23</span><button class="heart" data-fav-id="23" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">path with milky way, pikes peak</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill copy">Copy-space</span></div>
@@ -1399,7 +1476,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1insfDYEUiVGb7MEgeyqNTsLosM3qFa8u/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/24.jpg" alt=""><span class="num">#24</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1insfDYEUiVGb7MEgeyqNTsLosM3qFa8u/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/24.jpg" alt=""><span class="num">#24</span><button class="heart" data-fav-id="24" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">&#x27;Prospector&#x27; building under night sky</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span></div>
@@ -1408,7 +1485,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1ijTTOAs2xStOt3v-_UAxztLmTxV8_HnK/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/25.jpg" alt=""><span class="num">#25</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1ijTTOAs2xStOt3v-_UAxztLmTxV8_HnK/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/25.jpg" alt=""><span class="num">#25</span><button class="heart" data-fav-id="25" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">light path through tents</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill book">Donor Book</span></div>
@@ -1417,7 +1494,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1KX9j1LGFM_A1InRhgbgVQbcgCGlVvS24/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/26.jpg" alt=""><span class="num">#26</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1KX9j1LGFM_A1InRhgbgVQbcgCGlVvS24/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/26.jpg" alt=""><span class="num">#26</span><button class="heart" data-fav-id="26" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">tent village night sky</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill book">Donor Book</span></div>
@@ -1426,7 +1503,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/11VWs48RdUBLHS-o09Nhdsj8nK-W-VtRn/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/27.jpg" alt=""><span class="num">#27</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/11VWs48RdUBLHS-o09Nhdsj8nK-W-VtRn/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/27.jpg" alt=""><span class="num">#27</span><button class="heart" data-fav-id="27" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">single tent night sky</div>
     <div class="pills"><span class="pill art">Fine Art</span></div>
@@ -1435,7 +1512,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1VD8DRru1txNLOpG8nK20AwuA8vdVlTRu/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/28.jpg" alt=""><span class="num">#28</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1VD8DRru1txNLOpG8nK20AwuA8vdVlTRu/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/28.jpg" alt=""><span class="num">#28</span><button class="heart" data-fav-id="28" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">tent village night sky</div>
     <div class="pills"><span class="pill art">Fine Art</span></div>
@@ -1444,7 +1521,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1jaKCvx6hhaA-XB3TpysZqNR98NcHNLxp/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/29.jpg" alt=""><span class="num">#29</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1jaKCvx6hhaA-XB3TpysZqNR98NcHNLxp/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/29.jpg" alt=""><span class="num">#29</span><button class="heart" data-fav-id="29" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">tent village night sky</div>
     <div class="pills"></div>
@@ -1453,7 +1530,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/16HvuZVICj3C4TZl5me4Hkx5K-fn1ayTA/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/30.jpg" alt=""><span class="num">#30</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/16HvuZVICj3C4TZl5me4Hkx5K-fn1ayTA/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/30.jpg" alt=""><span class="num">#30</span><button class="heart" data-fav-id="30" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">tent, woods glowing</div>
     <div class="pills"><span class="pill art">Fine Art</span></div>
@@ -1462,7 +1539,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/11EFTHGC5YWfPSrUR3Zk_JcW16RXr8Pg9/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/33.jpg" alt=""><span class="num">#33</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/11EFTHGC5YWfPSrUR3Zk_JcW16RXr8Pg9/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/33.jpg" alt=""><span class="num">#33</span><button class="heart" data-fav-id="33" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">pre-dawn garden house</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -1471,7 +1548,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1bl737Z4hfk04xTgYGe24Jft2mp3vVtz6/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/81.jpg" alt=""><span class="num">#81</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1bl737Z4hfk04xTgYGe24Jft2mp3vVtz6/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/81.jpg" alt=""><span class="num">#81</span><button class="heart" data-fav-id="81" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">moon and Jupiter over valley</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill copy">Copy-space</span></div>
@@ -1480,7 +1557,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1g9lenSU03xw4pQcDIzYeCEyoD3vEtDXz/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/82.jpg" alt=""><span class="num">#82</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1g9lenSU03xw4pQcDIzYeCEyoD3vEtDXz/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/82.jpg" alt=""><span class="num">#82</span><button class="heart" data-fav-id="82" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">moonset over valley</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill copy">Copy-space</span></div>
@@ -1489,7 +1566,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1xhvvuQy-Uq_hwSy6HO1wt3AWWyOdJKMs/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/83.jpg" alt=""><span class="num">#83</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1xhvvuQy-Uq_hwSy6HO1wt3AWWyOdJKMs/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/83.jpg" alt=""><span class="num">#83</span><button class="heart" data-fav-id="83" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">flags with stars</div>
     <div class="pills"><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span><span class="pill brand">Branded</span></div>
@@ -1498,7 +1575,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1jW8d_oTreZa294iW95eZ1s7uv_YD5cza/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/85.jpg" alt=""><span class="num">#85</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1jW8d_oTreZa294iW95eZ1s7uv_YD5cza/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/85.jpg" alt=""><span class="num">#85</span><button class="heart" data-fav-id="85" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">garden shed stars</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -1507,7 +1584,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/12Cjwb3fwBlG1vD5fkg9-NY5ko5e1vCQb/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/86.jpg" alt=""><span class="num">#86</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/12Cjwb3fwBlG1vD5fkg9-NY5ko5e1vCQb/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/86.jpg" alt=""><span class="num">#86</span><button class="heart" data-fav-id="86" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">court, flags, wide with stars</div>
     <div class="pills"><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span><span class="pill brand">Branded</span></div>
@@ -1516,7 +1593,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1xMra4iYDL6pPEnBezLypX8_b_7jtRUaK/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/100.jpg" alt=""><span class="num">#100</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1xMra4iYDL6pPEnBezLypX8_b_7jtRUaK/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/100.jpg" alt=""><span class="num">#100</span><button class="heart" data-fav-id="100" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">pond with reflection, sharp stars</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span></div>
@@ -1525,7 +1602,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1L2JxoZ-4j2nHalZHfDSs223SkJkyCJpm/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/101.jpg" alt=""><span class="num">#101</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1L2JxoZ-4j2nHalZHfDSs223SkJkyCJpm/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/101.jpg" alt=""><span class="num">#101</span><button class="heart" data-fav-id="101" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">pond with reflection, trailed stars</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill copy">Copy-space</span></div>
@@ -1534,7 +1611,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1GyxejLlk9HFWNb_4aCfrzbX-AbmdR4Fl/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/102.jpg" alt=""><span class="num">#102</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1GyxejLlk9HFWNb_4aCfrzbX-AbmdR4Fl/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/102.jpg" alt=""><span class="num">#102</span><button class="heart" data-fav-id="102" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">historic cabin, night, glowing</div>
     <div class="pills"><span class="pill art">Fine Art</span></div>
@@ -1543,7 +1620,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1Bt0-ktTA8zCtxOHq0aROuG8cWvhCoGKw/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/104.jpg" alt=""><span class="num">#104</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1Bt0-ktTA8zCtxOHq0aROuG8cWvhCoGKw/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/104.jpg" alt=""><span class="num">#104</span><button class="heart" data-fav-id="104" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">tents, stars</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -1552,7 +1629,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1CFUsXeC5hceVKFF9VGQ2NomyUsXyy31F/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/105.jpg" alt=""><span class="num">#105</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1CFUsXeC5hceVKFF9VGQ2NomyUsXyy31F/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/105.jpg" alt=""><span class="num">#105</span><button class="heart" data-fav-id="105" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">wide court with flags (night)</div>
     <div class="pills"><span class="pill copy">Copy-space</span><span class="pill brand">Branded</span></div>
@@ -1561,7 +1638,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1HG-DPfEhf8eyLdKWsj_rwODaR3fm9ZDY/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/106.jpg" alt=""><span class="num">#106</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1HG-DPfEhf8eyLdKWsj_rwODaR3fm9ZDY/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/106.jpg" alt=""><span class="num">#106</span><button class="heart" data-fav-id="106" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">night pano, marquee image</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span></div>
@@ -1573,7 +1650,7 @@
 <section id="shabbat-prayer">
   <h2>Shabbat &amp; Prayer <span class="cnt">16</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1YZI0zbsx1ZeV7IH7jh1tAc4DZMMTmsEM/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/114.jpg" alt=""><span class="num">#114</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1YZI0zbsx1ZeV7IH7jh1tAc4DZMMTmsEM/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/114.jpg" alt=""><span class="num">#114</span><button class="heart" data-fav-id="114" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">sidur</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -1582,7 +1659,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1Q74d0q08F54E1MiKRS85E6ynhx2S2jwT/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/115.jpg" alt=""><span class="num">#115</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1Q74d0q08F54E1MiKRS85E6ynhx2S2jwT/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/115.jpg" alt=""><span class="num">#115</span><button class="heart" data-fav-id="115" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">kabbalat</div>
     <div class="pills"></div>
@@ -1591,7 +1668,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1YE9JgbmjLpdUw7QxDs7Y4_YxlRZmgSwN/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/116.jpg" alt=""><span class="num">#116</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1YE9JgbmjLpdUw7QxDs7Y4_YxlRZmgSwN/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/116.jpg" alt=""><span class="num">#116</span><button class="heart" data-fav-id="116" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">kabbalat</div>
     <div class="pills"></div>
@@ -1600,7 +1677,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1j-jGIOGM3UmzNlR13pk3mSEOe17RFxnH/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/117.jpg" alt=""><span class="num">#117</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1j-jGIOGM3UmzNlR13pk3mSEOe17RFxnH/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/117.jpg" alt=""><span class="num">#117</span><button class="heart" data-fav-id="117" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">kabbalat</div>
     <div class="pills"><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span></div>
@@ -1609,7 +1686,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1yfbgUIkkU_4rOXgtNb4gc-RrsUuj19jL/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/118.jpg" alt=""><span class="num">#118</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1yfbgUIkkU_4rOXgtNb4gc-RrsUuj19jL/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/118.jpg" alt=""><span class="num">#118</span><button class="heart" data-fav-id="118" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">camper, sidur</div>
     <div class="pills"><span class="pill brand">Branded</span></div>
@@ -1618,7 +1695,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1YdPTpoJvJHGJBxPbulC7kLv1GywviEv2/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/119.jpg" alt=""><span class="num">#119</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1YdPTpoJvJHGJBxPbulC7kLv1GywviEv2/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/119.jpg" alt=""><span class="num">#119</span><button class="heart" data-fav-id="119" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">kabbalat</div>
     <div class="pills"></div>
@@ -1627,7 +1704,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1DRI-GQ-URdin0yZ9DfCrNoX1ovUelzDn/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/120.jpg" alt=""><span class="num">#120</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1DRI-GQ-URdin0yZ9DfCrNoX1ovUelzDn/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/120.jpg" alt=""><span class="num">#120</span><button class="heart" data-fav-id="120" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">kabbalat</div>
     <div class="pills"></div>
@@ -1636,7 +1713,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1nppPHqFEEyr8LF-_8bfSr6CoNqbdr2ru/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/121.jpg" alt=""><span class="num">#121</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1nppPHqFEEyr8LF-_8bfSr6CoNqbdr2ru/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/121.jpg" alt=""><span class="num">#121</span><button class="heart" data-fav-id="121" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">men, boys, prayer</div>
     <div class="pills"><span class="pill book">Donor Book</span></div>
@@ -1645,7 +1722,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1RW9fjEKi-Tnx693EiZeKGzrm-XCrXp5L/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/122.jpg" alt=""><span class="num">#122</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1RW9fjEKi-Tnx693EiZeKGzrm-XCrXp5L/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/122.jpg" alt=""><span class="num">#122</span><button class="heart" data-fav-id="122" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">shabbat audience</div>
     <div class="pills"></div>
@@ -1654,7 +1731,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1eLb1U-ASXwz9vRUuMXgdXWcf3F0laqYX/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/123.jpg" alt=""><span class="num">#123</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1eLb1U-ASXwz9vRUuMXgdXWcf3F0laqYX/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/123.jpg" alt=""><span class="num">#123</span><button class="heart" data-fav-id="123" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">shabbat audience</div>
     <div class="pills"></div>
@@ -1663,7 +1740,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1wzLS8FkQ4b3VeUsLepMMgwWmaHQGpW5s/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/124.jpg" alt=""><span class="num">#124</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1wzLS8FkQ4b3VeUsLepMMgwWmaHQGpW5s/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/124.jpg" alt=""><span class="num">#124</span><button class="heart" data-fav-id="124" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">kabbalat</div>
     <div class="pills"></div>
@@ -1672,7 +1749,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/11KtBU0BlPWwPlpE-FELzZBq49JoBELaF/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/125.jpg" alt=""><span class="num">#125</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/11KtBU0BlPWwPlpE-FELzZBq49JoBELaF/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/125.jpg" alt=""><span class="num">#125</span><button class="heart" data-fav-id="125" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">kabbalat</div>
     <div class="pills"></div>
@@ -1681,7 +1758,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1tvYo2a0H9lwcVI8SSl8FrBY5weRP6Qzs/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/126.jpg" alt=""><span class="num">#126</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1tvYo2a0H9lwcVI8SSl8FrBY5weRP6Qzs/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/126.jpg" alt=""><span class="num">#126</span><button class="heart" data-fav-id="126" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">kabbalat</div>
     <div class="pills"></div>
@@ -1690,7 +1767,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1fssnWj87twOdFY1DHAnJJN3YgoAWq5X-/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/127.jpg" alt=""><span class="num">#127</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1fssnWj87twOdFY1DHAnJJN3YgoAWq5X-/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/127.jpg" alt=""><span class="num">#127</span><button class="heart" data-fav-id="127" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">campers, tents, shabbat</div>
     <div class="pills"><span class="pill book">Donor Book</span></div>
@@ -1699,7 +1776,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1Y6ZZcDK2Nwof4pqHv7t6oD4uUzRy8mOJ/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/128.jpg" alt=""><span class="num">#128</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1Y6ZZcDK2Nwof4pqHv7t6oD4uUzRy8mOJ/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/128.jpg" alt=""><span class="num">#128</span><button class="heart" data-fav-id="128" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">campers, tents, shabbat</div>
     <div class="pills"><span class="pill copy">Copy-space</span></div>
@@ -1708,7 +1785,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1sRBBPpD9iWvsHBn9vrlDKoE7CMkRa3fO/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/129.jpg" alt=""><span class="num">#129</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1sRBBPpD9iWvsHBn9vrlDKoE7CMkRa3fO/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/129.jpg" alt=""><span class="num">#129</span><button class="heart" data-fav-id="129" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">j-chat</div>
     <div class="pills"></div>
@@ -1720,7 +1797,7 @@
 <section id="havdalah">
   <h2>Havdalah <span class="cnt">8</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1x6dDtCTozFkqx1cCCmYf6iuaOog7hC7C/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/130.jpg" alt=""><span class="num">#130</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1x6dDtCTozFkqx1cCCmYf6iuaOog7hC7C/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/130.jpg" alt=""><span class="num">#130</span><button class="heart" data-fav-id="130" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">havdalah</div>
     <div class="pills"></div>
@@ -1729,7 +1806,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1X_NU3_VjADUl1OUYYabDICd0uDZorT6I/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/131.jpg" alt=""><span class="num">#131</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1X_NU3_VjADUl1OUYYabDICd0uDZorT6I/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/131.jpg" alt=""><span class="num">#131</span><button class="heart" data-fav-id="131" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">havdalah</div>
     <div class="pills"></div>
@@ -1738,7 +1815,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1VHMt24Ad_t-KHWIc3ihwjIWfFQOPmo3J/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/132.jpg" alt=""><span class="num">#132</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1VHMt24Ad_t-KHWIc3ihwjIWfFQOPmo3J/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/132.jpg" alt=""><span class="num">#132</span><button class="heart" data-fav-id="132" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">havdalah</div>
     <div class="pills"></div>
@@ -1747,7 +1824,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1Q54JTsaNzexHzXIzHXkY6YW8bB9FZ-h_/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/133.jpg" alt=""><span class="num">#133</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1Q54JTsaNzexHzXIzHXkY6YW8bB9FZ-h_/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/133.jpg" alt=""><span class="num">#133</span><button class="heart" data-fav-id="133" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">havdalah</div>
     <div class="pills"></div>
@@ -1756,7 +1833,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1ECmC3qLrPdLgmqwGz900GJxenvCP5rXk/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/134.jpg" alt=""><span class="num">#134</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1ECmC3qLrPdLgmqwGz900GJxenvCP5rXk/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/134.jpg" alt=""><span class="num">#134</span><button class="heart" data-fav-id="134" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">havdalah</div>
     <div class="pills"></div>
@@ -1765,7 +1842,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1F9c-e4DZ4Y7TBAWPGmJ2K7rdIveKZGew/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/135.jpg" alt=""><span class="num">#135</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1F9c-e4DZ4Y7TBAWPGmJ2K7rdIveKZGew/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/135.jpg" alt=""><span class="num">#135</span><button class="heart" data-fav-id="135" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">havdalah</div>
     <div class="pills"></div>
@@ -1774,7 +1851,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1IIBgLyTHeNQWtjEb2vQIOUJBm1Ryr1j4/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/136.jpg" alt=""><span class="num">#136</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1IIBgLyTHeNQWtjEb2vQIOUJBm1Ryr1j4/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/136.jpg" alt=""><span class="num">#136</span><button class="heart" data-fav-id="136" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">havdalah, moon, wide</div>
     <div class="pills"><span class="pill book">Donor Book</span><span class="pill copy">Copy-space</span></div>
@@ -1783,7 +1860,7 @@
   </div>
 </div>
 <div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1QMScNWZ_k8Xlo_SP-wOyhfVtKJuJ8JaF/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/137.jpg" alt=""><span class="num">#137</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1QMScNWZ_k8Xlo_SP-wOyhfVtKJuJ8JaF/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/137.jpg" alt=""><span class="num">#137</span><button class="heart" data-fav-id="137" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">havdalah, end</div>
     <div class="pills"></div>
@@ -1795,7 +1872,7 @@
 <section id="signs-details">
   <h2>Signs &amp; Details <span class="cnt">1</span></h2>
   <div class="grid"><div class="card">
-  <a class="ph" href="https://drive.google.com/file/d/1jpn3Q59BkyfmFsa48xeGHkwBx64H16Xe/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/112.jpg" alt=""><span class="num">#112</span></a>
+  <a class="ph" href="https://drive.google.com/file/d/1jpn3Q59BkyfmFsa48xeGHkwBx64H16Xe/view" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/112.jpg" alt=""><span class="num">#112</span><button class="heart" data-fav-id="112" aria-label="Favorite this frame">&#9825;</button></a>
   <div class="body">
     <div class="desc">signs, quotes</div>
     <div class="pills"></div>
@@ -1805,6 +1882,55 @@
 </div></div>
 </section>
 
-<footer>Downloads link to the full-resolution files in the shared Drive folder. Please do not change anything in the Drive folder; download what you need to your own storage. Thumbnails on this page are reduced for fast loading. Frame numbers match the file names.</footer>
+<footer>
+  <p>Downloads link to the full-resolution files in the shared Drive folder; download what you need to your own storage rather than editing the Drive folder. Thumbnails on this page are reduced for fast loading. Frame numbers match the file names.</p>
+  <div class="sig">
+    <p class="th">Find the engagements. Find the connections. Photograph those.</p>
+    <p>Photographed and organized by Noah Gallagher &middot; <a href="https://www.abba-photo.com" target="_blank" rel="noopener">Abba Photo</a></p>
+  </div>
+</footer>
+<div class="favbar" id="favbar" hidden>
+  <span id="favcount"></span>
+  <button id="favsend">Send picks to Noah</button>
+  <button id="favclear" title="Clear picks">&#215;</button>
+</div>
+<script>
+(function () {
+  var KEY = "guide_favs_ramah-in-the-rockies";
+  var favs = new Set();
+  try { (JSON.parse(localStorage.getItem(KEY)) || []).forEach(function (x) { favs.add(String(x)); }); } catch (e) {}
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(Array.from(favs))); } catch (e) {} }
+  function sync() {
+    document.querySelectorAll(".heart").forEach(function (h) {
+      var on = favs.has(h.getAttribute("data-fav-id"));
+      h.classList.toggle("faved", on);
+      h.innerHTML = on ? "&#9829;" : "&#9825;";
+    });
+    var bar = document.getElementById("favbar");
+    document.getElementById("favcount").textContent = favs.size + (favs.size === 1 ? " pick" : " picks");
+    bar.hidden = favs.size === 0;
+  }
+  document.querySelectorAll(".heart").forEach(function (h) {
+    h.addEventListener("click", function (e) {
+      e.preventDefault(); e.stopPropagation();
+      var id = h.getAttribute("data-fav-id");
+      if (favs.has(id)) favs.delete(id); else favs.add(id);
+      save(); sync();
+    });
+  });
+  document.getElementById("favsend").addEventListener("click", function () {
+    var name = prompt("Your name, so we know whose picks these are:") || "";
+    var list = Array.from(favs).map(Number).sort(function (a, b) { return a - b; })
+      .map(function (x) { return "#" + x; }).join(", ");
+    var body = "Favorites from " + (name || "(no name)") + ":\n" + list;
+    location.href = "mailto:noahgallagher48@gmail.com?subject=" + encodeURIComponent("Ramah in the Rockies guide favorites")
+      + "&body=" + encodeURIComponent(body);
+  });
+  document.getElementById("favclear").addEventListener("click", function () {
+    favs.clear(); save(); sync();
+  });
+  sync();
+})();
+</script>
 </body>
 </html>
