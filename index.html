@@ -1923,7 +1923,7 @@
     var list = Array.from(favs).map(Number).sort(function (a, b) { return a - b; })
       .map(function (x) { return "#" + x; }).join(", ");
     var body = "Favorites from " + (name || "(no name)") + ":\n" + list;
-    location.href = "mailto:noahgallagher48@gmail.com?subject=" + encodeURIComponent("Ramah in the Rockies guide favorites")
+    location.href = "mailto:noah@abba-photo.com?subject=" + encodeURIComponent("Ramah in the Rockies guide favorites")
       + "&body=" + encodeURIComponent(body);
   });
   document.getElementById("favclear").addEventListener("click", function () {
