@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Ramah in the Rockies &middot; A First Look</title>
-<meta property="og:title" content="Ramah in the Rockies &middot; A First Look">
+<title>Ramah in the Rockies &middot; The Reel</title>
+<meta property="og:title" content="Ramah in the Rockies &middot; The Reel">
 <meta property="og:image" content="https://noahgallagher48-jpg.github.io/ramah-rockies-guide/first-look/img/og.jpg">
 <style>
   :root{--bg:#0e0c0a;--ink:#ede7dd;--muted:#9a917f;--accent:#e2a73e}
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{height:100%;background:var(--bg);color:var(--ink);font-family:"Avenir Next","Avenir",system-ui,sans-serif;overflow:hidden}
   #stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
-  #stage img{max-width:100vw;max-height:100vh;object-fit:contain;opacity:0;transition:opacity .45s ease}
+  #stage img{max-width:100vw;max-height:100vh;object-fit:contain;opacity:0;transition:opacity .22s ease}
   #stage img.on{opacity:1}
   .card{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:var(--bg);z-index:5;transition:opacity .5s ease}
   .card.off{opacity:0;pointer-events:none}
@@ -38,7 +38,7 @@
 
 <div class="card" id="title">
   <h1>Ramah in the Rockies</h1>
-  <p class="sub">June 2026 &middot; ninety seconds</p>
+  <p class="sub">June 2026 &middot; twenty seconds</p>
   <button class="go" id="start">Begin</button>
 </div>
 
@@ -51,7 +51,7 @@
 </div>
 
 <script>
-const N = 30, MS = 3000;
+const N = 20, MS = 1100;
 const src = n => "img/rr-" + String(n).padStart(2,"0") + ".jpg";
 let i = 0, timer = null, showing = null;
 const A = document.getElementById("imgA"), B = document.getElementById("imgB"), count = document.getElementById("count");
