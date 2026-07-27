@@ -13,23 +13,32 @@
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.5}
   a{color:inherit}
-  .hero{position:relative;width:100%;height:min(52vh,440px);overflow:hidden;background:#000}
   .hero img{width:100%;height:100%;object-fit:cover;object-position:50% 84%;display:block}
   .hero::after{content:"";position:absolute;inset:0;
     background:linear-gradient(180deg,rgba(10,10,11,.30) 0%,rgba(10,10,11,.04) 34%,rgba(10,10,11,0) 74%,rgba(10,10,11,.55) 93%,var(--bg) 100%)}
   @media (max-width:780px){.hero{height:38vh}}
-  .hero a.play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
-    justify-content:flex-start;padding-top:7%;gap:12px;text-decoration:none;z-index:2}
-  .hero .playbtn{display:flex;align-items:center;gap:11px;background:rgba(10,10,11,.55);
-    border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px);color:#fff;
-    padding:15px 30px;border-radius:999px;font-size:15px;font-weight:600;letter-spacing:.2px;
-    transition:background .25s,border-color .25s}
-  .hero a.play:hover .playbtn{background:rgba(10,10,11,.78);border-color:#fff}
-  .hero .playsub{font-size:12.5px;letter-spacing:1.2px;text-transform:uppercase;
-    color:rgba(255,255,255,.92);text-shadow:0 1px 3px rgba(0,0,0,.9),0 2px 16px rgba(0,0,0,.8)}
-  .hero .tri{width:0;height:0;border-left:11px solid currentColor;
-    border-top:7px solid transparent;border-bottom:7px solid transparent}
-  @media (max-width:780px){.hero .playbtn{padding:13px 24px;font-size:14px}}
+  .hero{position:relative;width:100%;height:min(58vh,520px);overflow:hidden;background:#000}
+  .herotitle{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+    justify-content:flex-start;padding-top:11%;z-index:2;text-align:center;padding-left:20px;padding-right:20px}
+  .herotitle h1{font-family:'Cormorant Garamond',serif;font-weight:600;
+    font-size:clamp(34px,6vw,68px);color:#fff;letter-spacing:.5px;
+    text-shadow:0 2px 24px rgba(0,0,0,.75),0 1px 4px rgba(0,0,0,.6)}
+  .herotitle p{margin-top:10px;font-size:13px;letter-spacing:2.4px;text-transform:uppercase;
+    color:rgba(255,255,255,.9);text-shadow:0 1px 10px rgba(0,0,0,.8)}
+  #deliverables{padding-top:26px}
+  .dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .dcard{position:relative;display:block;border-radius:12px;overflow:hidden;text-decoration:none;
+    border:1px solid var(--line);background:var(--card);aspect-ratio:4/3}
+  .dcard img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;opacity:.72}
+  .dcard:hover img{transform:scale(1.06);opacity:.9}
+  .dcard::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(10,10,11,.1) 30%,rgba(10,10,11,.88) 100%)}
+  .dlab{position:absolute;left:14px;right:14px;bottom:30px;z-index:2;color:#fff;font-size:17px;
+    font-weight:600;letter-spacing:.2px;text-shadow:0 1px 8px rgba(0,0,0,.8)}
+  .dsub{position:absolute;left:14px;right:14px;bottom:12px;z-index:2;color:rgba(255,255,255,.82);
+    font-size:12.5px;text-shadow:0 1px 8px rgba(0,0,0,.8)}
+  @media (max-width:980px){.dgrid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:780px){.hero{height:40vh}.herotitle{padding-top:9%}.dgrid{gap:10px}}
   header{padding:26px 24px 14px;max-width:1180px;margin:0 auto}
   h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:42px;letter-spacing:.3px}
   .sub{color:var(--mut);font-weight:300;margin-top:8px;font-size:16px;max-width:760px}
@@ -200,56 +209,39 @@
 </head>
 <body>
 <div class="hero"><img src="img/hero.jpg" alt="">
-  <a class="play" href="first-look/">
-    <span class="playbtn"><span class="tri"></span>Watch the first look</span>
-    <span class="playsub">30 frames &middot; 90 seconds</span>
-  </a>
-</div>
-<header>
-  <h1>Ramah in the Rockies</h1>
-  <p class="sub">Every frame from June 2026, organized by what it is for. Each photo links to a
-  full-resolution download and carries the largest size it prints at on three substrates.
-  The donor book and the fine-art frames come first, then the full set, grouped by part of
-  the season.</p>
-  <p class="stat"><b>139</b> images &nbsp;&middot;&nbsp; <b>42</b> in the donor book
-  &nbsp;&middot;&nbsp; <b>12</b> fine-art frames &nbsp;&middot;&nbsp; <b>5</b> with copy-space for type</p>
-  <p class="stat"><b>Build your own slideshow.</b> Tap <b>+</b> on any frame to add it, then choose
-  Build my slideshow. You get a single file you can open on any computer and present full screen,
-  no software and no account needed.</p>
-</header>
-<div class="legend">
-  <span><b style="color:var(--art)">Fine Art</b> wall-worthy print</span>
-  <span><b style="color:var(--book)">Donor Book</b> in the forty-two page layout</span>
-  <span><b style="color:var(--copy)">Copy-space</b> room for type or a logo</span>
-</div>
-<nav><div class="in"><a href="#engagement">Your Engagement</a><a href="first-look/">First Look</a><a href="reel/">The Reel</a><a href="field-guide.html">Field Guide</a><a href="#layouts">Book Layouts</a><a href="#downloads">Download Everything</a><a href="#printing">Printing</a><a href="#donorbook">Donor Book</a><a href="#fineart">Fine Art</a><span class="navmv" data-mvlabel="the-day">The day</span><button class="filt" data-sec="opening-day">Opening day <i>16</i></button><button class="filt" data-sec="the-walk-in">The walk in <i>4</i></button><button class="filt" data-sec="climbing">Climbing <i>11</i></button><button class="filt" data-sec="on-the-rocks">On the rocks <i>4</i></button><button class="filt" data-sec="biking-and-the-trail">Biking and the trail <i>6</i></button><button class="filt" data-sec="learning-and-making">Learning and making <i>2</i></button><button class="filt" data-sec="free-time">Free time <i>10</i></button><button class="filt" data-sec="the-goats-and-the-flock">The goats and the flock <i>4</i></button><button class="filt" data-sec="around-camp">Around camp <i>3</i></button><span class="navmv" data-mvlabel="the-overnight">The overnight</span><button class="filt" data-sec="prospector">Prospector <i>13</i></button><button class="filt" data-sec="campfire">Campfire <i>4</i></button><span class="navmv" data-mvlabel="shabbat">Shabbat</span><button class="filt" data-sec="shabbat">Shabbat <i>21</i></button><button class="filt" data-sec="havdalah">Havdalah <i>8</i></button><span class="navmv" data-mvlabel="land-and-sky">Land and sky</span><button class="filt" data-sec="the-land-by-day">The land by day <i>7</i></button><button class="filt" data-sec="dawn-and-dusk">Dawn and dusk <i>3</i></button><button class="filt" data-sec="the-camp-at-night">The camp at night <i>17</i></button><button class="filt" data-sec="night-sky-studies">Night sky studies <i>6</i></button><button id="clearfilt" hidden>Clear</button></div></nav>
-<p class="filthint" id="filthint" hidden></p>
-
-<section id="engagement">
-  <div class="lead">
-    <h2>Your Engagement</h2>
-    <p class="sub" style="margin-top:6px">The residency ran 16 to 21 June 2026. This is what the
-    agreement called for and where each piece lives on this page.</p>
-    <table class="pt">
-      <tr><th>Agreed</th><th>Delivered</th></tr>
-      <tr><td><b>12 Mastered Campscapes</b><br><span style="color:var(--mut);font-size:13px">Signature landscape and hero shots</span></td>
-          <td><a href="#fineart" style="color:var(--art)">12 fine-art frames</a>, each one carrying the reason it holds at size, with print ceilings on three substrates.</td></tr>
-      <tr><td><b>30 Storytelling Candids</b><br><span style="color:var(--mut);font-size:13px">Authentic moments of daily camp life</span></td>
-          <td><b>106</b> frames of people and program, across opening day, the climbing, the overnight, Shabbat and Havdalah.</td></tr>
-      <tr><td><b>The Residency Archive</b><br><span style="color:var(--mut);font-size:13px">Every usable image, processed and ready</span></td>
-          <td><b>139</b> frames, every one described by what it is for, grouped into seventeen sets, and available at two resolutions.</td></tr>
-      <tr><td><b>Book Design and Layout</b><br><span style="color:var(--mut);font-size:13px">Up to two ready-for-print layouts</span></td>
-          <td><b style="color:var(--ink)">Both delivered.</b> <a href="#layouts" style="color:var(--book)">The Book</a>
-          at 42 frames and <a href="#layouts" style="color:var(--book)">The Season</a> at 94, each ready for print.</td></tr>
-    </table>
-    <p class="sub" style="font-size:14px">Books print through Miller's Imaging Labs and you pay their
-    cost, with nothing added. Under the agreement they need to be ordered by <b style="color:var(--ink)">21
-    December 2026</b>, so we should settle the layouts well before that.</p>
-    <p class="sub" style="font-size:14px">The agreement also includes, at no cost, a two-hour session
-    with your marketing team and a phone-photography session for staff. Both are still available if you
-    want them.</p>
+  <div class="herotitle">
+    <h1>Ramah in the Rockies</h1>
+    <p>June 2026</p>
   </div>
+</div>
+
+<section id="deliverables">
+  <div class="dgrid"><a class="dcard" href="first-look/">
+      <img loading="lazy" src="img/thumb/R111.jpg" alt="">
+      <span class="dlab">First Look</span><span class="dsub">30 frames, 90 seconds</span>
+    </a><a class="dcard" href="reel/">
+      <img loading="lazy" src="img/thumb/R080.jpg" alt="">
+      <span class="dlab">The Reel</span><span class="dsub">20 frames, 22 seconds</span>
+    </a><a class="dcard" href="#layouts">
+      <img loading="lazy" src="img/thumb/R124.jpg" alt="">
+      <span class="dlab">Book Layouts</span><span class="dsub">Two books, ready to print</span>
+    </a><a class="dcard" href="#downloads">
+      <img loading="lazy" src="img/thumb/R066.jpg" alt="">
+      <span class="dlab">All 139 Images</span><span class="dsub">Web and full resolution</span>
+    </a><a class="dcard" href="#opening-day">
+      <img loading="lazy" src="img/thumb/R118.jpg" alt="">
+      <span class="dlab">Build a Slideshow</span><span class="dsub">Pick frames, get a file</span>
+    </a><a class="dcard" href="field-guide.html">
+      <img loading="lazy" src="img/thumb/R014.jpg" alt="">
+      <span class="dlab">Field Guide</span><span class="dsub">For your media team</span>
+    </a></div>
+  <p class="stat"><b>139</b> images &nbsp;&middot;&nbsp; <b>42</b> in the book
+  &nbsp;&middot;&nbsp; <b>12</b> fine art &nbsp;&middot;&nbsp; every frame downloads two ways
+  and says how large it prints.</p>
 </section>
+
+<nav><div class="in"><a href="first-look/">First Look</a><a href="reel/">The Reel</a><a href="field-guide.html">Field Guide</a><a href="#layouts">Book Layouts</a><a href="#downloads">Download Everything</a><a href="#printing">Printing</a><a href="#donorbook">Donor Book</a><a href="#fineart">Fine Art</a><span class="navmv" data-mvlabel="the-day">The day</span><button class="filt" data-sec="opening-day">Opening day <i>16</i></button><button class="filt" data-sec="the-walk-in">The walk in <i>4</i></button><button class="filt" data-sec="climbing">Climbing <i>11</i></button><button class="filt" data-sec="on-the-rocks">On the rocks <i>4</i></button><button class="filt" data-sec="biking-and-the-trail">Biking and the trail <i>6</i></button><button class="filt" data-sec="learning-and-making">Learning and making <i>2</i></button><button class="filt" data-sec="free-time">Free time <i>10</i></button><button class="filt" data-sec="the-goats-and-the-flock">The goats and the flock <i>4</i></button><button class="filt" data-sec="around-camp">Around camp <i>3</i></button><span class="navmv" data-mvlabel="the-overnight">The overnight</span><button class="filt" data-sec="prospector">Prospector <i>13</i></button><button class="filt" data-sec="campfire">Campfire <i>4</i></button><span class="navmv" data-mvlabel="shabbat">Shabbat</span><button class="filt" data-sec="shabbat">Shabbat <i>21</i></button><button class="filt" data-sec="havdalah">Havdalah <i>8</i></button><span class="navmv" data-mvlabel="land-and-sky">Land and sky</span><button class="filt" data-sec="the-land-by-day">The land by day <i>7</i></button><button class="filt" data-sec="dawn-and-dusk">Dawn and dusk <i>3</i></button><button class="filt" data-sec="the-camp-at-night">The camp at night <i>17</i></button><button class="filt" data-sec="night-sky-studies">Night sky studies <i>6</i></button><button id="clearfilt" hidden>Clear</button></div></nav>
+<p class="filthint" id="filthint" hidden></p>
 
 <section id="layouts">
   <div class="lead">
@@ -366,7 +358,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R136.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R136.jpg" alt=""><span class="num">R136</span><button class="pick" data-pick="R136" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R136" data-in="1"></button></a>
   <div class="body">
-    <div class="tier">Page 5</div><div class="desc">Staff, got by it. The only frame here of an adult moved. Staff recruitment.</div>
+    <div class="tier">Page 5</div><div class="desc">Staff, got by it. An adult moved, mid-Havdalah. Staff recruitment.</div>
     <div class="pills"></div>
     <div class="sz">Prints to <b>8x12&Prime;</b> metal &middot; <b>8x12&Prime;</b> paper &middot; <b>16x24&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1gXmyEJZ3basUkVA7WajR-Bwesen_OB3A">Web<span>1.2MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1mKZEy_rkeGiste2tHHO7QkhWKH8W5uvb">Full res<span>7.1MB</span></a></div>
@@ -390,7 +382,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R022.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R022.jpg" alt=""><span class="num">R022</span><button class="pick" data-pick="R022" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R022" data-in="1"></button></a>
   <div class="body">
-    <div class="tier">Page 8</div><div class="desc">A lesson happening on the rocks with no building involved. The clearest picture of teaching outdoors in the library.</div>
+    <div class="tier">Page 8</div><div class="desc">A lesson happening on the rocks with no building involved. Use it wherever the ask is about teaching outdoors.</div>
     <div class="pills"></div>
     <div class="sz">Prints to <b>16x24&Prime;</b> metal &middot; <b>16x24&Prime;</b> paper &middot; <b>30x45&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1UqcmO2ljMxjzVIApGN7XUmn63146_qyO">Web<span>1.1MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1QuLx_4lyXcAmTpaFttmzSQNBsSgEAMtn">Full res<span>16MB</span></a></div>
@@ -454,7 +446,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R020.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R020.jpg" alt=""><span class="num">R020</span><button class="pick" data-pick="R020" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R020" data-in="1"></button></a>
   <div class="body">
-    <div class="tier">Page 16</div><div class="desc">A camper riding in the camp shirt. Branded, in motion, and the only usable biking portrait in the set.</div>
+    <div class="tier">Page 16</div><div class="desc">A camper riding in the camp shirt. Branded and in motion.</div>
     <div class="pills"></div>
     <div class="sz">Prints to <b>16x24&Prime;</b> metal &middot; <b>16x24&Prime;</b> paper &middot; <b>30x45&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=128QMteSNGo4P3YRTnJL19Pp_-gGx8R0S">Web<span>0.7MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1r9qAiPnFcUYfShxrhYpsG8xt9s-u0phW">Full res<span>10MB</span></a></div>
@@ -590,7 +582,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R097.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R097.jpg" alt=""><span class="num">R097</span><button class="pick" data-pick="R097" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R097" data-in="1"></button></a>
   <div class="body">
-    <div class="tier">Page 33</div><div class="desc">Head back, book open. The only frame here in black and white. Built for a wall or a facing page, not a gallery row.</div>
+    <div class="tier">Page 33</div><div class="desc">Head back, book open, in black and white. Built for a wall or a facing page.</div>
     <div class="pills"><span class="pill art">Fine Art</span></div>
     <div class="sz">Prints to <b>12x18&Prime;</b> metal &middot; <b>12x18&Prime;</b> paper &middot; <b>24x36&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1e4CfvkfUTaLjSmkjyAmcqeyazFYvUT_S">Web<span>0.5MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1TAhw-rKtfWq_yPUDW_OUu560qg5Xm242">Full res<span>3.8MB</span></a></div>
@@ -598,7 +590,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R121.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R121.jpg" alt=""><span class="num">R121</span><button class="pick" data-pick="R121" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R121" data-in="1"></button></a>
   <div class="body">
-    <div class="tier">Page 34</div><div class="desc">Two of them laughing over the candle. Use it when the solemn frames need a counterweight.</div>
+    <div class="tier">Page 34</div><div class="desc">Two of them laughing over the candle. Havdalah with the joy in it.</div>
     <div class="pills"></div>
     <div class="sz">Prints to <b>12x18&Prime;</b> metal &middot; <b>12x18&Prime;</b> paper &middot; <b>24x36&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1izjw01KP9MtWEm1r6E9-oNGESrBV8Cg8">Web<span>0.7MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1LOloJ350zUFf8y3RogJbQvgo20-xc0H-">Full res<span>6.3MB</span></a></div>
@@ -727,7 +719,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R097.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R097.jpg" alt=""><span class="num">R097</span><button class="pick" data-pick="R097" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R097" data-in="1"></button></a>
   <div class="body">
-    <div class="tier">Framed print</div><div class="desc">Head back, book open. The only frame here in black and white. Built for a wall or a facing page, not a gallery row.</div>
+    <div class="tier">Framed print</div><div class="desc">Head back, book open, in black and white. Built for a wall or a facing page.</div>
     <div class="why">Stripped to black and white, the faces and the open book carry it, and one head tilted back sets the rhythm of the row.</div><div class="pills"><span class="pill book">Donor Book</span></div>
     <div class="sz">Prints to <b>12x18&Prime;</b> metal &middot; <b>12x18&Prime;</b> paper &middot; <b>24x36&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1e4CfvkfUTaLjSmkjyAmcqeyazFYvUT_S">Web<span>0.5MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1TAhw-rKtfWq_yPUDW_OUu560qg5Xm242">Full res<span>3.8MB</span></a></div>
@@ -838,7 +830,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R131.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R131.jpg" alt=""><span class="num">R131</span><button class="pick" data-pick="R131" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R131" data-in="0"></button></a>
   <div class="body">
-    <div class="desc">The same camper wider, the group closing around her. Alternative to R130 with more of the group in it.</div>
+    <div class="desc">The same camper wider, the group closing around her.</div>
     <div class="pills"></div>
     <div class="sz">Prints to <b>12x18&Prime;</b> metal &middot; <b>16x24&Prime;</b> paper &middot; <b>24x36&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1hSL42O0YcMqmaioGlxGPxP6dgo7w6kDc">Web<span>0.9MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1aAPgvSZE-WA9ySm7C5TiUxhyQzWWdF58">Full res<span>12MB</span></a></div>
@@ -878,7 +870,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R136.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R136.jpg" alt=""><span class="num">R136</span><button class="pick" data-pick="R136" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R136" data-in="1"></button></a>
   <div class="body">
-    <div class="desc">Staff, got by it. The only frame here of an adult moved. Staff recruitment.</div>
+    <div class="desc">Staff, got by it. An adult moved, mid-Havdalah. Staff recruitment.</div>
     <div class="pills"><span class="pill book">Donor Book</span></div>
     <div class="sz">Prints to <b>8x12&Prime;</b> metal &middot; <b>8x12&Prime;</b> paper &middot; <b>16x24&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1gXmyEJZ3basUkVA7WajR-Bwesen_OB3A">Web<span>1.2MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1mKZEy_rkeGiste2tHHO7QkhWKH8W5uvb">Full res<span>7.1MB</span></a></div>
@@ -1020,7 +1012,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R073.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R073.jpg" alt=""><span class="num">R073</span><button class="pick" data-pick="R073" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R073" data-in="0"></button></a>
   <div class="body">
-    <div class="desc">Reaching for the last hold, valley wide open behind. Alternative to R072, more effort and less summit.</div>
+    <div class="desc">Reaching for the last hold, valley wide open behind.</div>
     <div class="pills"></div>
     <div class="sz">Prints to <b>16x24&Prime;</b> metal &middot; <b>16x24&Prime;</b> paper &middot; <b>30x45&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=19IWwQpppu1MjSGtVWbGHlKMjrNBMDROj">Web<span>1.1MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1aHGgYLKFvY3L3vpUl31hbhP78q3PLGYC">Full res<span>14MB</span></a></div>
@@ -1047,7 +1039,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R034.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R034.jpg" alt=""><span class="num">R034</span><button class="pick" data-pick="R034" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R034" data-in="0"></button></a>
   <div class="body">
-    <div class="desc">The same call, the group scattered across the slope. Alternative to R033 when you need more faces.</div>
+    <div class="desc">The same call, the group scattered across the slope.</div>
     <div class="pills"></div>
     <div class="sz">Prints to <b>12x18&Prime;</b> metal &middot; <b>16x24&Prime;</b> paper &middot; <b>24x36&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1v8rGQV7KJD4wmusbU-mmqby8AbjBp6Mt">Web<span>2.7MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=167J9oV0oE6sFBD8M3EUEFmnVvc1TLXGz">Full res<span>26MB</span></a></div>
@@ -1082,7 +1074,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R020.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R020.jpg" alt=""><span class="num">R020</span><button class="pick" data-pick="R020" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R020" data-in="1"></button></a>
   <div class="body">
-    <div class="desc">A camper riding in the camp shirt. Branded, in motion, and the only usable biking portrait in the set.</div>
+    <div class="desc">A camper riding in the camp shirt. Branded and in motion.</div>
     <div class="pills"><span class="pill book">Donor Book</span></div>
     <div class="sz">Prints to <b>16x24&Prime;</b> metal &middot; <b>16x24&Prime;</b> paper &middot; <b>30x45&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=128QMteSNGo4P3YRTnJL19Pp_-gGx8R0S">Web<span>0.7MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1r9qAiPnFcUYfShxrhYpsG8xt9s-u0phW">Full res<span>10MB</span></a></div>
@@ -1125,7 +1117,7 @@
   <div class="grid"><div class="card">
   <a class="ph" href="img/present/R022.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R022.jpg" alt=""><span class="num">R022</span><button class="pick" data-pick="R022" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R022" data-in="1"></button></a>
   <div class="body">
-    <div class="desc">A lesson happening on the rocks with no building involved. The clearest picture of teaching outdoors in the library.</div>
+    <div class="desc">A lesson happening on the rocks with no building involved. Use it wherever the ask is about teaching outdoors.</div>
     <div class="pills"><span class="pill book">Donor Book</span></div>
     <div class="sz">Prints to <b>16x24&Prime;</b> metal &middot; <b>16x24&Prime;</b> paper &middot; <b>30x45&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1UqcmO2ljMxjzVIApGN7XUmn63146_qyO">Web<span>1.1MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1QuLx_4lyXcAmTpaFttmzSQNBsSgEAMtn">Full res<span>16MB</span></a></div>
@@ -1345,7 +1337,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R055.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R055.jpg" alt=""><span class="num">R055</span><button class="pick" data-pick="R055" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R055" data-in="0"></button></a>
   <div class="body">
-    <div class="desc">Two of them heads together over something. Archive. Alternative to R054.</div>
+    <div class="desc">Two of them heads together over something.</div>
     <div class="pills"></div>
     <div class="sz">Prints to <b>8x12&Prime;</b> metal &middot; <b>12x18&Prime;</b> paper &middot; <b>20x30&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1DVRrYu6ECS9I-RI6D3m5epgunz7F7s3P">Web<span>1.6MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1fE3pbVnm5X4wwAXR6BoU-SLgIGrFFr_k">Full res<span>12MB</span></a></div>
@@ -1412,7 +1404,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R039.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R039.jpg" alt=""><span class="num">R039</span><button class="pick" data-pick="R039" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R039" data-in="0"></button></a>
   <div class="body">
-    <div class="desc">The circle at dusk, tight around the guitar. Alternative to R038 with more faces and less sky.</div>
+    <div class="desc">The circle at dusk, tight around the guitar.</div>
     <div class="pills"></div>
     <div class="sz">Prints to <b>12x18&Prime;</b> metal &middot; <b>12x18&Prime;</b> paper &middot; <b>24x36&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1vqSuzfr4mTfnIZVFpqckCS5foyu5jSv4">Web<span>2.1MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1V99hur2fB7ZUGzEymnBvayHbPel9znFo">Full res<span>14MB</span></a></div>
@@ -1471,7 +1463,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R091.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R091.jpg" alt=""><span class="num">R091</span><button class="pick" data-pick="R091" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R091" data-in="0"></button></a>
   <div class="body">
-    <div class="desc">One camper against a pine with the siddur, reading. The counterweight to every frame of a crowd singing.</div>
+    <div class="desc">One camper against a pine with the siddur, reading. Quiet, where most of the Shabbat frames are not.</div>
     <div class="pills"></div>
     <div class="sz">Prints to <b>12x18&Prime;</b> metal &middot; <b>12x18&Prime;</b> paper &middot; <b>24x36&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1ROJiSaJMoZKap1VKCYC2Ulsa5W6mds7F">Web<span>1.1MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1fnD64QAkcYBwwa_n4OsiyTi3uvoJoJbH">Full res<span>8.4MB</span></a></div>
@@ -1479,7 +1471,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R092.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R092.jpg" alt=""><span class="num">R092</span><button class="pick" data-pick="R092" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R092" data-in="0"></button></a>
   <div class="body">
-    <div class="desc">The band and the seated crowd together, taken from behind the campers. Alternative to R089 when you want the deck in it.</div>
+    <div class="desc">The band and the seated crowd together, taken from behind the campers.</div>
     <div class="pills"></div>
     <div class="sz">Prints to <b>8x12&Prime;</b> metal &middot; <b>12x18&Prime;</b> paper &middot; <b>20x30&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1-s-xT_aSNaFcHi5To2IiwvlRMVc2y9SD">Web<span>1.2MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1UGurFxUETiX46UsoPb-IjiOrkfBjWO3s">Full res<span>5.3MB</span></a></div>
@@ -1503,7 +1495,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R095.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R095.jpg" alt=""><span class="num">R095</span><button class="pick" data-pick="R095" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R095" data-in="0"></button></a>
   <div class="body">
-    <div class="desc">Three leaders with the crowd below and the hillside behind. The widest song-leading frame, so it takes a caption band.</div>
+    <div class="desc">Three leaders with the crowd below and the hillside behind. Wide enough to take a caption band.</div>
     <div class="pills"></div>
     <div class="sz">Prints to <b>8x12&Prime;</b> metal &middot; <b>12x18&Prime;</b> paper &middot; <b>20x30&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1qy8rD05Sk-CIyezqP7Fugn6_hWm4O60o">Web<span>1.2MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1zyOp9waZtp6EnbIdOGabOxwwvXVz2vg7">Full res<span>9.0MB</span></a></div>
@@ -1519,7 +1511,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R097.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R097.jpg" alt=""><span class="num">R097</span><button class="pick" data-pick="R097" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R097" data-in="1"></button></a>
   <div class="body">
-    <div class="desc">Head back, book open. The only frame here in black and white. Built for a wall or a facing page, not a gallery row.</div>
+    <div class="desc">Head back, book open, in black and white. Built for a wall or a facing page.</div>
     <div class="pills"><span class="pill art">Fine Art</span><span class="pill book">Donor Book</span></div>
     <div class="sz">Prints to <b>12x18&Prime;</b> metal &middot; <b>12x18&Prime;</b> paper &middot; <b>24x36&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1e4CfvkfUTaLjSmkjyAmcqeyazFYvUT_S">Web<span>0.5MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1TAhw-rKtfWq_yPUDW_OUu560qg5Xm242">Full res<span>3.8MB</span></a></div>
@@ -1650,7 +1642,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R121.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R121.jpg" alt=""><span class="num">R121</span><button class="pick" data-pick="R121" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R121" data-in="1"></button></a>
   <div class="body">
-    <div class="desc">Two of them laughing over the candle. Use it when the solemn frames need a counterweight.</div>
+    <div class="desc">Two of them laughing over the candle. Havdalah with the joy in it.</div>
     <div class="pills"><span class="pill book">Donor Book</span></div>
     <div class="sz">Prints to <b>12x18&Prime;</b> metal &middot; <b>12x18&Prime;</b> paper &middot; <b>24x36&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1izjw01KP9MtWEm1r6E9-oNGESrBV8Cg8">Web<span>0.7MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1LOloJ350zUFf8y3RogJbQvgo20-xc0H-">Full res<span>6.3MB</span></a></div>
@@ -1779,7 +1771,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R007.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R007.jpg" alt=""><span class="num">R007</span><button class="pick" data-pick="R007" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R007" data-in="0"></button></a>
   <div class="body">
-    <div class="desc">Two tents and their decks under stars. Alternative to R006 when you need the plural, not the one.</div>
+    <div class="desc">Two tents and their decks under stars.</div>
     <div class="pills"></div>
     <div class="sz">Prints to <b>12x18&Prime;</b> metal &middot; <b>12x18&Prime;</b> paper &middot; <b>24x36&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=10V9c16uYwgVhbIBkqr70FK4l9f8Y4vjK">Web<span>1.4MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1ibB96aKHIv-QsEOCGUJkNiEF5xZeuUb1">Full res<span>15MB</span></a></div>
@@ -1803,7 +1795,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R062.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R062.jpg" alt=""><span class="num">R062</span><button class="pick" data-pick="R062" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R062" data-in="0"></button></a>
   <div class="body">
-    <div class="desc">The wider version with the whole valley. Alternative to R061 when you need the valley, not the moon.</div>
+    <div class="desc">The whole valley with the moon coming down on the ridge.</div>
     <div class="pills"></div>
     <div class="sz">Prints to <b>8x12&Prime;</b> metal &middot; <b>12x18&Prime;</b> paper &middot; <b>20x30&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1Cjb_0MPUICAG23VB1R_g9fP31X2NJugh">Web<span>1.0MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1iLV03hxCaKokSXwreyzA-Rz5heV_XVod">Full res<span>7.7MB</span></a></div>
@@ -1867,7 +1859,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R109.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R109.jpg" alt=""><span class="num">R109</span><button class="pick" data-pick="R109" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R109" data-in="0"></button></a>
   <div class="body">
-    <div class="desc">Two tents with the core rising behind them. Alternative to R123 when you want the tents larger in the frame.</div>
+    <div class="desc">Two tents with the core rising behind them.</div>
     <div class="pills"></div>
     <div class="sz">Prints to <b>12x18&Prime;</b> metal &middot; <b>16x24&Prime;</b> paper &middot; <b>24x36&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=12VgHbZtiZL_6DcPm46VfYUUBF9sSIKu3">Web<span>2.0MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=1R7Pn6aVJA1IenPHcyYzA9sy7O_tXOf0w">Full res<span>22MB</span></a></div>
@@ -1883,7 +1875,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R123.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R123.jpg" alt=""><span class="num">R123</span><button class="pick" data-pick="R123" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R123" data-in="0"></button></a>
   <div class="body">
-    <div class="desc">The tent village under a full sky with cloud in it. Widest of the tent frames, and it takes type across the top.</div>
+    <div class="desc">The tent village under a full sky with cloud in it. Takes type across the top.</div>
     <div class="pills"></div>
     <div class="sz">Prints to <b>12x18&Prime;</b> metal &middot; <b>16x24&Prime;</b> paper &middot; <b>24x36&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1E6JZSkcAJRKJo3qCtkKNP_efCjGj3wTm">Web<span>1.6MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=10o5Wsc6fc-AU02JVNRtqALmwCrYtUdgm">Full res<span>18MB</span></a></div>
@@ -1910,7 +1902,7 @@
 </div><div class="card">
   <a class="ph" href="img/present/R110.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R110.jpg" alt=""><span class="num">R110</span><button class="pick" data-pick="R110" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R110" data-in="0"></button></a>
   <div class="body">
-    <div class="desc">The court under the whole sky, wide. Third version of this view, pick one.</div>
+    <div class="desc">The court under the whole sky, wide.</div>
     <div class="pills"></div>
     <div class="sz">Prints to <b>16x24&Prime;</b> metal &middot; <b>16x24&Prime;</b> paper &middot; <b>30x45&Prime;</b> canvas</div>
     <div class="btns"><a class="dl web" href="https://drive.google.com/uc?export=download&id=1QdUTvmoNoUCv_AzCtE6bjixMwXWlo-L9">Web<span>1.4MB</span></a><a class="dl" href="https://drive.google.com/uc?export=download&id=14aSqsqS3m6ws8BVS0_z5r_MkIce6r7kQ">Full res<span>21MB</span></a></div>
@@ -2129,7 +2121,7 @@
 <script>
 (function(){
   var on=new Set(), TOTAL=139;
-  var LEAD=["engagement","layouts","downloads","printing","donorbook","fineart"];
+  var LEAD=["deliverables","layouts","downloads","printing","donorbook","fineart"];
   var hint=document.getElementById("filthint"), clear=document.getElementById("clearfilt");
   function apply(){
     var any=on.size>0;
