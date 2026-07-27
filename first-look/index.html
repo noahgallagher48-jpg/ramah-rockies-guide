@@ -38,7 +38,7 @@
 
 <div class="card" id="title">
   <h1>Ramah in the Rockies</h1>
-  <p class="sub">June 2026 &middot; ninety seconds</p>
+  <p class="sub">June 2026 &middot; ninety seconds, shuffled</p>
   <button class="go" id="start">Begin</button>
 </div>
 
@@ -51,8 +51,10 @@
 </div>
 
 <script>
-const N = 30, MS = 3000;
-const src = n => "img/rr-" + String(n).padStart(2,"0") + ".jpg";
+const N = 45, MS = 2000;
+const ORDER = Array.from({length:N}, (_,k) => k+1);
+for (let k = ORDER.length - 1; k > 0; k--) { const j = Math.floor(Math.random()*(k+1)); [ORDER[k],ORDER[j]] = [ORDER[j],ORDER[k]]; }
+const src = n => "img/rr-" + String(ORDER[n-1]).padStart(2,"0") + ".jpg";
 let i = 0, timer = null, showing = null;
 const A = document.getElementById("imgA"), B = document.getElementById("imgB"), count = document.getElementById("count");
 function preload(k){ if(k>=0 && k<N){ (new Image()).src = src(k+1); } }
