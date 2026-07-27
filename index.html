@@ -219,10 +219,10 @@
 <section id="deliverables">
   <div class="dgrid"><a class="dcard" href="first-look/">
       <img loading="lazy" src="img/thumb/R111.jpg" alt="">
-      <span class="dlab">First Look</span><span class="dsub">30 frames, 90 seconds</span>
+      <span class="dlab">First Look (slideshow)</span><span class="dsub">30 frames, 90 seconds</span>
     </a><a class="dcard" href="reel/">
       <img loading="lazy" src="img/thumb/R080.jpg" alt="">
-      <span class="dlab">The Reel</span><span class="dsub">20 frames, 22 seconds</span>
+      <span class="dlab">The Reel (slideshow)</span><span class="dsub">20 frames, 22 seconds</span>
     </a><a class="dcard" href="#layouts">
       <img loading="lazy" src="img/thumb/R124.jpg" alt="">
       <span class="dlab">Book Layouts</span><span class="dsub">Two books, ready to print</span>
@@ -252,8 +252,14 @@
       <a class="dl" href="Ramah-book-preview.pdf" target="_blank">Open</a></div>
     <div class="dlrow"><div><b>The Season</b><span>94 frames, 48 spreads. For the camp, staff and families.</span></div>
       <a class="dl" href="Ramah-season-book-preview.pdf" target="_blank">Open</a></div>
-    <p class="sub" style="font-size:14px;border-top:1px solid var(--line);padding-top:16px">
-    Printed through Miller's Imaging Labs at their cost, nothing added. Order by
+    <table class="pt" style="margin-top:22px">
+      <tr><th>Per copy, hardcover, linen</th><th>The Book</th><th>The Season</th></tr>
+      <tr><td><b>Matte or Pearl Press paper</b></td><td>$105.50</td><td>$144.50</td></tr>
+      <tr><td><b>Deep Matte photographic</b><br><span style="color:var(--mut);font-size:13px">holds night blacks better</span></td><td>$204.50</td><td>$360.50</td></tr>
+    </table>
+    <p class="sub" style="font-size:14px">Miller's price with nothing added. Faux leather instead of
+    linen takes $15 off. Ten copies of The Book on press paper is about $1,055.</p>
+    <p class="sub" style="font-size:14px">Tell me the book, the paper and how many. Order by
     <b style="color:var(--ink)">21 December 2026</b>.</p>
   </div>
 </section>
@@ -307,8 +313,10 @@
     and thirty candids, as the agreement sets out.</p>
     <div class="dlrow"><div><b>See it laid out</b><span>12 by 8 inches, 22 spreads, the way it prints.</span></div>
     <a class="dl" href="Ramah-book-preview.pdf" target="_blank">Open the preview</a></div>
-    <p class="sub" style="margin-top:14px">Press <b style="color:var(--ink)">Suggest swaps</b> to
-    change it. Mark frames anywhere on this page, then send me the list. Already paid for.</p>
+    <div class="dlrow"><div><b>Want different frames in it?</b><span>Mark what to take out and what
+    to put in, anywhere on this page. See your version straight away, then send me the list. Changing
+    it costs nothing, the layouts are already paid for.</span></div>
+    <button class="dl" id="bookedit2" style="border:0;font-family:inherit;cursor:pointer">Swap frames</button></div>
     <div class="grid"><div class="card">
   <a class="ph" href="img/present/R024.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/R024.jpg" alt=""><span class="num">R024</span><button class="pick" data-pick="R024" aria-label="Add this frame to your slideshow">+</button><button class="bookbtn" data-book="R024" data-in="1"></button></a>
   <div class="body">
@@ -1728,7 +1736,6 @@
 </section>
 
 <footer>
-  <p class="th">The land is what it is. The frame is the choice.</p>
   <p>Photographs by Noah Gallagher &middot; Abba Photo &middot;
   <a href="https://www.abba-photo.com">abba-photo.com</a> &middot;
   <a href="mailto:noah@abba-photo.com">noah@abba-photo.com</a></p>
@@ -1858,6 +1865,10 @@
     sync();
   });
   document.getElementById("bookdone").addEventListener("click",function(){ tog.click(); });
+  var alt=document.getElementById("bookedit2");
+  if(alt) alt.addEventListener("click",function(){ tog.click(); });
+  var alt=document.getElementById("bookedit2");
+  if(alt) alt.addEventListener("click",function(){ tog.click(); });
   document.querySelectorAll(".bookbtn").forEach(function(b){
     b.addEventListener("click",function(e){
       e.preventDefault(); e.stopPropagation();
