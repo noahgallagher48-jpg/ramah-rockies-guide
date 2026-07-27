@@ -133,6 +133,21 @@
   body.bookedit .bookbtn.inbook{background:var(--book);border-color:var(--book);color:#0a0a0b}
   body.bookedit .bookbtn.dropped{background:#7a2b38;border-color:#a8404f;color:#fff;text-decoration:line-through}
   body.bookedit .bookbtn.added{background:#2f7d52;border-color:#3fa06a;color:#fff}
+  .pkgrid{display:grid;grid-template-columns:1fr;gap:26px;margin:18px 0 8px;max-width:840px}
+  .pk{margin:0}
+  .pk img{width:100%;display:block;border-radius:8px}
+  .pk figcaption{margin-top:12px;font-family:'Cormorant Garamond',serif;font-size:19px;line-height:1.5;
+    color:#d8d8dd;font-style:italic;border-left:2px solid var(--brand);padding-left:16px}
+  .flip[hidden]{display:none}
+  .flip{position:fixed;inset:0;z-index:60;background:#0b0a09;display:flex;align-items:center;justify-content:center}
+  .flip img{max-width:94vw;max-height:88vh;object-fit:contain}
+  .flipbar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;
+    padding:14px 20px;z-index:62;color:#9a9aa0;font-size:13px;font-variant-numeric:tabular-nums}
+  .flipbar button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:#ececee;
+    border-radius:999px;padding:7px 16px;font-size:12.5px;cursor:pointer;font-family:inherit}
+  .flipbar button:hover{background:rgba(255,255,255,.2)}
+  .flipz{position:fixed;top:0;bottom:0;width:38%;z-index:61;cursor:pointer}
+  #flipprev{left:0}#flipnext{right:0}
   .bookbar[hidden]{display:none}
   .bookbar{position:fixed;left:18px;bottom:18px;z-index:40;background:#1d1d21;border:1px solid var(--book);
     border-radius:999px;display:flex;align-items:center;gap:10px;padding:8px 9px 8px 18px;font-size:13px;
@@ -735,6 +750,7 @@
 </div></div>
   </div>
 </section>
+
 
 <h3 class="mv" id="the-day" data-mv="the-day">The day</h3><section id="opening-day" data-sec="opening-day" data-n="16">
   <h2>Opening day <span class="cnt">16</span></h2>
@@ -1989,16 +2005,30 @@
 
 <div class="bookbar" id="bookbar" hidden>
   <span id="bookcount"></span>
-  <button id="booksend">Send my swaps</button>
+  <button id="bookview">See your book</button>
+  <button id="bookcopy">Copy the list</button>
   <button id="bookdone">Done</button>
+</div>
+<div class="flip" id="flip" hidden>
+  <div class="flipbar">
+    <span id="flipn"></span>
+    <button id="flipclose">Close</button>
+  </div>
+  <img id="flipimg" alt="">
+  <div class="flipz" id="flipprev"></div><div class="flipz" id="flipnext"></div>
 </div>
 <script>
 (function(){
-  var K="ramah_bookswaps", st={out:[],add:[]};
+  var K="ramah_bookswaps", BASE_ORDER=["R024", "R124", "R127", "R132", "R136", "R137", "R029", "R022", "R023", "R012", "R014", "R072", "R017", "R047", "R033", "R020", "R067", "R080", "R066", "R032", "R078", "R083", "R048", "R050", "R052", "R037", "R040", "R085", "R106", "R088", "R098", "R094", "R097", "R121", "R116", "R119", "R101", "R111", "R114", "R090", "R002", "R001"];
+  var st={out:[],add:[]};
   try{ st=JSON.parse(localStorage.getItem(K))||st; }catch(e){}
   st.out=st.out||[]; st.add=st.add||[];
-  var bar=document.getElementById("bookbar"), tog=document.getElementById("bookedit");
+  var tog=document.getElementById("bookedit"), bar=document.getElementById("bookbar");
   function save(){ try{ localStorage.setItem(K,JSON.stringify(st)); }catch(e){} }
+  function current(){
+    var keep=BASE_ORDER.filter(function(id){ return st.out.indexOf(id)<0; });
+    return keep.concat(st.add.filter(function(id){ return BASE_ORDER.indexOf(id)<0; }));
+  }
   function sync(){
     document.querySelectorAll(".bookbtn").forEach(function(b){
       var id=b.getAttribute("data-book"), inb=b.getAttribute("data-in")==="1";
@@ -2006,13 +2036,14 @@
       b.className="bookbtn"+(dropped?" dropped":added?" added":inb?" inbook":"");
       b.textContent=dropped?"Taking out":added?"Putting in":inb?"In the book":"Add";
     });
-    var n=st.out.length+st.add.length;
-    document.getElementById("bookcount").textContent=n?(n+(n===1?" swap":" swaps")):"No changes yet";
+    var n=current().length, ch=st.out.length+st.add.length;
+    document.getElementById("bookcount").textContent =
+      n+" frames"+(ch?"  ·  "+ch+(ch===1?" change":" changes"):"");
     bar.hidden=!document.body.classList.contains("bookedit");
   }
   tog.addEventListener("click",function(){
     var on=document.body.classList.toggle("bookedit");
-    tog.classList.toggle("on",on); tog.textContent=on?"Stop suggesting":"Suggest swaps";
+    tog.classList.toggle("on",on); tog.textContent=on?"Stop swapping":"Suggest swaps";
     if(on) document.getElementById("donorbook").scrollIntoView({behavior:"smooth"});
     sync();
   });
@@ -2026,20 +2057,45 @@
       save(); sync();
     });
   });
-  document.getElementById("booksend").addEventListener("click",function(){
-    if(!st.out.length && !st.add.length){ alert("Mark something to take out or put in first."); return; }
-    var who=prompt("Your name, so I know whose notes these are:")||"";
-    var body="Book swaps from "+(who||"(no name)")+"
 
-"
-      +"Take out: "+(st.out.slice().sort().join(", ")||"nothing")+"
-"
-      +"Put in:   "+(st.add.slice().sort().join(", ")||"nothing")+"
+  // See your book: their arrangement, full screen, right now
+  var flip=document.getElementById("flip"), fimg=document.getElementById("flipimg"),
+      fn=document.getElementById("flipn"), seq=[], fi=0;
+  function show(k){
+    if(!seq.length) return;
+    fi=(k+seq.length)%seq.length;
+    fimg.src="img/present/"+seq[fi]+".jpg";
+    fn.textContent=(fi+1)+" / "+seq.length;
+  }
+  document.getElementById("bookview").addEventListener("click",function(){
+    seq=current(); if(!seq.length){ alert("Your book is empty. Add some frames first."); return; }
+    flip.hidden=false; document.body.style.overflow="hidden"; show(0);
+    if(seq[1]) (new Image()).src="img/present/"+seq[1]+".jpg";
+  });
+  function close(){ flip.hidden=true; document.body.style.overflow=""; }
+  document.getElementById("flipclose").addEventListener("click",close);
+  document.getElementById("flipnext").addEventListener("click",function(){ show(fi+1); if(seq[fi+1])(new Image()).src="img/present/"+seq[fi+1]+".jpg"; });
+  document.getElementById("flipprev").addEventListener("click",function(){ show(fi-1); });
+  document.addEventListener("keydown",function(e){
+    if(flip.hidden) return;
+    if(e.key==="Escape") close();
+    if(e.key==="ArrowRight") show(fi+1);
+    if(e.key==="ArrowLeft") show(fi-1);
+  });
 
-"
-      +"Net: "+(42-st.out.length+st.add.length)+" frames.";
-    location.href="mailto:noah@abba-photo.com?subject="
-      +encodeURIComponent("Ramah book swaps")+"&body="+encodeURIComponent(body);
+  // Copy the list: one line, paste it anywhere. No mail client involved.
+  document.getElementById("bookcopy").addEventListener("click",function(){
+    var line="RAMAH BOOK ("+current().length+" frames)"
+      +(st.out.length?"  OUT: "+st.out.slice().sort().join(" "):"")
+      +(st.add.length?"  IN: "+st.add.slice().sort().join(" "):"")
+      +(st.out.length||st.add.length?"":"  no changes");
+    var done=function(){
+      var b=document.getElementById("bookcopy"), t=b.textContent;
+      b.textContent="Copied"; setTimeout(function(){ b.textContent=t; },1600);
+    };
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(line).then(done,function(){ prompt("Copy this line:",line); });
+    } else { prompt("Copy this line:",line); }
   });
   sync();
 })();
