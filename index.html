@@ -271,7 +271,7 @@
 
 <section id="donorbook">
   <div class="lead">
-    <h2>The Donor Book <span class="cnt">42 pages</span></h2>
+    <h2>The Donor Book <span class="cnt">42 photographs &middot; 44-page book</span></h2>
     <p class="sub" style="margin-top:6px">Forty-two frames in print order, running from the greeting on
     arrival through to the road out at night.</p>
     <p class="sub"><b style="color:var(--ink)">See a page you would change?</b> Press
@@ -1832,18 +1832,9 @@
       var b=document.querySelector('.nope[data-page="'+pg+'"]');
       return "Page "+pg+"  ("+b.getAttribute("data-frame")+")";
     });
-    var body=(who?who+" here.
-
-":"")+"These pages are not right for the book:
-
-"
-      +rows.join("
-")+"
-
-Could you suggest something else for them?
-"
-      +"(If you already have something in mind, say so here.)
-";
+    var body=(who?who+" here.\n\n":"")+"These pages are not right for the book:\n\n"
+      +rows.join("\n")+"\n\nCould you suggest something else for them?\n"
+      +"(If you already have something in mind, say so here.)\n";
     location.href="mailto:noah@abba-photo.com?subject="
       +encodeURIComponent("Ramah book: pages to change")+"&body="+encodeURIComponent(body);
   });
