@@ -1754,6 +1754,7 @@
     });
   }
   document.getElementById("pickmake").addEventListener("click",function(){
+    if(location.protocol==="file:"){ alert("Slideshow building needs the online page. Open the guide at its web address and try again."); return; }
     var btn=this, secs=prompt("Seconds on each image?","4"); if(secs===null) return;
     var ms=Math.max(500, Math.round(parseFloat(secs)*1000)||4000);
     btn.disabled=true; var done=0;
