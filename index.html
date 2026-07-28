@@ -133,6 +133,38 @@
   .move>a img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
   .move .mb{padding:10px 12px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
   .move .ml{font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:var(--copy);font-weight:600}
+
+  /* pick buttons + floating action bars (slideshow picks, book swaps) */
+  .ph .pick{position:absolute;top:8px;right:10px;width:30px;height:30px;border-radius:50%;
+    border:1px solid rgba(255,255,255,.42);background:rgba(10,10,11,.62);color:var(--ink);
+    font-size:17px;line-height:27px;text-align:center;padding:0;cursor:pointer;transition:background .15s}
+  .ph .pick:hover{background:rgba(10,10,11,.88)}
+  .ph .pick.on{background:var(--copy);border-color:var(--copy);color:#0a0a0b;font-weight:700}
+  .pickbar,.bookbar{position:fixed;left:50%;transform:translateX(-50%);z-index:60;
+    display:flex;align-items:center;gap:12px;max-width:calc(100vw - 24px);
+    background:rgba(22,22,24,.96);border:1px solid var(--line);border-radius:30px;
+    padding:10px 14px 10px 20px;box-shadow:0 8px 28px rgba(0,0,0,.55);
+    color:var(--ink);font-size:14px;white-space:nowrap}
+  .pickbar[hidden],.bookbar[hidden]{display:none}
+  .pickbar{bottom:18px;border-color:rgba(111,224,176,.5)}
+  .bookbar{bottom:76px;border-color:rgba(240,168,192,.5)}
+  .pickbar button,.bookbar button{font:inherit;font-size:13.5px;cursor:pointer;
+    border-radius:20px;padding:7px 14px;border:1px solid transparent}
+  #pickmake{background:var(--copy);color:#0a0a0b;font-weight:600}
+  #nopesend{background:var(--book);color:#0a0a0b;font-weight:600}
+  #pickclear,#nopeclear{background:none;color:var(--mut);border-color:var(--line);
+    width:34px;height:34px;padding:0;border-radius:50%;font-size:15px}
+  #pickclear:hover,#nopeclear:hover{color:var(--ink)}
+  .nope{font:inherit;font-size:12.5px;margin-top:10px;padding:6px 12px;border-radius:8px;
+    cursor:pointer;background:none;border:1px solid rgba(240,168,192,.45);color:var(--book);
+    align-self:flex-start}
+  .nope.on{background:var(--book);border-color:var(--book);color:#0a0a0b;font-weight:600}
+  .card.marked{border-color:var(--book);box-shadow:0 0 0 1px var(--book)}
+  @media (max-width:640px){
+    .pickbar,.bookbar{gap:8px;padding:8px 10px 8px 14px;font-size:13px}
+    .pickbar button,.bookbar button{font-size:12.5px;padding:6px 11px}
+  }
+
   .move .mt{font-size:13.5px;color:var(--ink)}
   .move .mb>a{font-size:12px;color:var(--mut);text-decoration:none;margin-top:auto}
   .pkgrid{display:grid;grid-template-columns:1fr;gap:26px;margin:18px 0 8px;max-width:840px}
