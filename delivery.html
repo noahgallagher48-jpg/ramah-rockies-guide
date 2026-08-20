@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content=noindex>
+<title>Ramah in the Rockies &middot; Summer 2026</title><style>
+/* The camp's own brand, off ramahoutdoors.org's live computed styles 2026-08-20.
+   Onest is SIL OFL and embedded; their display face is commercial and is not
+   redistributed here. */
+@font-face{font-family:Onest;src:url(fonts/onest-400.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:Onest;src:url(fonts/onest-600.woff2) format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:Onest;src:url(fonts/onest-800.woff2) format('woff2');font-weight:800;font-display:swap}
+:root{--ground:#02252F;--panel:#163943;--line:rgba(255,253,245,.14);
+      --ink:#FFFDF5;--muted:#9FB3BC;--faint:#6E858F;
+      --sky:#6EC1E4;--sky2:#8FD2EE;--earth:#887A5F;--sand:#EEE8CF}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);
+     font-family:Onest,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+     font-size:15.5px;line-height:1.55}
+a{color:var(--sky);text-decoration:none}a:hover{text-decoration:underline}
+.home{position:absolute;top:16px;left:20px;font-size:12px;letter-spacing:.14em;
+      text-transform:uppercase;color:var(--faint)}
+.open{max-width:760px;margin:0 auto;padding:84px 20px 46px;text-align:center}
+h1{font-weight:800;font-size:clamp(32px,6vw,50px);letter-spacing:-.015em}
+.date{color:var(--muted);font-size:14.5px;margin-top:6px}
+.rule{width:56px;height:2px;background:var(--sky);margin:22px auto}
+.play{background:var(--sky);color:#02252F;border:0;border-radius:5px;padding:13px 30px;
+      font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+      cursor:pointer;font-family:inherit}
+.play:hover{background:var(--sky2)}
+.play:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.play:focus:not(:focus-visible){outline:none}
+.play .tri{font-size:11px;margin-right:8px}
+.dlline{color:var(--muted);font-size:13.5px;margin-top:22px}
+.opts{margin-top:10px}
+.opts a,.lnk{background:none;border:1px solid rgba(110,193,228,.5);color:var(--sky);
+     border-radius:4px;padding:8px 15px;font-size:12.5px;cursor:pointer;font-family:inherit;
+     display:inline-block;margin:3px 2px}
+.opts a:hover,.lnk:hover{background:rgba(110,193,228,.12);text-decoration:none}
+.dot{color:var(--faint);margin:0 4px}
+.wrap{max-width:1280px;margin:44px auto 0;padding:0 16px}
+.secthead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.secthead h2{font-weight:800;font-size:24px}
+.secthead span{font-size:11px;letter-spacing:.14em;color:var(--faint);text-transform:uppercase}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.grid .c{position:relative;cursor:pointer;border-radius:4px;overflow:hidden;background:var(--panel);
+         content-visibility:auto;contain-intrinsic-size:235px 176px}
+.grid img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.grid .n{position:absolute;left:7px;bottom:6px;font-size:10.5px;font-weight:600;color:#fff;
+         text-shadow:0 1px 5px #000;pointer-events:none}
+.grid .isnew{position:absolute;right:6px;top:6px;background:var(--sand);color:#02252F;
+         font-size:9.5px;font-weight:700;letter-spacing:.08em;padding:2px 6px;border-radius:3px}
+body.sel .grid .c::after{content:"";position:absolute;top:8px;left:8px;width:22px;height:22px;
+         border:2px solid #fff;border-radius:50%;background:rgba(2,37,47,.4)}
+body.sel .grid .c.on::after{background:var(--sky);border-color:var(--sky);
+         box-shadow:inset 0 0 0 3px var(--ground)}
+.printnote{max-width:760px;margin:30px auto 0;padding:14px 18px;border:1px solid var(--line);
+     border-radius:5px;color:var(--muted);font-size:13px;line-height:1.6}
+.printnote b{color:var(--ink);font-weight:600}
+footer{max-width:1280px;margin:50px auto 0;padding:20px 16px 46px;border-top:1px solid var(--line);
+       display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+       color:var(--faint);font-size:12.5px}
+#selbar{position:fixed;left:0;right:0;bottom:0;z-index:25;display:none;gap:12px;align-items:center;
+        background:rgba(2,37,47,.97);border-top:1px solid var(--line);padding:12px 18px}
+body.sel #selbar{display:flex}
+#selbar .ct{font-size:13px;color:var(--muted);margin-right:auto;font-variant-numeric:tabular-nums}
+#getlist{position:fixed;inset:0;z-index:30;background:rgba(2,25,32,.97);display:none;
+         overflow-y:auto;padding:46px 18px}
+#getlist.on{display:block}
+#getlist .inner{max-width:660px;margin:0 auto}
+#getlist h3{font-weight:800;font-size:22px;margin-bottom:6px}
+#getlist p{color:var(--muted);font-size:13px;margin-bottom:18px}
+#getlist .row{display:flex;align-items:center;gap:12px;padding:10px 0;
+              border-bottom:1px solid var(--line);flex-wrap:wrap}
+#getlist .row b{font-size:13px;font-weight:700;min-width:52px}
+#getlist .row a{font-size:12.5px;border:1px solid rgba(110,193,228,.5);border-radius:4px;padding:5px 12px}
+#getlist .row .sz{font-size:11.5px;color:var(--muted);flex-basis:100%;margin-top:2px}
+#getlist .x{position:fixed;top:12px;right:18px;background:none;border:0;color:var(--muted);
+            font-size:30px;cursor:pointer}
+#lb{position:fixed;inset:0;z-index:40;background:#000;display:none}
+#lb.on{display:block}
+#lb img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+#lb .zone{position:absolute;top:0;bottom:0;width:28%;z-index:2;cursor:pointer;
+          background:none;border:0;padding:0;appearance:none}
+#lb .zl{left:0}#lb .zr{right:0}
+#lb .x{position:absolute;top:10px;right:16px;z-index:3;background:none;border:0;color:#9FB3BC;
+       font-size:32px;cursor:pointer;line-height:1}
+#lb .bar{position:absolute;bottom:0;left:0;right:0;z-index:3;display:flex;gap:12px;align-items:center;
+         justify-content:center;padding:14px;flex-wrap:wrap;
+         background:linear-gradient(transparent,rgba(0,0,0,.78))}
+#lb .bar .m{font-size:12px;color:#9FB3BC;font-variant-numeric:tabular-nums}
+#lb .bar .sz{font-size:12px;color:#D6E2E8}
+#lb .bar .sz b{color:#fff;font-weight:700}
+#lb .bar a{font-size:12px;border:1px solid rgba(110,193,228,.6);border-radius:4px;padding:6px 13px}
+#stage{position:fixed;inset:0;z-index:50;background:#000;display:none}
+#stage.on{display:block}
+#stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
+           opacity:0;transition:opacity 900ms ease}
+#stage img.show{opacity:1}
+#stage .zone{position:absolute;top:0;bottom:0;width:30%;z-index:2;cursor:pointer;
+             background:none;border:0;padding:0;appearance:none}
+#stage .zl{left:0}#stage .zr{right:0}
+#stage .x{position:absolute;top:10px;right:16px;z-index:3;background:none;border:0;
+          color:#9FB3BC;font-size:32px;cursor:pointer}
+@media (prefers-reduced-motion:reduce){#stage img{transition:none}}
+</style></head><body>
+
+<a class=home href="https://www.abba-photo.com/">Abba Photo</a>
+<div class=open>
+  <h1>Ramah in the Rockies</h1>
+  <p class=date>Sedalia, Colorado &middot; Summer 2026</p>
+  <div class=rule></div>
+  <button class=play id=play type=button><span class=tri>&#9654;</span> Play</button>
+  <p class=dlline>162 photographs in two sizes: full resolution for print, web for screens</p>
+  <p class="dlline opts">
+    <a href="https://drive.google.com/drive/folders/1j6MonyN4tPrkfKkl_5V0NEeBfN545M4t" target=_blank rel=noopener>All full res</a>
+    <span class=dot>&middot;</span>
+    <a id=zipall href="" style="display:none">All for web</a>
+    <button class=lnk id=selmode type=button>Select frames</button>
+  </p>
+  <p class=dlline style="font-size:12px">Full resolution comes from Google Drive. No sign-in needed.</p>
+</div>
+
+<div class=wrap>
+  <div class=secthead><h2>Everything</h2><span>162 frames &middot; 25 added since the first delivery</span></div>
+  <div class=grid id=grid></div>
+</div>
+
+<p class=printnote>Every frame carries the largest size it prints at on each material:
+<b>metal</b> and <b>acrylic</b> hold the most detail and ask the most resolution,
+<b>photo paper</b> a little less, <b>canvas</b> least because the weave and the
+viewing distance forgive it. These are stock sizes, orderable as listed with no
+custom cutting, and each one matches that frame's own proportions, so nothing is
+cropped to fit. A few frames print true only as a custom cut; those say so.</p>
+
+<footer>
+  <span>Photographs by Noah Gallagher</span>
+  <span>Abba Photo &middot; <a href="https://www.abba-photo.com" target=_blank rel=noopener>abba-photo.com</a></span>
+</footer>
+
+<div id=selbar><span class=ct id=selct>0 selected</span>
+  <button class=lnk id=selget type=button disabled>Get these</button>
+  <button class=lnk id=seldone type=button>Done</button></div>
+
+<div id=getlist><button class=x type=button aria-label=Close>&times;</button>
+  <div class=inner><h3>Your frames</h3>
+  <p>Web is sized for screens and social; full res is the print file, from Drive.
+     Each frame lists the largest size it prints at on each material.</p>
+  <div id=getrows></div></div></div>
+
+<div id=lb><img id=lbi alt="Ramah in the Rockies, Sedalia, Colorado, Summer 2026">
+  <button class="zone zl" type=button aria-label=Previous></button>
+  <button class="zone zr" type=button aria-label=Next></button>
+  <button class=x type=button aria-label=Close>&times;</button>
+  <div class=bar><span class=m id=lbm></span><span class=sz id=lbsz></span>
+    <a id=lbw download>Web</a><a id=lbf target=_blank rel=noopener>Full res</a></div>
+</div>
+
+<div id=stage><img id=sa alt=""><img id=sb alt="">
+  <button class="zone zl" type=button aria-label=Previous></button>
+  <button class="zone zr" type=button aria-label=Next></button>
+  <button class=x type=button aria-label="End the show">&times;</button>
+</div>
+
+<script>
+var ALL=[{"f": "Ramah2026_R001.jpg", "n": "R001", "d": "https://drive.google.com/uc?export=download&id=1sBBNnYxWOVQXbSgpZuHTm-x5cl3ALMpe", "p": ["8x10", "8x10", "16x20"], "pn": null, "new": false}, {"f": "Ramah2026_R002.jpg", "n": "R002", "d": "https://drive.google.com/uc?export=download&id=1_trxNeTFrnfJEg_sGrKm8PVKZUhKbFrq", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R003.jpg", "n": "R003", "d": "https://drive.google.com/uc?export=download&id=1AK4kFF0xIhDO9V26s8qbYsMckCaPuciN", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": false}, {"f": "Ramah2026_R004.jpg", "n": "R004", "d": "https://drive.google.com/uc?export=download&id=1AqWrSQseE5URvp5VOu1JZJ16aCM5W-7f", "p": ["8x10", "16x20", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R006.jpg", "n": "R006", "d": "https://drive.google.com/uc?export=download&id=1zUcJJzyT-FoiPNvlb6AaZ5aV0cZA8p7r", "p": ["8x10", "8x10", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R007.jpg", "n": "R007", "d": "https://drive.google.com/uc?export=download&id=1zeBW3HGHOA05z_n5hcFv_dPcf6VKvn1U", "p": [null, null, null], "pn": "Unusual 1.78:1 proportion. Prints true as a custom cut; the standard sizes would crop its edges.", "new": false}, {"f": "Ramah2026_R008.jpg", "n": "R008", "d": "https://drive.google.com/uc?export=download&id=1JZAI_6ml_nKDELB6CiiITZzhhwdOFwRG", "p": ["8x10", "8x10", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R009.jpg", "n": "R009", "d": "https://drive.google.com/uc?export=download&id=1nVFDwYIMz_cA6q1P4FHUiibi5kf_Jzz7", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R010.jpg", "n": "R010", "d": "https://drive.google.com/uc?export=download&id=1UOzJdSBeu2DvOqvPw_ihOZf-FcGVVbfB", "p": ["12x18", "16x24", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R011.jpg", "n": "R011", "d": "https://drive.google.com/uc?export=download&id=1MC7OMXQRxyKxieY6wVE79Hc7vs17rgYj", "p": ["12x18", "12x18", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R012.jpg", "n": "R012", "d": "https://drive.google.com/uc?export=download&id=1Tg11lPdhSG87Ox3iDLayO2TQuXaqs2-B", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R013.jpg", "n": "R013", "d": "https://drive.google.com/uc?export=download&id=1_u8_cfIQwexvxxpKuLb8xvuQIC0cIqyx", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R014.jpg", "n": "R014", "d": "https://drive.google.com/uc?export=download&id=1CZg0ReJLDezyFrs_ObunSuk9lJE3jyGW", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R015.jpg", "n": "R015", "d": "https://drive.google.com/uc?export=download&id=1r5pXw4kZSutXPA_df4XhFbQFP6ImuOxI", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R016.jpg", "n": "R016", "d": "https://drive.google.com/uc?export=download&id=1rBg6tOrHGqESK8wbuprlCWySXSCZqSCJ", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": false}, {"f": "Ramah2026_R017.jpg", "n": "R017", "d": "https://drive.google.com/uc?export=download&id=1Mrb2_UCNMXaRv2dyhBUHv2w6UF-3ygnW", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R018.jpg", "n": "R018", "d": "https://drive.google.com/uc?export=download&id=1y2PboggYJsFugXPflOh1L7-1HfHoafQN", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": false}, {"f": "Ramah2026_R019.jpg", "n": "R019", "d": "https://drive.google.com/uc?export=download&id=1ttWNzg4UllVq5JCuPnBWs5wJapswsRH7", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R020.jpg", "n": "R020", "d": "https://drive.google.com/uc?export=download&id=1xeP8UPG4i9hBSS4TUz_2d7uDiz2q8v_e", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R021.jpg", "n": "R021", "d": "https://drive.google.com/uc?export=download&id=1hhA_IsdT02KudaAuzpCNJug7NEHY_f5y", "p": ["12x18", "16x24", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R022.jpg", "n": "R022", "d": "https://drive.google.com/uc?export=download&id=1Kxzl7x_L_muVh3eXZMXWctn1cK1wlxE0", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R023.jpg", "n": "R023", "d": "https://drive.google.com/uc?export=download&id=1C8H001OZZ-PITExUk0uc-5ILZ7_Up0Zt", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R024.jpg", "n": "R024", "d": "https://drive.google.com/uc?export=download&id=1fmScxy2EMNBsxksU90sen5QoV2bRmOPi", "p": ["12x18", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R025.jpg", "n": "R025", "d": "https://drive.google.com/uc?export=download&id=11Y5-9VvdfFVS12sQg2wCevtlQg6fNrWR", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R026.jpg", "n": "R026", "d": "https://drive.google.com/uc?export=download&id=1fMZDoiaWJO8v2AnwA8W02iWCmHIH1V67", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R027.jpg", "n": "R027", "d": "https://drive.google.com/uc?export=download&id=1IBzi8OaRXn0XhA-Be1CMXC--9AYo1gOm", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R029.jpg", "n": "R029", "d": "https://drive.google.com/uc?export=download&id=14YX3zz5-avj_xKOVtEXFZ83lrC0DcheX", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R030.jpg", "n": "R030", "d": "https://drive.google.com/uc?export=download&id=1lAcjajuxAGloQS-Av0TFdRNHs207jweL", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R031.jpg", "n": "R031", "d": "https://drive.google.com/uc?export=download&id=1s7zTCknnBOkoNHsDqFHr_7hDEwkHp4iH", "p": ["12x18", "12x18", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R032.jpg", "n": "R032", "d": "https://drive.google.com/uc?export=download&id=1fLtuAF4AA5taq2gOdC0jWwavl7WvVyMg", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R033.jpg", "n": "R033", "d": "https://drive.google.com/uc?export=download&id=1yUgbdpFV3hPLfYaRfKAFb9PgfefCsuQ0", "p": ["12x18", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R034.jpg", "n": "R034", "d": "https://drive.google.com/uc?export=download&id=196Esl88vaqTrAUAhivwBKux-yZnyp592", "p": ["12x18", "16x24", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R035.jpg", "n": "R035", "d": "https://drive.google.com/uc?export=download&id=1HCBGGzBpFAUeZ9sUBRmkm_B16iO7TW77", "p": ["12x18", "12x18", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R036.jpg", "n": "R036", "d": "https://drive.google.com/uc?export=download&id=1pqHDSZR2xQl78XGREASladRpgdrA001Y", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R037.jpg", "n": "R037", "d": "https://drive.google.com/uc?export=download&id=1uNV2lk3omaYu4laqlHFMV8WfJZeIyYz-", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R038.jpg", "n": "R038", "d": "https://drive.google.com/uc?export=download&id=1DKTh-NAO7jsSvVRAn2Rm8YRBV6Nrjn55", "p": ["12x18", "16x24", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R039.jpg", "n": "R039", "d": "https://drive.google.com/uc?export=download&id=1Mw4RLlpQFJKv1WeNYsGFxMtMyvXerSFj", "p": ["12x18", "12x18", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R040.jpg", "n": "R040", "d": "https://drive.google.com/uc?export=download&id=1qHSYmwuvssUiETWYj5XJmGphaIykbXBP", "p": ["12x18", "12x18", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R041.jpg", "n": "R041", "d": "https://drive.google.com/uc?export=download&id=1fzPiPWqJLYuFqdRMJNmtpaF5liySFC-H", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R042.jpg", "n": "R042", "d": "https://drive.google.com/uc?export=download&id=1G_CJ1bKetI1OQSpRStKUM72YvpcjdJdF", "p": ["8x12", "12x18", "20x30"], "pn": null, "new": false}, {"f": "Ramah2026_R043.jpg", "n": "R043", "d": "https://drive.google.com/uc?export=download&id=1NVH49iSi5jafgCxXvGuj3dRjKAXM1iva", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R044.jpg", "n": "R044", "d": "https://drive.google.com/uc?export=download&id=143tDRCXCw54PgzIAcxqgLwtBoq1GrBtT", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R045.jpg", "n": "R045", "d": "https://drive.google.com/uc?export=download&id=1Lju_PH2_yUMOX_71TiJipTGy9rbMRjSY", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R046.jpg", "n": "R046", "d": "https://drive.google.com/uc?export=download&id=1AJlb4CDcATRIJNgFsKyss3DTEoT-Q7gt", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R047.jpg", "n": "R047", "d": "https://drive.google.com/uc?export=download&id=1HVfsNSzdkB8E5ObHiQ-4ZIR25BRIQP-J", "p": ["8x10", "8x10", "16x20"], "pn": null, "new": true}, {"f": "Ramah2026_R048.jpg", "n": "R048", "d": "https://drive.google.com/uc?export=download&id=1QDwDyxBHYkhfc2dVqdSrHGfuIUs2lmHn", "p": [null, null, null], "pn": "Unusual 1.78:1 proportion. Prints true as a custom cut; the standard sizes would crop its edges.", "new": false}, {"f": "Ramah2026_R049.jpg", "n": "R049", "d": "https://drive.google.com/uc?export=download&id=1Nfjz-BWAz-5g5yPHKaJwlA24WlO0XSPl", "p": [null, null, null], "pn": "Unusual 1.78:1 proportion. Prints true as a custom cut; the standard sizes would crop its edges.", "new": false}, {"f": "Ramah2026_R050.jpg", "n": "R050", "d": "https://drive.google.com/uc?export=download&id=1K4CTlKY5jsYyJAYluDmmgEg0HK94KPSv", "p": ["12x18", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R051.jpg", "n": "R051", "d": "https://drive.google.com/uc?export=download&id=1JKXUq6eq2zn0nGYKZrv88M1Ph-4Sydww", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": true}, {"f": "Ramah2026_R052.jpg", "n": "R052", "d": "https://drive.google.com/uc?export=download&id=1X5mH0DZazpjLN8lTbquSDkHOoN_IQPSS", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R053.jpg", "n": "R053", "d": "https://drive.google.com/uc?export=download&id=1dH9DGz4qCYmrmeTmim2z2tPlF0FWjmH7", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R054.jpg", "n": "R054", "d": "https://drive.google.com/uc?export=download&id=1XoRT3wFpEuEtCG83yLRo543KZcxM6ySY", "p": ["8x10", "16x20", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R055.jpg", "n": "R055", "d": "https://drive.google.com/uc?export=download&id=1rou4iUqff3ssZZRlTehHdQzKU-QgMQYx", "p": ["8x10", "16x20", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R056.jpg", "n": "R056", "d": "https://drive.google.com/uc?export=download&id=1z0ipa8AxE9VTGUXHh252WluDt5RKJLAU", "p": ["12x18", "16x24", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R057.jpg", "n": "R057", "d": "https://drive.google.com/uc?export=download&id=1NqeKL_Q2ndlJghA7-9HWgU_K-jd2o-TD", "p": ["8x10", "16x20", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R058.jpg", "n": "R058", "d": "https://drive.google.com/uc?export=download&id=1C35PowIN5_VCQHLXzTQMD7X-1U3cKsdR", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R059.jpg", "n": "R059", "d": "https://drive.google.com/uc?export=download&id=1nZhXISbkBRhSI-3lliHrWKMY7U0aTCSM", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R060.jpg", "n": "R060", "d": "https://drive.google.com/uc?export=download&id=122HGihPjzJx1mIcmQKLKdL1H1lV23GTL", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R061.jpg", "n": "R061", "d": "https://drive.google.com/uc?export=download&id=1ZlZNxlizm3XLl4HvoPqZvx0bMqv5x47J", "p": ["16x16", "20x20", "30x30"], "pn": null, "new": false}, {"f": "Ramah2026_R062.jpg", "n": "R062", "d": "https://drive.google.com/uc?export=download&id=1-BLqyBlsJezTC_aSx8eZxLTY_92kOxnI", "p": ["8x12", "12x18", "20x30"], "pn": null, "new": false}, {"f": "Ramah2026_R063.jpg", "n": "R063", "d": "https://drive.google.com/uc?export=download&id=17tmrEakyEXCnMNWcXcsZQqYy6lFu0ehu", "p": ["12x18", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R064.jpg", "n": "R064", "d": "https://drive.google.com/uc?export=download&id=1GI_mWtO9BNXDV6RAJSI8goS1JJx3Toaa", "p": ["12x18", "16x24", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R065.jpg", "n": "R065", "d": "https://drive.google.com/uc?export=download&id=13zA16ZZnwnlAArT0cE6QJ5hWSKJrGJIc", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": false}, {"f": "Ramah2026_R066.jpg", "n": "R066", "d": "https://drive.google.com/uc?export=download&id=1M1220fh3cdGhS_w2jElrs5lNNXA-oUmM", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R067.jpg", "n": "R067", "d": "https://drive.google.com/uc?export=download&id=12rRrkCuUVniEwSzNBRsyQ2iXb9RDvKS_", "p": ["8x12", "12x18", "20x30"], "pn": null, "new": false}, {"f": "Ramah2026_R068.jpg", "n": "R068", "d": "https://drive.google.com/uc?export=download&id=1anjx07OYKCmul_NFgR1TgfgCSq8OTNEW", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R069.jpg", "n": "R069", "d": "https://drive.google.com/uc?export=download&id=1ecIbHZuK17sFOZ4y8Xx-2rOJTixJEsg5", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R070.jpg", "n": "R070", "d": "https://drive.google.com/uc?export=download&id=1ww1Oik5SR3Lv0FStkm3kLgMumCGGX8GY", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R071.jpg", "n": "R071", "d": "https://drive.google.com/uc?export=download&id=1QYFeMtjbVcxompFvTztaf37lffcqTKcn", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R072.jpg", "n": "R072", "d": "https://drive.google.com/uc?export=download&id=1JjWAibIBfZuCIq19E2ZPoE6xWwxB3D_E", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R073.jpg", "n": "R073", "d": "https://drive.google.com/uc?export=download&id=1dIzv_ahF26_I1UYizW8QQwK5H_Q06vm6", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R074.jpg", "n": "R074", "d": "https://drive.google.com/uc?export=download&id=1GH0uGxQi5Ca9eD1-JwaOKdoENuRfI4Rk", "p": ["8x12", "12x18", "20x30"], "pn": null, "new": false}, {"f": "Ramah2026_R075.jpg", "n": "R075", "d": "https://drive.google.com/uc?export=download&id=1l4gDv3mhFUQCroWW6d5YfGevjN_bVlAc", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R076.jpg", "n": "R076", "d": "https://drive.google.com/uc?export=download&id=1rZ_QzBjOlDre5BADRkXBa6it0GivfoSU", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R077.jpg", "n": "R077", "d": "https://drive.google.com/uc?export=download&id=1yILiJYai7_Be3iDMPXVYOoCNaZ8K63Pj", "p": ["12x18", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R078.jpg", "n": "R078", "d": "https://drive.google.com/uc?export=download&id=17dNlysi0ik0XWv4jvOXvjFNKh5lvRmIY", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": false}, {"f": "Ramah2026_R079.jpg", "n": "R079", "d": "https://drive.google.com/uc?export=download&id=16D-ef2PWcILPxXx6rLfKJjyCZpq29IIt", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": false}, {"f": "Ramah2026_R080.jpg", "n": "R080", "d": "https://drive.google.com/uc?export=download&id=1DCao3I8pzob7qLjDw4N9rYz_ovCjjBZp", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R081.jpg", "n": "R081", "d": "https://drive.google.com/uc?export=download&id=1rFYfEXxv_hmG-o87gEt5cgewbwJyCXoh", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": false}, {"f": "Ramah2026_R082.jpg", "n": "R082", "d": "https://drive.google.com/uc?export=download&id=1FMyvADmwWMi3jthzW9DwrV64Y_ME39BJ", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R083.jpg", "n": "R083", "d": "https://drive.google.com/uc?export=download&id=1DwBrbHsyN-4jeBXJrT1ILc112VFKN2e9", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R084.jpg", "n": "R084", "d": "https://drive.google.com/uc?export=download&id=1svYwn1zPvbUdsy8SuiGJHg_1V0zRtjhn", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": false}, {"f": "Ramah2026_R085.jpg", "n": "R085", "d": "https://drive.google.com/uc?export=download&id=1XwRHi_3q26yCXXD38aafuckWYPs4bshW", "p": [null, null, null], "pn": "Unusual 1.78:1 proportion. Prints true as a custom cut; the standard sizes would crop its edges.", "new": false}, {"f": "Ramah2026_R086.jpg", "n": "R086", "d": "https://drive.google.com/uc?export=download&id=1-vJbn1ClOAVzQiLtrfg8gvj3FhARKLWq", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R087.jpg", "n": "R087", "d": "https://drive.google.com/uc?export=download&id=1vYwyipkWh8eiBDa9vrRVf9fFeoy5enWw", "p": ["8x10", "8x10", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R088.jpg", "n": "R088", "d": "https://drive.google.com/uc?export=download&id=1VnVw5YQVi59a05OpIDLkeSfzs2SFDpTu", "p": ["8x10", "16x20", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R089.jpg", "n": "R089", "d": "https://drive.google.com/uc?export=download&id=1aVWyOoBrxuea7yySbIAdx7rCcOxHMV_m", "p": ["12x18", "16x24", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R090.jpg", "n": "R090", "d": "https://drive.google.com/uc?export=download&id=1cdMBB5YbckCxALIOy04oRUg0Z_k9jHbi", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R091.jpg", "n": "R091", "d": "https://drive.google.com/uc?export=download&id=13ELA7s03lmWqjHlA9UR-JOUp5Sim3K5x", "p": ["8x10", "16x20", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R092.jpg", "n": "R092", "d": "https://drive.google.com/uc?export=download&id=1I3yHmEIcEEvGiJEJqtNW9OjA1tZVzNhf", "p": ["8x12", "12x18", "20x30"], "pn": null, "new": false}, {"f": "Ramah2026_R093.jpg", "n": "R093", "d": "https://drive.google.com/uc?export=download&id=1I4WOHTfQTcgnsIOaHOjiLrgrVMjrW0UT", "p": ["8x10", "8x10", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R094.jpg", "n": "R094", "d": "https://drive.google.com/uc?export=download&id=1pMVSWSs3F0kHDrR7Ox87pxz48GprvWZj", "p": ["12x18", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R095.jpg", "n": "R095", "d": "https://drive.google.com/uc?export=download&id=1k0NwvaPe9uKOnV5O-SaAA_XdKk34xoG0", "p": ["8x10", "16x20", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R096.jpg", "n": "R096", "d": "https://drive.google.com/uc?export=download&id=1siBLBUY5FvIxvBDv4H244ZdV7FkctNmD", "p": ["12x18", "16x24", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R097.jpg", "n": "R097", "d": "https://drive.google.com/uc?export=download&id=1polnh5eW3hNfEhOoYSYTbhWZcFHIkdV1", "p": ["12x18", "12x18", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R098.jpg", "n": "R098", "d": "https://drive.google.com/uc?export=download&id=1mk0sDeym2GcSITzKVTb7npfr-rlRNxs9", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": false}, {"f": "Ramah2026_R099.jpg", "n": "R099", "d": "https://drive.google.com/uc?export=download&id=13nGcjhKnQZY22yITXzwiSA0cfGOpIIYU", "p": ["8x12", "12x18", "20x30"], "pn": null, "new": false}, {"f": "Ramah2026_R100.jpg", "n": "R100", "d": "https://drive.google.com/uc?export=download&id=1a9oUKtz_xjQE595AzFkleJnXcpea4RQB", "p": ["12x12", "16x16", "24x24"], "pn": null, "new": false}, {"f": "Ramah2026_R101.jpg", "n": "R101", "d": "https://drive.google.com/uc?export=download&id=1YjyDggs4bUYpHmPAMftE5VckB3ubhD9M", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": false}, {"f": "Ramah2026_R102.jpg", "n": "R102", "d": "https://drive.google.com/uc?export=download&id=1Tev0LsUpB_wYemma081rOWXWt-slICBW", "p": ["12x18", "16x24", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R103.jpg", "n": "R103", "d": "https://drive.google.com/uc?export=download&id=1nhtDS-vueG4tXrNOPCoph1yIPDHCKPye", "p": ["12x18", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R104.jpg", "n": "R104", "d": "https://drive.google.com/uc?export=download&id=16qResQu5LfkqXEgXZRns05s8IADFYHNt", "p": ["12x18", "12x18", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R105.jpg", "n": "R105", "d": "https://drive.google.com/uc?export=download&id=1yVLnjnVd-nGW2i1-8EgV7kZKnZRVF_2G", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R106.jpg", "n": "R106", "d": "https://drive.google.com/uc?export=download&id=1gMW6X6lkxkFAuEv4xMJgfVVOamHAmhYw", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R107.jpg", "n": "R107", "d": "https://drive.google.com/uc?export=download&id=16nIOh6wFtq8sY5d9ZMcipYzw4zucpaso", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R108.jpg", "n": "R108", "d": "https://drive.google.com/uc?export=download&id=1gknDi0DREFNb5WoG24jJoKVsn0Q3XcMl", "p": ["12x18", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R109.jpg", "n": "R109", "d": "https://drive.google.com/uc?export=download&id=1aq0xYyOmePJ3Bzlkd44esLDYOha2UYzW", "p": ["12x18", "16x24", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R110.jpg", "n": "R110", "d": "https://drive.google.com/uc?export=download&id=14JtnfCFjyQQ3mzBbIeIuHzWjcaDerG0B", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R111.jpg", "n": "R111", "d": "https://drive.google.com/uc?export=download&id=11wOaPos7lfS--YBHVTX9ke9tye-YhG2A", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R112.jpg", "n": "R112", "d": "https://drive.google.com/uc?export=download&id=145SmRF730Fx0MS_-FhxIC-MJyh8TIHeh", "p": [null, null, null], "pn": "Unusual 1.78:1 proportion. Prints true as a custom cut; the standard sizes would crop its edges.", "new": false}, {"f": "Ramah2026_R113.jpg", "n": "R113", "d": "https://drive.google.com/uc?export=download&id=1ri189mFVD3FsTqSVJMGOSUZzl2uhihLV", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R114.jpg", "n": "R114", "d": "https://drive.google.com/uc?export=download&id=1Q_N6qeVffRyNFsMvy6rbqStqv_DP6RGA", "p": ["8x10", "8x10", "16x20"], "pn": null, "new": false}, {"f": "Ramah2026_R115.jpg", "n": "R115", "d": "https://drive.google.com/uc?export=download&id=1GKwp3mXs8FvsWYf9RKzOvd0su-CeU5d0", "p": [null, null, null], "pn": "Unusual 1.78:1 proportion. Prints true as a custom cut; the standard sizes would crop its edges.", "new": false}, {"f": "Ramah2026_R116.jpg", "n": "R116", "d": "https://drive.google.com/uc?export=download&id=11CpE2rfYygTMbjJH3w7nTmoDILca04Is", "p": ["8x10", "16x20", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R117.jpg", "n": "R117", "d": "https://drive.google.com/uc?export=download&id=1xByCs9DqkRRzIAREDryEPRjZa_B6b_aB", "p": ["8x10", "16x20", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R118.jpg", "n": "R118", "d": "https://drive.google.com/uc?export=download&id=1g62QClO2ECG-2bXYnRBkCAvb5Xz5fD_p", "p": ["8x10", "16x20", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R119.jpg", "n": "R119", "d": "https://drive.google.com/uc?export=download&id=1CVHFo73nbuEaLBp2Pjsx_zyQQYDzf2AL", "p": ["8x10", "16x20", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R120.jpg", "n": "R120", "d": "https://drive.google.com/uc?export=download&id=1UUuP_3epWkR9aLRcdARuL20eVKUq_IpX", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": false}, {"f": "Ramah2026_R121.jpg", "n": "R121", "d": "https://drive.google.com/uc?export=download&id=1VSy8Cf40YevSDFQgR7vAMkCdPjqQQtTS", "p": ["12x18", "12x18", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R122.jpg", "n": "R122", "d": "https://drive.google.com/uc?export=download&id=1GU_aSXhhaRJGiQIOQIjjYCqIx68jyZaK", "p": ["12x18", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R123.jpg", "n": "R123", "d": "https://drive.google.com/uc?export=download&id=1bJ-zSYQclgIhESZ667m8jKeWNoR_wTzi", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": false}, {"f": "Ramah2026_R124.jpg", "n": "R124", "d": "https://drive.google.com/uc?export=download&id=1fCDndKm9zXV23mLhyeKfD9eau9UHDvOn", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R125.jpg", "n": "R125", "d": "https://drive.google.com/uc?export=download&id=1tCLcsBvFCSR6R5M4hmeBNBxtxU8qo6xQ", "p": ["8x10", "8x10", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R126.jpg", "n": "R126", "d": "https://drive.google.com/uc?export=download&id=1Oq5P3OVv-nNiRO1cy4EcLf4ynAbclqvD", "p": ["8x12", "12x18", "20x30"], "pn": null, "new": false}, {"f": "Ramah2026_R127.jpg", "n": "R127", "d": "https://drive.google.com/uc?export=download&id=183d7-CamyzttYmSTNZAbN-v4Qrerz_H4", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R128.jpg", "n": "R128", "d": "https://drive.google.com/uc?export=download&id=109Z8Ty88EOElAux9omLX3QAXEo4JxXcs", "p": ["8x12", "12x18", "20x30"], "pn": null, "new": false}, {"f": "Ramah2026_R129.jpg", "n": "R129", "d": "https://drive.google.com/uc?export=download&id=15r1MZj57gt4iUnWu9WlPQksdG8pBW03A", "p": ["8x12", "12x18", "20x30"], "pn": null, "new": false}, {"f": "Ramah2026_R130.jpg", "n": "R130", "d": "https://drive.google.com/uc?export=download&id=1SDqadr-9mduow2cpVkj3jtLUfJpjr-zG", "p": ["12x18", "12x18", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R131.jpg", "n": "R131", "d": "https://drive.google.com/uc?export=download&id=1KaAnNfBvPkqGuXbmv9MZwSzvCSulDKya", "p": ["12x18", "16x24", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R132.jpg", "n": "R132", "d": "https://drive.google.com/uc?export=download&id=1IwNM1V8quKysoU2DT_v2Cz-aZmtBiUAr", "p": ["12x18", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R133.jpg", "n": "R133", "d": "https://drive.google.com/uc?export=download&id=1eGUvb0XfCNwRRreBG5OFiU_TFXI0n3UT", "p": ["12x18", "16x24", "24x36"], "pn": null, "new": false}, {"f": "Ramah2026_R134.jpg", "n": "R134", "d": "https://drive.google.com/uc?export=download&id=19Y5dzueBVAfrQAuuXmx1S7AOHeB7gbmj", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R135.jpg", "n": "R135", "d": "https://drive.google.com/uc?export=download&id=1CuAgsxdos1qmYTXnDqX90zxKoIZ8nBG8", "p": ["12x18", "16x24", "30x45"], "pn": null, "new": false}, {"f": "Ramah2026_R136.jpg", "n": "R136", "d": "https://drive.google.com/uc?export=download&id=1jVQjP9FtNka3OSX6Gv0rIpuGcwhzdzFN", "p": ["8x12", "8x12", "16x24"], "pn": null, "new": false}, {"f": "Ramah2026_R137.jpg", "n": "R137", "d": "https://drive.google.com/uc?export=download&id=14Y-U3snHE6Hq1Q6upYTEz_okzQww5zTv", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": false}, {"f": "Ramah2026_R138.jpg", "n": "R138", "d": "https://drive.google.com/uc?export=download&id=1WbNjJj5JYFm1KT707Zxt2xk61947yIuW", "p": ["8x10", "16x20", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R139.jpg", "n": "R139", "d": "https://drive.google.com/uc?export=download&id=1rDTYOjdzmzcAVoGRIOfb4YkDSuGbmdVz", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": false}, {"f": "Ramah2026_R140.jpg", "n": "R140", "d": "https://drive.google.com/uc?export=download&id=1s2LLDohB3ltn80qXpA2W80GlFVizFIog", "p": ["8x10", "16x20", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R141.jpg", "n": "R141", "d": "https://drive.google.com/uc?export=download&id=1-RnvxyPZWzNcK-mSoP6Hg5v2VPEzVKFx", "p": ["8x10", "16x20", "24x30"], "pn": null, "new": false}, {"f": "Ramah2026_R142.jpg", "n": "R142", "d": "https://drive.google.com/uc?export=download&id=1u_dMdqbpBRgT5paYEXTGTl0-B2JjXSZi", "p": ["8x10", "16x20", "24x30"], "pn": null, "new": true}, {"f": "Ramah2026_R143.jpg", "n": "R143", "d": "https://drive.google.com/uc?export=download&id=1X91w1nsqlC5p1CFOZIiU9qrFbCmDexYe", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": true}, {"f": "Ramah2026_R144.jpg", "n": "R144", "d": "https://drive.google.com/uc?export=download&id=14ZrFyy6otR9edwFFLm342XzMSZ1N8LYM", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": true}, {"f": "Ramah2026_R145.jpg", "n": "R145", "d": "https://drive.google.com/uc?export=download&id=17hRZDvt4FNSZByLtXWDPp2YiYbGsZD-_", "p": ["8x10", "16x20", "24x30"], "pn": null, "new": true}, {"f": "Ramah2026_R146.jpg", "n": "R146", "d": "https://drive.google.com/uc?export=download&id=1MAqJNlbuSEDBTDox3-RBs_Ne6-g9UDPl", "p": ["12x18", "16x24", "24x36"], "pn": null, "new": true}, {"f": "Ramah2026_R147.jpg", "n": "R147", "d": "https://drive.google.com/uc?export=download&id=14OOj9TnzKWm0PdHfnpJaBNm9MIkA0z1X", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": true}, {"f": "Ramah2026_R148.jpg", "n": "R148", "d": "https://drive.google.com/uc?export=download&id=1avSNQlV5sxxwv8gvVB9wgIhpYJ8Fsazl", "p": ["12x18", "16x24", "24x36"], "pn": null, "new": true}, {"f": "Ramah2026_R149.jpg", "n": "R149", "d": "https://drive.google.com/uc?export=download&id=126SSGlTJv8DmZz53Y3WAQ6IUevELgBQ_", "p": ["12x18", "16x24", "30x45"], "pn": null, "new": true}, {"f": "Ramah2026_R150.jpg", "n": "R150", "d": "https://drive.google.com/uc?export=download&id=1A_cyRt8jwu9vsvI77I02TlkN0ZlRBpHe", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": true}, {"f": "Ramah2026_R151.jpg", "n": "R151", "d": "https://drive.google.com/uc?export=download&id=1hwgtppKjizUw5tdnkpyuR_ylwqC-4cbO", "p": ["12x18", "12x18", "24x36"], "pn": null, "new": true}, {"f": "Ramah2026_R152.jpg", "n": "R152", "d": "https://drive.google.com/uc?export=download&id=14XnsMG4sLo4zTNXLcfR9bsmV5WWfo6Q3", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": true}, {"f": "Ramah2026_R153.jpg", "n": "R153", "d": "https://drive.google.com/uc?export=download&id=1Z38BPLpI6xaP6KLzQzJRdrKTa-flsdMr", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": true}, {"f": "Ramah2026_R154.jpg", "n": "R154", "d": "https://drive.google.com/uc?export=download&id=1HTV_yut3oXLBz2NxQoQZI8bYAiuhfxyS", "p": ["12x18", "16x24", "24x36"], "pn": null, "new": true}, {"f": "Ramah2026_R155.jpg", "n": "R155", "d": "https://drive.google.com/uc?export=download&id=1yMbJA520p3Inh3UM2CgeYVto-hmN1L0M", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": true}, {"f": "Ramah2026_R156.jpg", "n": "R156", "d": "https://drive.google.com/uc?export=download&id=1iM1rFhBExHulM70_eNOPkOSdBhkJq7Mw", "p": ["16x24", "20x30", "30x45"], "pn": null, "new": true}, {"f": "Ramah2026_R157.jpg", "n": "R157", "d": "https://drive.google.com/uc?export=download&id=14aJiFfwYOjg-4_VIyx_XJh2fMnFhaob_", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": true}, {"f": "Ramah2026_R158.jpg", "n": "R158", "d": "https://drive.google.com/uc?export=download&id=1YYwqn0yN8PaM-WYjdWJz-lUdOqGNr9e1", "p": [null, null, null], "pn": "Unusual 1.78:1 proportion. Prints true as a custom cut; the standard sizes would crop its edges.", "new": true}, {"f": "Ramah2026_R159.jpg", "n": "R159", "d": "https://drive.google.com/uc?export=download&id=1DGv9qH47U6B2vjRzsemLANBLf8pN1D6d", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": true}, {"f": "Ramah2026_R160.jpg", "n": "R160", "d": "https://drive.google.com/uc?export=download&id=1wIiTT-tXF0BiiI-dIRNoH5bvvQRBQ8Ah", "p": ["12x18", "16x24", "24x36"], "pn": null, "new": true}, {"f": "Ramah2026_R161.jpg", "n": "R161", "d": "https://drive.google.com/uc?export=download&id=1519lmHyX-whl9dMvFkSHCR1iOfdEJuTV", "p": ["16x24", "16x24", "30x45"], "pn": null, "new": true}, {"f": "Ramah2026_R162.jpg", "n": "R162", "d": "https://drive.google.com/uc?export=download&id=1qNqRrcpmQc7gLhXB2TiwzYFtM-RmL5re", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": true}, {"f": "Ramah2026_R163.jpg", "n": "R163", "d": "https://drive.google.com/uc?export=download&id=1JM27E3r5V17YVnwpD4XNc6SAISvQhJ5R", "p": ["12x18", "12x18", "24x36"], "pn": null, "new": true}, {"f": "Ramah2026_R164.jpg", "n": "R164", "d": "https://drive.google.com/uc?export=download&id=1d8GirYgDD2bAHgp3akVHVU47oB9yrSqE", "p": ["16x20", "16x20", "32x40"], "pn": null, "new": true}];
+function $(i){return document.getElementById(i);}
+if("".length>8){$("zipall").style.display="";}
+function printText(r){
+  if(r.pn) return r.pn;
+  var m=["metal","paper","canvas"],out=[];
+  for(var i=0;i<3;i++) if(r.p[i]) out.push("<b>"+r.p[i].replace("x","\u00d7")+"\u2033</b> "+m[i]);
+  return out.length? "Prints to "+out.join(" \u00b7 ") : "";
+}
+var grid=$("grid"), sel={}, selMode=false;
+ALL.forEach(function(r,i){
+  var c=document.createElement("div");c.className="c";
+  c.innerHTML='<img loading=lazy src="img/thumb/'+r.f+'" alt="frame '+r.n+'">'+
+              '<span class=n>'+r.n+'</span>'+(r.new?'<span class=isnew>NEW</span>':'');
+  c.onclick=function(){
+    if(selMode){ if(sel[r.n])delete sel[r.n];else sel[r.n]=1;
+      c.className=sel[r.n]?"c on":"c";paintSel();return;}
+    openLb(i);};
+  grid.appendChild(c);});
+function paintSel(){var k=Object.keys(sel).length;
+  $("selct").textContent=k+" selected";$("selget").disabled=!k;}
+$("selmode").onclick=function(){selMode=true;document.body.className="sel";};
+$("seldone").onclick=function(){selMode=false;document.body.className="";
+  sel={};document.querySelectorAll(".grid .c.on").forEach(function(c){c.className="c";});paintSel();};
+$("selget").onclick=function(){
+  var rows=$("getrows");rows.innerHTML="";
+  ALL.filter(function(r){return sel[r.n];}).forEach(function(r){
+    var d=document.createElement("div");d.className="row";
+    d.innerHTML='<b>'+r.n+'</b><a href="img/web/'+r.f+'" download>Web</a>'+
+      (r.d?'<a href="'+r.d+'" target=_blank rel=noopener>Full res</a>':'')+
+      '<span class=sz>'+printText(r)+'</span>';
+    rows.appendChild(d);});
+  $("getlist").className="on";};
+document.querySelector("#getlist .x").onclick=function(){$("getlist").className="";};
+var cur=0;
+function openLb(i){cur=i;paintLb();$("lb").className="on";}
+function paintLb(){if(cur<0)cur=ALL.length-1;if(cur>=ALL.length)cur=0;
+  var r=ALL[cur];$("lbi").src="img/present/"+r.f;
+  $("lbm").textContent=r.n+"  \u00b7  "+(cur+1)+" / "+ALL.length;
+  $("lbsz").innerHTML=printText(r);
+  $("lbw").href="img/web/"+r.f;$("lbw").setAttribute("download",r.f);
+  $("lbf").href=r.d||"https://drive.google.com/drive/folders/1j6MonyN4tPrkfKkl_5V0NEeBfN545M4t";}
+document.querySelector("#lb .zl").onclick=function(){cur--;paintLb();};
+document.querySelector("#lb .zr").onclick=function(){cur++;paintLb();};
+document.querySelector("#lb .x").onclick=function(){$("lb").className="";};
+var sIdx=0,sTimer=null,sFront=null;
+function sRender(){if(sIdx<0)sIdx=ALL.length-1;if(sIdx>=ALL.length)sIdx=0;
+  var inc=(sFront===$("sa"))?$("sb"):$("sa"),out=(sFront===$("sa"))?$("sa"):$("sb");
+  inc.className="";void inc.offsetWidth;
+  inc.onload=function(){inc.className="show";out.className="";sFront=inc;};
+  inc.src="img/present/"+ALL[sIdx].f;
+  if(inc.complete)inc.onload();}
+function sTick(){sTimer=setTimeout(function(){sIdx++;sRender();sTick();},5000);}
+function sEnd(){clearTimeout(sTimer);$("stage").className="";}
+$("play").onclick=function(){sIdx=0;sFront=null;
+  $("sa").className="";$("sb").className="";$("stage").className="on";sRender();sTick();};
+document.querySelector("#stage .x").onclick=sEnd;
+document.querySelector("#stage .zl").onclick=function(){clearTimeout(sTimer);sIdx--;sRender();sTick();};
+document.querySelector("#stage .zr").onclick=function(){clearTimeout(sTimer);sIdx++;sRender();sTick();};
+document.addEventListener("keydown",function(e){
+  if($("stage").className==="on"){
+    if(e.key==="Escape")sEnd();
+    else if(e.key==="ArrowRight"){clearTimeout(sTimer);sIdx++;sRender();sTick();}
+    else if(e.key==="ArrowLeft"){clearTimeout(sTimer);sIdx--;sRender();sTick();}
+    return;}
+  if($("lb").className==="on"){
+    if(e.key==="Escape")$("lb").className="";
+    else if(e.key==="ArrowRight"){cur++;paintLb();}
+    else if(e.key==="ArrowLeft"){cur--;paintLb();}}});
+</script>
+<script data-goatcounter="https://abbaphoto.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body></html>
