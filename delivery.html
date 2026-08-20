@@ -10,7 +10,7 @@
 @font-face{font-family:Onest;src:url(fonts/onest-800.woff2) format('woff2');font-weight:800;font-display:swap}
 :root{--ground:#02252F;--panel:#163943;--line:rgba(255,253,245,.14);
       --ink:#FFFDF5;--muted:#9FB3BC;--faint:#6E858F;
-      --sky:#6EC1E4;--sky2:#8FD2EE;--earth:#887A5F;--sand:#EEE8CF}
+      --gold:#EDB71E;--sky:#6EC1E4;--sky2:#8FD2EE;--earth:#887A5F;--sand:#EEE8CF}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--ground);color:var(--ink);
      font-family:Onest,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
@@ -19,9 +19,9 @@ a{color:var(--sky);text-decoration:none}a:hover{text-decoration:underline}
 .home{position:absolute;top:16px;left:20px;font-size:12px;letter-spacing:.14em;
       text-transform:uppercase;color:var(--faint)}
 .open{max-width:760px;margin:0 auto;padding:84px 20px 46px;text-align:center}
-h1{font-weight:800;font-size:clamp(32px,6vw,50px);letter-spacing:-.015em}
+h1{font-weight:800;font-size:clamp(32px,6vw,50px);letter-spacing:-.015em;color:var(--gold)}
 .date{color:var(--muted);font-size:14.5px;margin-top:6px}
-.rule{width:56px;height:2px;background:var(--sky);margin:22px auto}
+.rule{width:56px;height:2px;background:var(--gold);margin:22px auto}
 .play{background:var(--sky);color:#02252F;border:0;border-radius:5px;padding:13px 30px;
       font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
       cursor:pointer;font-family:inherit}
@@ -38,7 +38,7 @@ h1{font-weight:800;font-size:clamp(32px,6vw,50px);letter-spacing:-.015em}
 .dot{color:var(--faint);margin:0 4px}
 .wrap{max-width:1280px;margin:44px auto 0;padding:0 16px}
 .secthead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
-.secthead h2{font-weight:800;font-size:24px}
+.secthead h2{font-weight:800;font-size:24px;color:var(--gold)}
 .secthead span{font-size:11px;letter-spacing:.14em;color:var(--faint);text-transform:uppercase}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
 .grid .c{position:relative;cursor:pointer;border-radius:4px;overflow:hidden;background:var(--panel);
@@ -66,7 +66,7 @@ body.sel #selbar{display:flex}
          overflow-y:auto;padding:46px 18px}
 #getlist.on{display:block}
 #getlist .inner{max-width:660px;margin:0 auto}
-#getlist h3{font-weight:800;font-size:22px;margin-bottom:6px}
+#getlist h3{font-weight:800;font-size:22px;margin-bottom:6px;color:var(--gold)}
 #getlist p{color:var(--muted);font-size:13px;margin-bottom:18px}
 #getlist .row{display:flex;align-items:center;gap:12px;padding:10px 0;
               border-bottom:1px solid var(--line);flex-wrap:wrap}
