@@ -226,6 +226,32 @@
   </div>
 </div>
 
+
+<!--TABS:OPEN--><style>
+/* the two modes, chosen at the top */
+.rtabs{display:flex;gap:8px;justify-content:center;padding:20px 16px 4px;flex-wrap:wrap}
+.rtab{background:transparent;border:1px solid rgba(243,241,236,.28);color:inherit;
+ border-radius:24px;padding:10px 26px;font:600 14px inherit;cursor:pointer;letter-spacing:.01em}
+.rtab[aria-selected=true]{background:#EDB71E;border-color:#EDB71E;color:#02252F}
+#tab-gallery{display:none}
+#tab-gallery.on{display:block}
+#tab-guide{display:none}
+#tab-guide.on{display:block}
+.glead{max-width:64ch;margin:22px auto 0;padding:0 20px;text-align:center;opacity:.72;
+ font-size:14.5px;line-height:1.55}
+.gcount{display:block;margin-top:6px;font-size:12px;opacity:.7}
+</style>
+
+<div class=rtabs role=tablist>
+ <button class=rtab role=tab data-tab=gallery aria-selected=false>Gallery</button>
+ <button class=rtab role=tab data-tab=guide aria-selected=true>Field Guide</button>
+</div>
+<div id=tab-gallery>
+ <p class=glead>Every photograph from the week, in order, each one with its file sizes.
+ <span class=gcount id=gcount></span></p>
+ <div class="grid" id=ggrid></div>
+</div>
+<div id=tab-guide class=on>
 <section id="added-august">
 <h2>Added in August</h2>
 <p class="lede">Frames from the August edit. They are not placed into the movements above yet; tell me where they belong and they will move.</p>
@@ -348,7 +374,9 @@
   and says how large it prints.</p>
 </section>
 
-<nav><div class="in"><a href="first-look/">First Look</a><a href="reel/">The Reel</a><a href="field-guide.html">Field Guide</a><a href="#layouts">Book Layouts</a><a href="#downloads">Download Everything</a><a href="#printing">Printing</a><a href="#donorbook">Donor Book</a><a href="#fineart">Fine Art</a><span class="navmv" data-mvlabel="the-day">The day</span><button class="filt" data-sec="opening-day">Opening day <i>17</i></button><button class="filt" data-sec="the-walk-in">The walk in <i>4</i></button><button class="filt" data-sec="climbing">Climbing <i>11</i></button><button class="filt" data-sec="on-the-rocks">On the rocks <i>4</i></button><button class="filt" data-sec="biking-and-the-trail">Biking and the trail <i>6</i></button><button class="filt" data-sec="learning-and-making">Learning and making <i>2</i></button><button class="filt" data-sec="free-time">Free time <i>10</i></button><button class="filt" data-sec="the-goats-and-the-flock">The goats and the flock <i>4</i></button><button class="filt" data-sec="around-camp">Around camp <i>3</i></button><span class="navmv" data-mvlabel="the-overnight">The overnight</span><button class="filt" data-sec="prospector">Prospector <i>13</i></button><button class="filt" data-sec="campfire">Campfire <i>4</i></button><span class="navmv" data-mvlabel="shabbat">Shabbat</span><button class="filt" data-sec="shabbat">Shabbat <i>21</i></button><button class="filt" data-sec="havdalah">Havdalah <i>8</i></button><span class="navmv" data-mvlabel="land-and-sky">Land and sky</span><button class="filt" data-sec="the-land-by-day">The land by day <i>7</i></button><button class="filt" data-sec="dawn-and-dusk">Dawn and dusk <i>3</i></button><button class="filt" data-sec="the-camp-at-night">The camp at night <i>17</i></button><button class="filt" data-sec="night-sky-studies">Night sky studies <i>6</i></button><button id="clearfilt" hidden>Clear</button></div></nav>
+<nav><div class="in"><a href="first-look/">First Look</a><a href="reel/">The Reel</a><a href="field-guide.html">Media Team Guide</a><a href="#layouts">Book Layouts</a><a href="#downloads">Download Everything</a><a href="#printing">Printing</a><a href="#donorbook">Donor Book</a><a href="#fineart">Fine Art</a><span class="navmv" data-mvlabel="the-day">The day</span><button class="filt" data-sec="opening-day">Opening day <i>17</i></button><button class="filt" data-sec="the-walk-in">The walk in <i>4</i></button><button class="filt" data-sec="climbing">Climbing <i>11</i></button><button class="filt" data-sec="on-the-rocks">On the rocks <i>4</i></button><button class="filt" data-sec="biking-and-the-trail">Biking and the trail <i>6</i></button><button class="filt" data-sec="learning-and-making">Learning and making <i>2</i></button><button class="filt" data-sec="free-time">Free time <i>10</i></button><button class="filt" data-sec="the-goats-and-the-flock">The goats and the flock <i>4</i></button><button class="filt" data-sec="around-camp">Around camp <i>3</i></button><span class="navmv" data-mvlabel="the-overnight">The overnight</span><button class="filt" data-sec="prospector">Prospector <i>13</i></button><button class="filt" data-sec="campfire">Campfire <i>4</i></button><span class="navmv" data-mvlabel="shabbat">Shabbat</span><button class="filt" data-sec="shabbat">Shabbat <i>21</i></button><button class="filt" data-sec="havdalah">Havdalah <i>8</i></button><span class="navmv" data-mvlabel="land-and-sky">Land and sky</span><button class="filt" data-sec="the-land-by-day">The land by day <i>7</i></button><button class="filt" data-sec="dawn-and-dusk">Dawn and dusk <i>3</i></button><button class="filt" data-sec="the-camp-at-night">The camp at night <i>17</i></button><button class="filt" data-sec="night-sky-studies">Night sky studies <i>6</i></button><button id="clearfilt" hidden>Clear</button></div></nav>
+
+
 <p class="filthint" id="filthint" hidden></p>
 
 <section id="layouts">
@@ -1861,6 +1889,57 @@
 </div></div>
 </section>
 
+
+
+</div><!--tabguide-->
+<script>
+(function(){
+  /* The Gallery is built from the cards already on this page, so it inherits the
+     guide's own styles and its lightbox with no second stylesheet and no second
+     script. Cards appear more than once in the guide (a frame can sit in a
+     section and in a pick list), so dedupe by frame number and sort. */
+  var built = false;
+  function frameNo(card){
+    var n = card.querySelector('.num');
+    if (!n) return null;
+    var m = n.textContent.trim().match(/([0-9]+)/);
+    return m ? parseInt(m[1], 10) : null;
+  }
+  function build(){
+    if (built) return;
+    var seen = {}, rows = [];
+    var cards = document.querySelectorAll('#tab-guide .card');
+    if (!cards.length) cards = document.querySelectorAll('.card');
+    for (var i = 0; i < cards.length; i++){
+      var no = frameNo(cards[i]);
+      if (no === null || seen[no]) continue;
+      seen[no] = 1;
+      rows.push([no, cards[i]]);
+    }
+    rows.sort(function(a, b){ return a[0] - b[0]; });
+    var g = document.getElementById('ggrid');
+    var frag = document.createDocumentFragment();
+    rows.forEach(function(r){ frag.appendChild(r[1].cloneNode(true)); });
+    g.appendChild(frag);
+    document.getElementById('gcount').textContent = rows.length + ' photographs';
+    built = true;
+    /* no rewiring needed: the viewer listens on the document and recomputes its
+       list on open, so cloned cards work the moment they exist. */
+  }
+  document.querySelectorAll('.rtab').forEach(function(t){
+    t.onclick = function(){
+      var which = t.getAttribute('data-tab');
+      document.querySelectorAll('.rtab').forEach(function(o){
+        o.setAttribute('aria-selected', o === t ? 'true' : 'false'); });
+      if (which === 'gallery') build();
+      document.getElementById('tab-gallery').className = which === 'gallery' ? 'on' : '';
+      document.getElementById('tab-guide').className = which === 'guide' ? 'on' : '';
+      window.scrollTo(0, 0);
+    };
+  });
+})();
+</script>
+<!--TABS:CLOSE-->
 <footer>
   <p>Photographs by Noah Gallagher &middot; Abba Photo &middot;
   <a href="https://www.abba-photo.com">abba-photo.com</a> &middot;
@@ -2125,6 +2204,8 @@
 
 
 
+
+
 <!--LIGHTBOX:START-->
 <style>
 /* Near black, not the camp's green. A coloured ground behind a photograph
@@ -2198,16 +2279,34 @@
 
 <script>
 (function(){
-  var links = [].slice.call(document.querySelectorAll('a.ph[href]'));
-  if (!links.length) return;
+  /* Delegated, not bound per element. The Gallery tab clones cards into a new
+     grid after load, and anything bound at load time would not reach them.
+     The link list is recomputed on open so Back and Next walk whatever is
+     actually on screen. */
   var box = document.getElementById('rlb'), img = document.getElementById('rlbimg'),
-      who = document.getElementById('rlbwho'), at = 0;
+      who = document.getElementById('rlbwho'), at = 0, links = [];
+  function collect(scope){
+    var vis = document.getElementById('tab-gallery');
+    var root = (vis && vis.className === 'on') ? vis : document;
+    return [].slice.call(root.querySelectorAll('a.ph[href]'));
+  }
 
   function cardOf(a){ return a.closest('.card') || a.parentElement; }
   function frameOf(a){ var n = a.querySelector('.num'); return n ? n.textContent.trim() : ''; }
   function printOf(a){ var c = cardOf(a), s = c && c.querySelector('.sz'); return s ? s.innerHTML : ''; }
-  function dlOf(a, i){ var c = cardOf(a), rows = c ? c.querySelectorAll('.dlrow a.dl') : [];
-                       return rows[i] ? rows[i].getAttribute('href') : null; }
+  /* The guide has two card shapes: the August section wraps its downloads in
+     .dlrow, the rest do not. So match on the LABEL rather than the container,
+     which is stable across both. */
+  function dlOf(a, want){
+    var c = cardOf(a); if (!c) return null;
+    var links = c.querySelectorAll('a[href]');
+    for (var i = 0; i < links.length; i++){
+      var txt = (links[i].textContent || '').trim().toLowerCase();
+      if (want === 'web'  && txt.indexOf('web') === 0)  return links[i].getAttribute('href');
+      if (want === 'full' && txt.indexOf('full') === 0) return links[i].getAttribute('href');
+    }
+    return null;
+  }
 
   function show(i){
     if (i < 0 || i >= links.length) return;
@@ -2217,7 +2316,7 @@
     var thumb = a.querySelector('img');
     img.alt = thumb ? thumb.alt : '';
     who.innerHTML = '<b>' + frameOf(a) + '</b><span>' + printOf(a) + '</span>';
-    var w = dlOf(a, 0), f = dlOf(a, 1);
+    var w = dlOf(a, 'web'), f = dlOf(a, 'full');
     var we = document.getElementById('rlbweb'), fu = document.getElementById('rlbfull');
     if (w){ we.href = w; we.style.display = ''; } else { we.style.display = 'none'; }
     if (f){ fu.href = f; fu.style.display = ''; } else { fu.style.display = 'none'; }
@@ -2227,14 +2326,16 @@
   function openAt(i){ show(i); box.classList.add('on'); document.body.style.overflow = 'hidden'; }
   function close(){ box.classList.remove('on'); document.body.style.overflow = ''; img.src = ''; }
 
-  links.forEach(function(a, i){
-    a.addEventListener('click', function(e){
-      if (e.target.closest && e.target.closest('.pick')){ e.preventDefault(); return; }
-      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
-      e.preventDefault();
-      openAt(i);
-    });
-  });
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a.ph[href]') : null;
+    if (!a) return;
+    if (e.target.closest('.pick')){ e.preventDefault(); return; }
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    e.preventDefault();
+    links = collect();
+    var i = links.indexOf(a);
+    openAt(i === -1 ? 0 : i);
+  }, true);
 
   document.getElementById('rlbclose').onclick = close;
   document.getElementById('rlbstage').onclick = function(e){ if (e.target.id === 'rlbstage') close(); };
