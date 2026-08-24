@@ -1,1 +1,7 @@
 .DS_Store
+
+# The web tier lives on Drive since 2026-08-23 (Ramah2026/web), reached by
+# file id from the WEBID map baked into the pages. JPEGs do not delta-compress,
+# so keeping a 470MB image tier in git only pushed the published site toward
+# the 1GB Pages ceiling. Same fix Kingswood ran on 8/20.
+img/web/
