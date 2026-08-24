@@ -2120,6 +2120,9 @@
 })();
 </script>
 
+
+
+
 <!--LIGHTBOX:START-->
 <style>
 #rlb{position:fixed;inset:0;background:rgba(2,37,47,.97);z-index:900;display:none;
@@ -2146,7 +2149,46 @@
  #rlb .bar{flex-wrap:wrap;gap:9px}
  #rlb .who{flex:1 1 100%;order:-1}
 }
+
+#rwall{position:fixed;inset:0;background:rgba(2,37,47,.98);z-index:910;display:none;
+ flex-direction:column}
+#rwall.on{display:flex}
+#rwall .bar{flex:0 0 auto;display:flex;align-items:center;gap:12px;padding:13px 20px;
+ border-bottom:1px solid rgba(237,231,221,.14);flex-wrap:wrap}
+#rwall .ttl{flex:1;font-size:13.5px;color:#F3F1EC;min-width:160px}
+#rwall .ttl b{color:#EDB71E}
+#rwall .sizes{display:flex;gap:6px;flex-wrap:wrap}
+#rwall .sizes button{background:transparent;border:1px solid rgba(237,231,221,.26);
+ color:#F3F1EC;border-radius:20px;padding:6px 13px;font:600 12px inherit;cursor:pointer}
+#rwall .sizes button.on{background:#EDB71E;border-color:#EDB71E;color:#02252F}
+#rwall .stage{flex:1;display:flex;align-items:center;justify-content:center;padding:16px;
+ min-height:0}
+#rwall .room{position:relative;background:linear-gradient(#efe9dd,#e4dccd);overflow:hidden;
+ box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#rwall .floor{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(#b3a48d,#9d8c73)}
+#rwall .base{position:absolute;left:0;right:0;background:#f4f1ea;border-top:1px solid rgba(0,0,0,.1)}
+#rwall .art{position:absolute;background:#1b1b1b;box-shadow:0 14px 30px rgba(0,0,0,.32);
+ border:3px solid #fbfaf7;outline:1px solid rgba(0,0,0,.22)}
+#rwall .art img{width:100%;height:100%;object-fit:cover;display:block}
+#rwall .door{position:absolute;background:#e7e1d5;border:1px solid #b6a893;
+ box-shadow:inset 0 0 0 4px #ded7c8}
+#rwall .sofa{position:absolute;background:#71808c;border-radius:4px}
+#rwall .sofa .back{position:absolute;left:0;right:0;top:0;background:#7d8c98;border-radius:5px 5px 0 0}
+#rwall .cap{flex:0 0 auto;text-align:center;padding:10px 20px 16px;font-size:12.5px;
+ color:rgba(243,241,236,.66)}
+#rwall .cap b{color:#F3F1EC}
 </style>
+
+<div id=rwall role=dialog aria-modal=true aria-label="On a wall">
+ <div class=bar>
+  <span class=ttl id=rwtitle></span>
+  <span class=sizes id=rwsizes></span>
+  <button class=x id=rwclose aria-label="Close">&times;</button>
+ </div>
+ <div class=stage><div class=room id=rwroom></div></div>
+ <p class=cap id=rwcap></p>
+</div>
+
 <div id=rlb role=dialog aria-modal=true aria-label="Photograph">
  <div class=bar>
   <span class=who id=rlbwho></span>
@@ -2219,7 +2261,11 @@
   document.getElementById('rlbnext').onclick = function(){ show(at + 1); };
   document.getElementById('rlbprev').onclick = function(){ show(at - 1); };
   document.getElementById('rlbwall').onclick = function(){
-    if (typeof window.ramahWall === 'function') window.ramahWall(links[at].getAttribute('href'), frameOf(links[at]));
+    var a = links[at], im = a.querySelector('img');
+    var lands = true;
+    if (img.naturalWidth && img.naturalHeight) lands = img.naturalWidth >= img.naturalHeight;
+    if (typeof window.ramahWall === 'function')
+      window.ramahWall(a.getAttribute('href'), frameOf(a), printOf(a), lands);
   };
   document.addEventListener('keydown', function(e){
     if (!box.classList.contains('on')) return;
@@ -2228,6 +2274,88 @@
     else if (e.key === 'ArrowLeft'){ e.preventDefault(); show(at - 1); }
   });
 })();
+
+/* SEE IT ON A WALL. The same honest geometry the delivery pages use: a 96in
+   wall with 154in of it in view, a 7ft sofa, a 6ft8 door, and the art hung at
+   gallery height with its centre 60in off the floor. That is why a 16x24 reads
+   small over a sofa and a 30x45 does not. Sizes are parsed off the frame's own
+   print line, so nothing here invents a size the guide did not already offer.
+
+   The room is DRAWN, not photographed. Noah's Ramah room turned out to be off
+   Ramah's own website (his answer, 2026-08-23), so it is not ours to use. */
+(function(){
+  var W = document.getElementById('rwall'); if (!W) return;
+  var ROOM_W = 154, WALL_H = 96, FLOOR = 14, BASE = 5, HANG_C = 60,
+      SOFA_W = 84, DOOR_H = 80;
+  var cur = null, curSize = null, curLabel = '';
+
+  function parseSizes(html){
+    /* "Prints to <b>8&times;10&Prime;</b> metal &middot; ..." */
+    var d = document.createElement('div'); d.innerHTML = html;
+    var text = d.textContent.replace(/×/g, 'x').replace(/″/g, '');
+    var out = [], re = /([0-9]+)[ ]*x[ ]*([0-9]+)[ ]*(metal|paper|canvas)/gi, m;
+    while ((m = re.exec(text))) out.push([+m[1], +m[2], m[3].toLowerCase()]);
+    return out;
+  }
+
+  function paint(){
+    if (!cur) return;
+    var sizes = cur.sizes;
+    var sb = document.getElementById('rwsizes'); sb.innerHTML = '';
+    sizes.forEach(function(s){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = s[0] + '×' + s[1] + '″ ' + s[2];
+      b.className = (s === curSize ? 'on' : '');
+      b.onclick = function(){ curSize = s; paint(); };
+      sb.appendChild(b);
+    });
+    var room = document.getElementById('rwroom');
+    if (!curSize){ room.innerHTML = ''; document.getElementById('rwcap').innerHTML =
+      'No standard size matches this frame. It prints as a custom cut.'; return; }
+
+    /* sizes read short x long; orient to the frame itself */
+    var img = new Image(); var lands = cur.lands;
+    var a = curSize[0], b2 = curSize[1];
+    var inW = lands ? Math.max(a,b2) : Math.min(a,b2);
+    var inH = lands ? Math.min(a,b2) : Math.max(a,b2);
+
+    var maxH = Math.max(300, window.innerHeight - 250);
+    var px = Math.min((room.parentElement.clientWidth - 40) / ROOM_W, maxH / (WALL_H + FLOOR));
+    room.style.width  = Math.round(ROOM_W * px) + 'px';
+    room.style.height = Math.round((WALL_H + FLOOR) * px) + 'px';
+    var artBottom = (FLOOR + HANG_C - inH/2) * px;
+    room.innerHTML =
+      '<div class=floor style="height:' + (FLOOR*px) + 'px"></div>' +
+      '<div class=base style="bottom:' + (FLOOR*px) + 'px;height:' + (BASE*px) + 'px"></div>' +
+      '<div class=door style="left:4%;bottom:' + (FLOOR*px) + 'px;height:' + (DOOR_H*px) +
+        'px;width:' + (32*px) + 'px"></div>' +
+      '<div class=sofa style="left:40%;bottom:' + (FLOOR*px) + 'px;width:' + (SOFA_W*px) +
+        'px;height:' + (31*px) + 'px"><div class=back style="height:' + (13*px) + 'px"></div></div>' +
+      '<div class=art style="left:' + (40 + ((SOFA_W - inW)/2)/ROOM_W*100) + '%;bottom:' +
+        artBottom + 'px;width:' + (inW*px) + 'px;height:' + (inH*px) + 'px">' +
+        '<img src="' + cur.src + '" alt=""></div>';
+    document.getElementById('rwcap').innerHTML =
+      '<b>' + curLabel + '</b> at <b>' + inW + '×' + inH + '″</b> ' + curSize[2] +
+      ', against a 96&Prime; wall with a 7ft sofa and a 6&prime;8&Prime; door for scale';
+  }
+
+  window.ramahWall = function(src, label, printHTML, lands){
+    var sizes = parseSizes(printHTML || '');
+    cur = {src: src, sizes: sizes, lands: lands !== false};
+    curLabel = label || '';
+    curSize = sizes.length ? sizes[sizes.length - 1] : null;
+    document.getElementById('rwtitle').innerHTML = '<b>' + curLabel + '</b> on a wall';
+    W.classList.add('on');
+    paint();
+  };
+  document.getElementById('rwclose').onclick = function(){ W.classList.remove('on'); };
+  window.addEventListener('resize', function(){ if (W.classList.contains('on')) paint(); });
+  document.addEventListener('keydown', function(e){
+    if (W.classList.contains('on') && e.key === 'Escape'){ e.preventDefault(); W.classList.remove('on'); }
+  });
+})();
+
 </script>
 <!--LIGHTBOX:END-->
 </body>
