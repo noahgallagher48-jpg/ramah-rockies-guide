@@ -26,7 +26,7 @@
   .herotitle p{margin-top:10px;font-size:13px;letter-spacing:2.4px;text-transform:uppercase;
     color:rgba(255,255,255,.9);text-shadow:0 1px 10px rgba(0,0,0,.8)}
   #deliverables{padding-top:26px}
-  .dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .dcard{position:relative;display:block;border-radius:12px;overflow:hidden;text-decoration:none;
     border:1px solid var(--line);background:var(--card);aspect-ratio:4/3}
   .dcard img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;opacity:.72}
@@ -86,7 +86,7 @@
   .lead{background:linear-gradient(180deg,#141416,#0e0e10);border:1px solid var(--line);
         border-radius:16px;padding:26px 26px 10px;margin-top:8px}
   .lead h2{font-size:34px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-top:16px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:30px;margin-top:16px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;
         display:flex;flex-direction:column}
   .ph{position:relative;background:#000;aspect-ratio:3/2;overflow:hidden;display:block}
@@ -227,35 +227,29 @@
 
 
 <section id="deliverables">
-  <div class="dgrid"><a class="dcard" href="first-look/">
+  <div class=rtabs role=tablist>
+ <button class=rtab role=tab data-tab=gallery aria-selected=true>Gallery</button>
+ <button class=rtab role=tab data-tab=book aria-selected=false>Book layout</button>
+ <button class=rtab role=tab data-tab=guide aria-selected=false>Field Guide</button>
+</div>
+<div class="dgrid"><a class="dcard" href="first-look/">
       <img loading="lazy" src="img/thumb/Ramah2026_R111.jpg" alt="">
       <span class="dfoot"><span class="dlab">First Look (slideshow)</span><span class="dsub">45 frames, 90 seconds</span></span>
     </a><a class="dcard" href="reel/">
       <img loading="lazy" src="img/thumb/Ramah2026_R080.jpg" alt="">
       <span class="dfoot"><span class="dlab">The Reel (slideshow)</span><span class="dsub">27 frames, 32 seconds</span></span>
-    </a><a class="dcard" href="#layouts">
-      <img loading="lazy" src="img/thumb/Ramah2026_R018.jpg" alt="">
-      <span class="dfoot"><span class="dlab">Book Layouts</span><span class="dsub">Two books, ready to print</span></span>
-    </a><a class="dcard" href="#downloads">
-      <img loading="lazy" src="img/thumb/Ramah2026_R066.jpg" alt="">
-      <span class="dfoot"><span class="dlab">All Images</span><span class="dsub">Web and full resolution</span></span>
     </a><a class="dcard" href="#opening-day">
       <img loading="lazy" src="img/thumb/Ramah2026_R118.jpg" alt="">
       <span class="dfoot"><span class="dlab">Build a Slideshow</span><span class="dsub">Hit + on any frame, then download a file that plays in any browser</span></span>
-    </a><a class="dcard" href="field-guide.html">
-      <img loading="lazy" src="img/thumb/Ramah2026_R014.jpg" alt="">
-      <span class="dfoot"><span class="dlab">Field Guide</span><span class="dsub">For your media team</span></span>
     </a></div>
-  <p class="stat"><b>42</b> in the book
-  &nbsp;&middot;&nbsp; <b>12</b> fine art &nbsp;&middot;&nbsp; every frame downloads two ways
-  and says how large it prints.</p>
+  <p class="stat">Every frame downloads two ways and says how large it prints.</p>
 </section>
 
 
 
 <!--TABS:OPEN--><style>
 /* the two modes, chosen at the top */
-.rtabs{display:flex;gap:8px;justify-content:center;padding:20px 16px 4px;flex-wrap:wrap}
+.rtabs{display:flex;gap:8px;justify-content:center;margin:46px 0 44px;flex-wrap:wrap}
 .rtab{background:transparent;border:1px solid rgba(243,241,236,.28);color:inherit;
  border-radius:24px;padding:10px 26px;font:600 14px inherit;cursor:pointer;letter-spacing:.01em}
 .rtab[aria-selected=true]{background:#EDB71E;border-color:#EDB71E;color:#02252F}
@@ -270,11 +264,6 @@
 .gcount{display:block;margin-top:6px;font-size:12px;opacity:.7}
 </style>
 
-<div class=rtabs role=tablist>
- <button class=rtab role=tab data-tab=gallery aria-selected=true>Gallery</button>
- <button class=rtab role=tab data-tab=book aria-selected=false>Book layout</button>
- <button class=rtab role=tab data-tab=guide aria-selected=false>Field Guide</button>
-</div>
 <div id=tab-gallery class=on>
  <p class=glead>Every photograph from the week, in order, each one with its file sizes.
  <span class=gcount id=gcount></span></p>
