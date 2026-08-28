@@ -260,6 +260,7 @@
 </section>
 
 
+
 <!--TABS:OPEN--><style>
 /* the two modes, chosen at the top */
 .rtabs{display:flex;gap:8px;justify-content:center;padding:20px 16px 4px;flex-wrap:wrap}
@@ -270,21 +271,24 @@
 #tab-gallery.on{display:block}
 #tab-guide{display:none}
 #tab-guide.on{display:block}
+#tab-book{display:none}
+#tab-book.on{display:block}
 .glead{max-width:64ch;margin:22px auto 0;padding:0 20px;text-align:center;opacity:.72;
  font-size:14.5px;line-height:1.55}
 .gcount{display:block;margin-top:6px;font-size:12px;opacity:.7}
 </style>
 
 <div class=rtabs role=tablist>
- <button class=rtab role=tab data-tab=gallery aria-selected=false>Gallery</button>
- <button class=rtab role=tab data-tab=guide aria-selected=true>Field Guide</button>
+ <button class=rtab role=tab data-tab=gallery aria-selected=true>Gallery</button>
+ <button class=rtab role=tab data-tab=book aria-selected=false>Book layout</button>
+ <button class=rtab role=tab data-tab=guide aria-selected=false>Field Guide</button>
 </div>
-<div id=tab-gallery>
+<div id=tab-gallery class=on>
  <p class=glead>Every photograph from the week, in order, each one with its file sizes.
  <span class=gcount id=gcount></span></p>
  <div class="grid" id=ggrid></div>
 </div>
-<div id=tab-guide class=on>
+<div id=tab-guide>
 <nav><div class="in"><a href="first-look/">First Look</a><a href="reel/">The Reel</a><a href="field-guide.html">Media Team Guide</a><a href="#layouts">Book Layouts</a><a href="#downloads">Download Everything</a><a href="#printing">Printing</a><a href="#donorbook">Donor Book</a><a href="#fineart">Fine Art</a><span class="navmv" data-mvlabel="the-day">The day</span><button class="filt" data-sec="opening-day">Opening day <i>17</i></button><button class="filt" data-sec="the-walk-in">The walk in <i>4</i></button><button class="filt" data-sec="climbing">Climbing <i>11</i></button><button class="filt" data-sec="on-the-rocks">On the rocks <i>4</i></button><button class="filt" data-sec="biking-and-the-trail">Biking and the trail <i>6</i></button><button class="filt" data-sec="learning-and-making">Learning and making <i>2</i></button><button class="filt" data-sec="free-time">Free time <i>10</i></button><button class="filt" data-sec="the-goats-and-the-flock">The goats and the flock <i>4</i></button><button class="filt" data-sec="around-camp">Around camp <i>3</i></button><span class="navmv" data-mvlabel="the-overnight">The overnight</span><button class="filt" data-sec="prospector">Prospector <i>13</i></button><button class="filt" data-sec="campfire">Campfire <i>4</i></button><span class="navmv" data-mvlabel="shabbat">Shabbat</span><button class="filt" data-sec="shabbat">Shabbat <i>21</i></button><button class="filt" data-sec="havdalah">Havdalah <i>8</i></button><span class="navmv" data-mvlabel="land-and-sky">Land and sky</span><button class="filt" data-sec="the-land-by-day">The land by day <i>7</i></button><button class="filt" data-sec="dawn-and-dusk">Dawn and dusk <i>3</i></button><button class="filt" data-sec="the-camp-at-night">The camp at night <i>17</i></button><button class="filt" data-sec="night-sky-studies">Night sky studies <i>6</i></button><button id="clearfilt" hidden>Clear</button></div></nav>
 
 
@@ -1898,6 +1902,10 @@
 
 
 
+
+
+
+
 </div><!--tabguide-->
 <script>
 (function(){
@@ -1928,11 +1936,12 @@
     var frag = document.createDocumentFragment();
     rows.forEach(function(r){ frag.appendChild(r[1].cloneNode(true)); });
     g.appendChild(frag);
-    document.getElementById('gcount').textContent = rows.length + ' photographs';
+    /* no count: 'don't count images' (Noah, 2026-08-28) */
     built = true;
     /* no rewiring needed: the viewer listens on the document and recomputes its
        list on open, so cloned cards work the moment they exist. */
   }
+  build();   /* Gallery is the landing tab */
   document.querySelectorAll('.rtab').forEach(function(t){
     t.onclick = function(){
       var which = t.getAttribute('data-tab');
@@ -1941,13 +1950,22 @@
       if (which === 'gallery') build();
       document.getElementById('tab-gallery').className = which === 'gallery' ? 'on' : '';
       document.getElementById('tab-guide').className = which === 'guide' ? 'on' : '';
+      /* the book tab and its fixed lane are added by add_book_tab.py; this
+         switcher owns all three so the book button lives in the markup rather
+         than being appended by script after the fact */
+      var bk = document.getElementById('tab-book');
+      if (bk){
+        bk.className = which === 'book' ? 'on' : '';
+        if (which === 'book' && typeof bkOpen === 'function') bkOpen();
+        var lane = document.getElementById('bklane');
+        if (lane) lane.className = which === 'book' ? 'bklane on' : 'bklane';
+      }
       window.scrollTo(0, 0);
     };
   });
 })();
 </script>
 <!--TABS:CLOSE-->
-
 
 <!--BOOKTAB:START--><style>
 /* THE BOOK tab */
@@ -2273,35 +2291,15 @@
     toggle: function(n){ if (BK[n]) toggle(n); return inBook(n); }
   };
 
-  /* the tab itself: joins the two the tabs script already manages */
-  var row = document.querySelector('.rtabs');
-  if (row){
-    var b = document.createElement('button');
-    b.className = 'rtab'; b.setAttribute('role','tab');
-    b.setAttribute('data-tab','book'); b.setAttribute('aria-selected','false');
-    b.textContent = 'The Book';
-    row.appendChild(b);
-    b.onclick = function(){
-      document.querySelectorAll('.rtab').forEach(function(o){
-        o.setAttribute('aria-selected', o === b ? 'true' : 'false'); });
-      grid(); strip();
-      document.getElementById('tab-gallery').className = '';
-      document.getElementById('tab-guide').className = '';
-      document.getElementById('tab-book').className = 'on';
-      document.getElementById('bklane').className = 'bklane on';
-      window.scrollTo(0, 0);
-    };
-    /* leaving the book tab hides its lane */
-    document.querySelectorAll('.rtab').forEach(function(t){
-      if (t === b) return;
-      var prev = t.onclick;
-      t.onclick = function(){
-        document.getElementById('tab-book').className = '';
-        document.getElementById('bklane').className = 'bklane';
-        if (prev) prev.call(t);
-      };
-    });
-  }
+  /* THE BUTTON LIVES IN THE MARKUP NOW (add_tabs.py, 2026-08-28). This block
+     used to append a third button at runtime and rewire the other two, which
+     made tab order depend on script execution and put Field Guide ahead of
+     Book layout. The standard order is Gallery, Book layout, Field Guide.
+     All this file exposes now is an opener the switcher calls. */
+  /* this fork names them grid() and strip(); Kingswood's module uses
+     bkGrid/bkStrip. Copying the Kingswood names here left bkOpen calling
+     functions that do not exist in this file. */
+  window.bkOpen = function(){ grid(); strip(); };
 })();
 </script>
 <!--BOOKTAB:END-->
