@@ -1944,6 +1944,363 @@
 })();
 </script>
 <!--TABS:CLOSE-->
+
+<!--BOOKTAB:START--><style>
+/* THE BOOK tab */
+/* the tab owns its measure, as the delivery-format standard requires: the
+   lede was centring inside a full-viewport container, so on a wide screen it
+   floated in 600px of empty space either side */
+#tab-book>.bkwrap{max-width:1180px;margin:0 auto;padding:26px clamp(16px,3vw,44px) 0}
+#tab-book{display:none}
+#tab-book.on{display:block}
+.bklede{max-width:64ch;margin:22px auto 0;padding:0 20px;text-align:center;opacity:.72;
+ font-size:14.5px;line-height:1.55}
+.bkgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:13px;
+ max-width:1280px;margin:22px auto 0;padding:0 20px}
+.bkcard{position:relative;border-radius:8px;overflow:hidden;background:rgba(243,241,236,.06);
+ transition:box-shadow .14s,transform .14s}
+.bkcard img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;cursor:zoom-in}
+.bkcard.in{box-shadow:inset 0 0 0 3px #EDB71E;transform:translateY(-2px)}
+.bkcard .bn{position:absolute;top:8px;left:9px;font:600 11px inherit;color:#F3F1EC;
+ background:rgba(2,37,47,.78);border-radius:11px;padding:2px 9px;pointer-events:none}
+.bkcard .badd{position:absolute;top:7px;right:7px;width:31px;height:31px;border-radius:50%;
+ border:1px solid rgba(243,241,236,.25);background:rgba(2,37,47,.78);color:#F3F1EC;
+ font:600 17px inherit;cursor:pointer;line-height:1;padding:0;z-index:2}
+.bkcard.in .badd{background:#EDB71E;border-color:#EDB71E;color:#02252F;font-size:15px}
+.bklane{position:fixed;left:0;right:0;bottom:0;background:#01161d;
+ border-top:1px solid rgba(243,241,236,.16);padding:11px 0 13px;z-index:40;display:none}
+.bklane.on{display:block}
+.bklanein{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:15px}
+.bkstrip{display:flex;gap:6px;overflow-x:auto;flex:1;padding:3px 0 6px;min-height:58px}
+.bkstrip img{height:52px;width:auto;border-radius:4px;cursor:grab;flex:0 0 auto;
+ border:2px solid transparent}
+.bkstrip img.over{border-color:#EDB71E}
+.bkempty{font-size:13px;align-self:center;white-space:nowrap;opacity:.66;color:#F3F1EC}
+.bkacts{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap}
+.bkbtn{border:1px solid rgba(243,241,236,.25);background:transparent;color:#F3F1EC;
+ border-radius:6px;padding:10px 15px;font:600 13px inherit;cursor:pointer;white-space:nowrap}
+.bkbtn.go{background:#EDB71E;border-color:#EDB71E;color:#02252F}
+.bkbtn:disabled{opacity:.4;cursor:default}
+.bkview{position:fixed;inset:0;background:#0B0B0C;z-index:930;display:none;flex-direction:column}
+.bkview.on{display:flex}
+.bkvbar{flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:12px 20px;
+ border-bottom:1px solid rgba(255,255,255,.11)}
+.bkvt{flex:1;font:600 13.5px inherit;color:#F3F1EC}
+.bkvt span{opacity:.6;font-weight:400}
+.bkvstage{flex:1;display:flex;align-items:center;justify-content:center;padding:22px;min-height:0}
+.bkspread{background:#F6F4EF;display:flex;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.55)}
+.bkspread.two{aspect-ratio:3/1;width:min(94vw,calc((100vh - 160px)*3))}
+.bkspread.solo{aspect-ratio:3/2;width:min(58vw,calc((100vh - 160px)*1.5))}
+.bpg{width:50%;height:100%;position:relative;overflow:hidden;background:#F6F4EF;
+ display:flex;align-items:center;justify-content:center}
+.bkspread.solo .bpg{width:100%}
+.bpg.mat{padding:4%}
+.bpg.pair{padding:4%;gap:3.6%}
+.bpg.bleed{padding:0}
+.bpg.bleed img{width:100%;height:100%;max-width:none;max-height:none;object-fit:cover}
+.bpg[class*=" g"]{display:grid;padding:4%;gap:2.6%}
+.bpg.g2{grid-template-columns:1fr 1fr}
+.bpg.g3,.bpg.g5,.bpg.g6{grid-template-columns:1fr 1fr 1fr}
+.bpg.g4{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+.bpg.g5,.bpg.g6{grid-template-rows:1fr 1fr}
+.bpg[class*=" g"] img{width:100%;height:100%;max-width:none;max-height:none;object-fit:cover}
+.bpg img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.bgut{position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(2,37,47,.14)}
+.bcov{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;
+ justify-content:center;color:#02252F;position:relative;padding:6%}
+.bcov h3{font:400 clamp(19px,3.4vw,42px) inherit;margin:0}
+.bcov .brule{width:11%;height:3px;background:#EDB71E;margin:5% 0 3.4%}
+.bcov .bsub{font:600 clamp(8px,1.05vw,13px) inherit;margin:0;letter-spacing:.03em}
+.bcov .bcred{position:absolute;bottom:9%;font:400 clamp(8px,1vw,12.5px) inherit}
+.bpnum{flex:0 0 auto;text-align:center;padding:11px 0 15px;font:600 10px inherit;
+ letter-spacing:.16em;color:rgba(255,255,255,.55)}
+.bpnum b{color:rgba(255,255,255,.85)}
+@media(max-width:600px){
+ .bkgrid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr))}
+ .bklanein{flex-direction:column;align-items:stretch;gap:9px}
+ .bkacts{justify-content:stretch}.bkbtn{flex:1}
+}
+</style>
+
+<div id=tab-book>
+ <div class=bkwrap>
+  <p class=bklede>Choose the photographs for the book, then see how they lay out on the page.
+  The strip along the bottom is the book in order, and it drags. Tap a photograph to see it
+  full size; the ring button puts it in the book.</p>
+  <div class=bkgrid id=bkgrid></div>
+ </div>
+</div>
+<div class=bklane id=bklane>
+ <div class=bklanein>
+  <div class=bkstrip id=bkstrip></div>
+  <div class=bkacts>
+   <button class="bkbtn go" id=bksee>See the book</button>
+   <button class=bkbtn id=bksave>Save the book</button>
+  </div>
+ </div>
+</div>
+<div class=bkview id=bkview>
+ <div class=bkvbar>
+  <span class=bkvt id=bkvt></span>
+  <button class=bkbtn id=bkprev>Back</button>
+  <button class=bkbtn id=bknext>Next</button>
+  <button class=x id=bkclose aria-label=Close style="background:none;border:0;color:#F3F1EC;font:400 27px inherit;cursor:pointer">&times;</button>
+ </div>
+ <div class=bkvstage><div class=bkspread id=bkspread></div></div>
+ <p class=bpnum id=bpnum></p>
+</div>
+<script>
+(function(){
+  /* THE BOOK. Pagination mirrors the PDF builder exactly: 12x8 landscape,
+     two portraits in a row paired on one page, named bleedhero spreads bled,
+     everything else matted,
+     nothing bleeding. What is approved on screen is what prints. */
+  var BK = {"R001":{"f":"Ramah2026_R001.jpg","w":2048,"h":2560},"R002":{"f":"Ramah2026_R002.jpg","w":2560,"h":1708},"R003":{"f":"Ramah2026_R003.jpg","w":2560,"h":2048},"R004":{"f":"Ramah2026_R004.jpg","w":2048,"h":2560},"R006":{"f":"Ramah2026_R006.jpg","w":2560,"h":2048},"R007":{"f":"Ramah2026_R007.jpg","w":2560,"h":1440},"R008":{"f":"Ramah2026_R008.jpg","w":2560,"h":2048},"R009":{"f":"Ramah2026_R009.jpg","w":2560,"h":1708},"R010":{"f":"Ramah2026_R010.jpg","w":2560,"h":1707},"R011":{"f":"Ramah2026_R011.jpg","w":2560,"h":1708},"R012":{"f":"Ramah2026_R012.jpg","w":2560,"h":1708},"R013":{"f":"Ramah2026_R013.jpg","w":2560,"h":1707},"R014":{"f":"Ramah2026_R014.jpg","w":2560,"h":1708},"R015":{"f":"Ramah2026_R015.jpg","w":2560,"h":1708},"R016":{"f":"Ramah2026_R016.jpg","w":2560,"h":2048},"R017":{"f":"Ramah2026_R017.jpg","w":2560,"h":1708},"R018":{"f":"Ramah2026_R018.jpg","w":2560,"h":2048},"R019":{"f":"Ramah2026_R019.jpg","w":2560,"h":1708},"R020":{"f":"Ramah2026_R020.jpg","w":2560,"h":1707},"R021":{"f":"Ramah2026_R021.jpg","w":1708,"h":2560},"R022":{"f":"Ramah2026_R022.jpg","w":2560,"h":1707},"R023":{"f":"Ramah2026_R023.jpg","w":2560,"h":1708},"R024":{"f":"Ramah2026_R024.jpg","w":2560,"h":1708},"R025":{"f":"Ramah2026_R025.jpg","w":1707,"h":2560},"R026":{"f":"Ramah2026_R026.jpg","w":1707,"h":2560},"R027":{"f":"Ramah2026_R027.jpg","w":1707,"h":2560},"R029":{"f":"Ramah2026_R029.jpg","w":2560,"h":1708},"R030":{"f":"Ramah2026_R030.jpg","w":2560,"h":1708},"R031":{"f":"Ramah2026_R031.jpg","w":2560,"h":1708},"R032":{"f":"Ramah2026_R032.jpg","w":2560,"h":1708},"R033":{"f":"Ramah2026_R033.jpg","w":2560,"h":1708},"R034":{"f":"Ramah2026_R034.jpg","w":2560,"h":1707},"R035":{"f":"Ramah2026_R035.jpg","w":1707,"h":2560},"R036":{"f":"Ramah2026_R036.jpg","w":2560,"h":1707},"R037":{"f":"Ramah2026_R037.jpg","w":2560,"h":1707},"R038":{"f":"Ramah2026_R038.jpg","w":2560,"h":1707},"R039":{"f":"Ramah2026_R039.jpg","w":2560,"h":1708},"R040":{"f":"Ramah2026_R040.jpg","w":1707,"h":2560},"R041":{"f":"Ramah2026_R041.jpg","w":2560,"h":1707},"R042":{"f":"Ramah2026_R042.jpg","w":1708,"h":2560},"R043":{"f":"Ramah2026_R043.jpg","w":2560,"h":1707},"R044":{"f":"Ramah2026_R044.jpg","w":2560,"h":1707},"R045":{"f":"Ramah2026_R045.jpg","w":2560,"h":1708},"R046":{"f":"Ramah2026_R046.jpg","w":2560,"h":1707},"R047":{"f":"Ramah2026_R047.jpg","w":2048,"h":2560},"R048":{"f":"Ramah2026_R048.jpg","w":2560,"h":1440},"R049":{"f":"Ramah2026_R049.jpg","w":2560,"h":1440},"R050":{"f":"Ramah2026_R050.jpg","w":2560,"h":1707},"R051":{"f":"Ramah2026_R051.jpg","w":2560,"h":1707},"R052":{"f":"Ramah2026_R052.jpg","w":2560,"h":1708},"R053":{"f":"Ramah2026_R053.jpg","w":2560,"h":1707},"R054":{"f":"Ramah2026_R054.jpg","w":2048,"h":2560},"R055":{"f":"Ramah2026_R055.jpg","w":2048,"h":2560},"R056":{"f":"Ramah2026_R056.jpg","w":2560,"h":1707},"R057":{"f":"Ramah2026_R057.jpg","w":2048,"h":2560},"R058":{"f":"Ramah2026_R058.jpg","w":2560,"h":1708},"R059":{"f":"Ramah2026_R059.jpg","w":2560,"h":1707},"R060":{"f":"Ramah2026_R060.jpg","w":2560,"h":1707},"R061":{"f":"Ramah2026_R061.jpg","w":2560,"h":2560},"R062":{"f":"Ramah2026_R062.jpg","w":2560,"h":1707},"R063":{"f":"Ramah2026_R063.jpg","w":2560,"h":1708},"R064":{"f":"Ramah2026_R064.jpg","w":2560,"h":1708},"R065":{"f":"Ramah2026_R065.jpg","w":2560,"h":2048},"R066":{"f":"Ramah2026_R066.jpg","w":2560,"h":1708},"R067":{"f":"Ramah2026_R067.jpg","w":1707,"h":2560},"R068":{"f":"Ramah2026_R068.jpg","w":2560,"h":1708},"R069":{"f":"Ramah2026_R069.jpg","w":2560,"h":1708},"R070":{"f":"Ramah2026_R070.jpg","w":2560,"h":1708},"R071":{"f":"Ramah2026_R071.jpg","w":2560,"h":1708},"R072":{"f":"Ramah2026_R072.jpg","w":2560,"h":1707},"R073":{"f":"Ramah2026_R073.jpg","w":2560,"h":1707},"R074":{"f":"Ramah2026_R074.jpg","w":1707,"h":2560},"R075":{"f":"Ramah2026_R075.jpg","w":2560,"h":1707},"R076":{"f":"Ramah2026_R076.jpg","w":2560,"h":1708},"R077":{"f":"Ramah2026_R077.jpg","w":2560,"h":1708},"R078":{"f":"Ramah2026_R078.jpg","w":2560,"h":2048},"R079":{"f":"Ramah2026_R079.jpg","w":2560,"h":2048},"R080":{"f":"Ramah2026_R080.jpg","w":2560,"h":1708},"R081":{"f":"Ramah2026_R081.jpg","w":2560,"h":2048},"R082":{"f":"Ramah2026_R082.jpg","w":2560,"h":1708},"R083":{"f":"Ramah2026_R083.jpg","w":2560,"h":1707},"R084":{"f":"Ramah2026_R084.jpg","w":2560,"h":2048},"R085":{"f":"Ramah2026_R085.jpg","w":2560,"h":1440},"R086":{"f":"Ramah2026_R086.jpg","w":2560,"h":1707},"R087":{"f":"Ramah2026_R087.jpg","w":2560,"h":2048},"R088":{"f":"Ramah2026_R088.jpg","w":2560,"h":2048},"R089":{"f":"Ramah2026_R089.jpg","w":2560,"h":1707},"R090":{"f":"Ramah2026_R090.jpg","w":2560,"h":1708},"R091":{"f":"Ramah2026_R091.jpg","w":2048,"h":2560},"R092":{"f":"Ramah2026_R092.jpg","w":2560,"h":1707},"R093":{"f":"Ramah2026_R093.jpg","w":2048,"h":2560},"R094":{"f":"Ramah2026_R094.jpg","w":2560,"h":1708},"R095":{"f":"Ramah2026_R095.jpg","w":2048,"h":2560},"R096":{"f":"Ramah2026_R096.jpg","w":2560,"h":1707},"R097":{"f":"Ramah2026_R097.jpg","w":2560,"h":1708},"R098":{"f":"Ramah2026_R098.jpg","w":2560,"h":2048},"R099":{"f":"Ramah2026_R099.jpg","w":2560,"h":1707},"R100":{"f":"Ramah2026_R100.jpg","w":2560,"h":2560},"R101":{"f":"Ramah2026_R101.jpg","w":2560,"h":2048},"R102":{"f":"Ramah2026_R102.jpg","w":2560,"h":1707},"R103":{"f":"Ramah2026_R103.jpg","w":2560,"h":1708},"R104":{"f":"Ramah2026_R104.jpg","w":2560,"h":1708},"R105":{"f":"Ramah2026_R105.jpg","w":2560,"h":1708},"R106":{"f":"Ramah2026_R106.jpg","w":2560,"h":1708},"R107":{"f":"Ramah2026_R107.jpg","w":2560,"h":1708},"R108":{"f":"Ramah2026_R108.jpg","w":2560,"h":1708},"R109":{"f":"Ramah2026_R109.jpg","w":2560,"h":1707},"R110":{"f":"Ramah2026_R110.jpg","w":2560,"h":1707},"R111":{"f":"Ramah2026_R111.jpg","w":2560,"h":1708},"R112":{"f":"Ramah2026_R112.jpg","w":2560,"h":1440},"R113":{"f":"Ramah2026_R113.jpg","w":2560,"h":1708},"R114":{"f":"Ramah2026_R114.jpg","w":2048,"h":2560},"R115":{"f":"Ramah2026_R115.jpg","w":2560,"h":1440},"R116":{"f":"Ramah2026_R116.jpg","w":2560,"h":2048},"R117":{"f":"Ramah2026_R117.jpg","w":2560,"h":2048},"R118":{"f":"Ramah2026_R118.jpg","w":2560,"h":2048},"R119":{"f":"Ramah2026_R119.jpg","w":2560,"h":2048},"R120":{"f":"Ramah2026_R120.jpg","w":2560,"h":2048},"R121":{"f":"Ramah2026_R121.jpg","w":2560,"h":1707},"R122":{"f":"Ramah2026_R122.jpg","w":2560,"h":1707},"R123":{"f":"Ramah2026_R123.jpg","w":2048,"h":2560},"R124":{"f":"Ramah2026_R124.jpg","w":2560,"h":1708},"R125":{"f":"Ramah2026_R125.jpg","w":2560,"h":2048},"R126":{"f":"Ramah2026_R126.jpg","w":2560,"h":1708},"R127":{"f":"Ramah2026_R127.jpg","w":2560,"h":1707},"R128":{"f":"Ramah2026_R128.jpg","w":2560,"h":1707},"R129":{"f":"Ramah2026_R129.jpg","w":2560,"h":1707},"R130":{"f":"Ramah2026_R130.jpg","w":2560,"h":1708},"R131":{"f":"Ramah2026_R131.jpg","w":2560,"h":1708},"R132":{"f":"Ramah2026_R132.jpg","w":2560,"h":1708},"R133":{"f":"Ramah2026_R133.jpg","w":2560,"h":1708},"R134":{"f":"Ramah2026_R134.jpg","w":2560,"h":1707},"R135":{"f":"Ramah2026_R135.jpg","w":2560,"h":1707},"R136":{"f":"Ramah2026_R136.jpg","w":1708,"h":2560},"R137":{"f":"Ramah2026_R137.jpg","w":2560,"h":2048},"R138":{"f":"Ramah2026_R138.jpg","w":2560,"h":2048},"R139":{"f":"Ramah2026_R139.jpg","w":2560,"h":2048},"R140":{"f":"Ramah2026_R140.jpg","w":2048,"h":2560},"R141":{"f":"Ramah2026_R141.jpg","w":2560,"h":2048},"R142":{"f":"Ramah2026_R142.jpg","w":2560,"h":2048},"R143":{"f":"Ramah2026_R143.jpg","w":2560,"h":1708},"R144":{"f":"Ramah2026_R144.jpg","w":2048,"h":2560},"R145":{"f":"Ramah2026_R145.jpg","w":2048,"h":2560},"R146":{"f":"Ramah2026_R146.jpg","w":1707,"h":2560},"R147":{"f":"Ramah2026_R147.jpg","w":2560,"h":2048},"R148":{"f":"Ramah2026_R148.jpg","w":1708,"h":2560},"R149":{"f":"Ramah2026_R149.jpg","w":2560,"h":1707},"R150":{"f":"Ramah2026_R150.jpg","w":2560,"h":1708},"R151":{"f":"Ramah2026_R151.jpg","w":2560,"h":1708},"R152":{"f":"Ramah2026_R152.jpg","w":2560,"h":2048},"R153":{"f":"Ramah2026_R153.jpg","w":2560,"h":1708},"R154":{"f":"Ramah2026_R154.jpg","w":2560,"h":1708},"R155":{"f":"Ramah2026_R155.jpg","w":2560,"h":1708},"R156":{"f":"Ramah2026_R156.jpg","w":2560,"h":1708},"R157":{"f":"Ramah2026_R157.jpg","w":2560,"h":2048},"R158":{"f":"Ramah2026_R158.jpg","w":2560,"h":1440},"R159":{"f":"Ramah2026_R159.jpg","w":2560,"h":2048},"R160":{"f":"Ramah2026_R160.jpg","w":2560,"h":1707},"R161":{"f":"Ramah2026_R161.jpg","w":2560,"h":1708},"R162":{"f":"Ramah2026_R162.jpg","w":2560,"h":2048},"R163":{"f":"Ramah2026_R163.jpg","w":2560,"h":1707},"R164":{"f":"Ramah2026_R164.jpg","w":2560,"h":2048}};
+  var SEND = {web3forms_key: "b3bc124c-7812-4c4e-8fce-6ea6b9d1c5a2", subject: "Ramah book"};
+  var KEY = "ramah-book-v1";
+  var book = [];
+  try { var s = localStorage.getItem(KEY); if (s) book = JSON.parse(s); } catch(e){}
+  book = book.filter(function(n){ return BK[n]; });
+
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(book)); }catch(e){} }
+  function inBook(n){ return book.indexOf(n) !== -1; }
+
+  function toggle(n){
+    var i = book.indexOf(n);
+    if (i === -1) book.push(n); else book.splice(i, 1);
+    save(); strip(); paintCard(n);
+  }
+  function paintCard(n){
+    var els = document.querySelectorAll('#bkgrid .bkcard');
+    for (var i = 0; i < els.length; i++){
+      if (els[i].getAttribute('data-n') !== n) continue;
+      els[i].className = 'bkcard' + (inBook(n) ? ' in' : '');
+      els[i].querySelector('.badd').innerHTML = inBook(n) ? '&#10003;' : '+';
+    }
+  }
+  var built = false;
+  function grid(){
+    if (built) return;
+    var g = document.getElementById('bkgrid');
+    var names = Object.keys(BK).sort();
+    var frag = document.createDocumentFragment();
+    names.forEach(function(n){
+      var r = BK[n];
+      var fig = document.createElement('figure');
+      fig.className = 'bkcard' + (inBook(n) ? ' in' : '');
+      fig.setAttribute('data-n', n);
+      fig.style.margin = 0;
+      fig.innerHTML = '<a class=ph href="img/present/' + r.f + '">' +
+        '<img loading=lazy src="img/thumb/' + r.f + '" alt="Frame ' + n + '"></a>' +
+        '<span class=bn>' + n + '</span>' +
+        '<button class=badd aria-label="Add frame ' + n + ' to the book">' +
+        (inBook(n) ? '&#10003;' : '+') + '</button>';
+      fig.querySelector('.badd').onclick = function(ev){
+        ev.preventDefault(); ev.stopPropagation(); toggle(n);
+      };
+      frag.appendChild(fig);
+    });
+    g.appendChild(frag);
+    built = true;
+  }
+
+  var drag = null;
+  function strip(){
+    var el = document.getElementById('bkstrip');
+    el.innerHTML = '';
+    if (!book.length){
+      var p = document.createElement('span');
+      p.className = 'bkempty';
+      p.textContent = 'The book is empty. Use the ring button on a photograph to start it.';
+      el.appendChild(p);
+    }
+    book.forEach(function(n, idx){
+      var r = BK[n]; if (!r) return;
+      var im = document.createElement('img');
+      im.src = 'img/thumb/' + r.f; im.draggable = true; im.alt = 'Frame ' + n;
+      im.title = 'Frame ' + n + '. Drag to reorder, double click to remove.';
+      im.ondragstart = function(){ drag = idx; };
+      im.ondragover = function(e){ e.preventDefault(); im.classList.add('over'); };
+      im.ondragleave = function(){ im.classList.remove('over'); };
+      im.ondrop = function(e){
+        e.preventDefault(); im.classList.remove('over');
+        if (drag === null || drag === idx) return;
+        var moved = book.splice(drag, 1)[0];
+        book.splice(idx, 0, moved);
+        save(); strip();
+      };
+      im.ondblclick = function(){ book.splice(idx, 1); save(); strip();
+        var g = document.querySelector('#bkgrid .bkcard[data-n="' + n + '"]');
+        if (g) paintCard(n); };
+      el.appendChild(im);
+    });
+    document.getElementById('bksee').disabled = !book.length;
+    document.getElementById('bksave').disabled = !book.length;
+  }
+
+  /* BLEEDHERO (Noah, 2026-08-27): {hero: [the frames facing it]}. One line per
+     spread, the same data build_ramah_book.py takes, so screen and press agree.
+     Empty by default; a spread exists only where Noah names one. */
+  var BLEEDHERO = {};
+  var MAXCROP = 0.12;
+  function cropLoss(w, h){ var s = Math.max(12/w, 8/h); return 1 - (12/(w*s))*(8/(h*s)); }
+
+  /* pagination: named bleedhero spreads, then portraits pair, else matte */
+  function paginate(seq){
+    var pages = [], i = 0;
+    while (i < seq.length){
+      var n = seq[i], r = BK[n];
+      var tall = r.h > r.w;
+      var nx = i + 1 < seq.length ? seq[i+1] : null;
+      var nr = nx ? BK[nx] : null;
+      var grid = (BLEEDHERO[n] || []).filter(function(g){ return BK[g]; });
+      if (grid.length){
+        if (cropLoss(r.w, r.h) <= MAXCROP){
+          pages.push({t:'bleed', n:[n], how:'full bleed, the establishing frame'});
+        } else {
+          pages.push({t:'mat', n:[n], how:'matted, bleed would crop too far'});
+        }
+        pages.push({t:'grid g' + grid.length, n:grid.slice(),
+                    how:'the ' + grid.length + ' it faces'});
+        i++; continue;
+      }
+      if (tall && nr && nr.h > nr.w){
+        pages.push({t:'pair', n:[n, nx], how:'two portraits, one page'}); i += 2; continue;
+      }
+      pages.push({t:'mat', n:[n], how: tall ? 'matted, portrait' : 'matted, landscape'});
+      i++;
+    }
+    return pages;
+  }
+  function spreads(pages){
+    var out = [{cover:true}];
+    for (var k = 0; k < pages.length; k += 2)
+      out.push({l: pages[k], r: pages[k+1] || null, first: k + 1});
+    return out;
+  }
+  var SP = [], at = 0;
+  function pageHTML(pg){
+    if (!pg) return '<div class="bpg"></div>';
+    var imgs = pg.n.map(function(n){
+      return '<img src="img/present/' + BK[n].f + '" alt="Frame ' + n + '">';
+    }).join('');
+    return '<div class="bpg ' + pg.t + '">' + imgs + '</div>';
+  }
+  function show(i){
+    if (i < 0 || i >= SP.length) return;
+    at = i;
+    var s = SP[i], sp = document.getElementById('bkspread');
+    if (s.cover){
+      sp.className = 'bkspread solo';
+      sp.innerHTML = '<div class=bcov><h3>Ramah in the Rockies</h3><div class=brule></div>' +
+        '<p class=bsub>June 2026</p>' +
+        '<span class=bcred>Photographs by Noah Gallagher</span></div>';
+      document.getElementById('bpnum').innerHTML = '<b>COVER</b>';
+    } else {
+      sp.className = 'bkspread two';
+      sp.innerHTML = pageHTML(s.l) + pageHTML(s.r) + '<span class=bgut></span>';
+      var label = s.r ? 'PAGES ' + s.first + ' AND ' + (s.first + 1) : 'PAGE ' + s.first;
+      var how = [s.l && s.l.how, s.r && s.r.how].filter(Boolean).join('  &middot;  ');
+      document.getElementById('bpnum').innerHTML = '<b>' + label + '</b>  &middot;  ' + how;
+    }
+    document.getElementById('bkvt').innerHTML = 'The book, as it lays out <span>&middot; spread ' +
+      (i + 1) + ' of ' + SP.length + '</span>';
+    document.getElementById('bkprev').disabled = i === 0;
+    document.getElementById('bknext').disabled = i === SP.length - 1;
+  }
+
+  /* one click banks the set: inbox first, local file only if the network refuses */
+  function payload(){
+    return { group: 'The book', frames: book,
+             saved: new Date().toISOString(), source: 'ramah field guide' };
+  }
+  function toInbox(p){
+    return fetch('https://api.web3forms.com/submit', {method:'POST',
+      headers:{'Content-Type':'application/json', Accept:'application/json'},
+      body: JSON.stringify({access_key: SEND.web3forms_key,
+        subject: SEND.subject + ': ' + p.frames.length + ' frames',
+        from_name: 'Ramah book', botcheck: '', saved: p.saved,
+        frames: p.frames.join(', '), lane_json: JSON.stringify(p)})})
+      .then(function(r){ return r.json(); })
+      .then(function(r){ if (r && r.success) return 'inbox'; throw new Error('refused'); });
+  }
+  function fallback(p){
+    try {
+      var b = new Blob([JSON.stringify(p, null, 1)], {type:'application/json'});
+      var u = URL.createObjectURL(b), a = document.createElement('a');
+      a.href = u; a.download = 'ramah_book.json';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(u); }, 1000);
+      return true;
+    } catch(e){ return false; }
+  }
+
+  document.getElementById('bksee').onclick = function(){
+    if (!book.length) return;
+    SP = spreads(paginate(book));
+    document.getElementById('bkview').classList.add('on');
+    show(0);
+  };
+  document.getElementById('bkclose').onclick = function(){ document.getElementById('bkview').classList.remove('on'); };
+  document.getElementById('bknext').onclick = function(){ show(at + 1); };
+  document.getElementById('bkprev').onclick = function(){ show(at - 1); };
+  document.getElementById('bksave').onclick = function(){
+    var b = document.getElementById('bksave');
+    if (!book.length) return;
+    var p = payload();
+    var reset = function(t){ b.textContent = t;
+      setTimeout(function(){ b.textContent = 'Save the book'; b.disabled = false; }, 2600); };
+    b.disabled = true; b.textContent = 'Saving';
+    toInbox(p).then(function(w){ reset('Banked, ' + w); })
+      .catch(function(){ reset(fallback(p) ? 'No connection, saved here' : 'Could not save'); });
+  };
+  document.addEventListener('keydown', function(e){
+    var v = document.getElementById('bkview');
+    if (!v.classList.contains('on')) return;
+    if (e.key === 'Escape') v.classList.remove('on');
+    if (e.key === 'ArrowRight' || e.key === ' '){ e.preventDefault(); show(at + 1); }
+    if (e.key === 'ArrowLeft') show(at - 1);
+  });
+
+  /* The viewer needs to add to the book from full size, the way Kingswood
+     does: Noah picks by looking big, not at thumbnails. Expose the lane. */
+  window.ramahBook = {
+    has: inBook,
+    toggle: function(n){ if (BK[n]) toggle(n); return inBook(n); }
+  };
+
+  /* the tab itself: joins the two the tabs script already manages */
+  var row = document.querySelector('.rtabs');
+  if (row){
+    var b = document.createElement('button');
+    b.className = 'rtab'; b.setAttribute('role','tab');
+    b.setAttribute('data-tab','book'); b.setAttribute('aria-selected','false');
+    b.textContent = 'The Book';
+    row.appendChild(b);
+    b.onclick = function(){
+      document.querySelectorAll('.rtab').forEach(function(o){
+        o.setAttribute('aria-selected', o === b ? 'true' : 'false'); });
+      grid(); strip();
+      document.getElementById('tab-gallery').className = '';
+      document.getElementById('tab-guide').className = '';
+      document.getElementById('tab-book').className = 'on';
+      document.getElementById('bklane').className = 'bklane on';
+      window.scrollTo(0, 0);
+    };
+    /* leaving the book tab hides its lane */
+    document.querySelectorAll('.rtab').forEach(function(t){
+      if (t === b) return;
+      var prev = t.onclick;
+      t.onclick = function(){
+        document.getElementById('tab-book').className = '';
+        document.getElementById('bklane').className = 'bklane';
+        if (prev) prev.call(t);
+      };
+    });
+  }
+})();
+</script>
+<!--BOOKTAB:END-->
 <footer>
   <p>Photographs by Noah Gallagher &middot; Abba Photo &middot;
   <a href="https://www.abba-photo.com">abba-photo.com</a> &middot;
@@ -2491,355 +2848,6 @@
 <!--LIGHTBOX:END-->
 
 <script data-goatcounter="https://abba-photo.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-<!--BOOKTAB:START--><style>
-/* THE BOOK tab */
-#tab-book{display:none}
-#tab-book.on{display:block}
-.bklede{max-width:64ch;margin:22px auto 0;padding:0 20px;text-align:center;opacity:.72;
- font-size:14.5px;line-height:1.55}
-.bkgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:13px;
- max-width:1280px;margin:22px auto 0;padding:0 20px}
-.bkcard{position:relative;border-radius:8px;overflow:hidden;background:rgba(243,241,236,.06);
- transition:box-shadow .14s,transform .14s}
-.bkcard img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;cursor:zoom-in}
-.bkcard.in{box-shadow:inset 0 0 0 3px #EDB71E;transform:translateY(-2px)}
-.bkcard .bn{position:absolute;top:8px;left:9px;font:600 11px inherit;color:#F3F1EC;
- background:rgba(2,37,47,.78);border-radius:11px;padding:2px 9px;pointer-events:none}
-.bkcard .badd{position:absolute;top:7px;right:7px;width:31px;height:31px;border-radius:50%;
- border:1px solid rgba(243,241,236,.25);background:rgba(2,37,47,.78);color:#F3F1EC;
- font:600 17px inherit;cursor:pointer;line-height:1;padding:0;z-index:2}
-.bkcard.in .badd{background:#EDB71E;border-color:#EDB71E;color:#02252F;font-size:15px}
-.bklane{position:fixed;left:0;right:0;bottom:0;background:#01161d;
- border-top:1px solid rgba(243,241,236,.16);padding:11px 0 13px;z-index:40;display:none}
-.bklane.on{display:block}
-.bklanein{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:15px}
-.bkstrip{display:flex;gap:6px;overflow-x:auto;flex:1;padding:3px 0 6px;min-height:58px}
-.bkstrip img{height:52px;width:auto;border-radius:4px;cursor:grab;flex:0 0 auto;
- border:2px solid transparent}
-.bkstrip img.over{border-color:#EDB71E}
-.bkempty{font-size:13px;align-self:center;white-space:nowrap;opacity:.66;color:#F3F1EC}
-.bkacts{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap}
-.bkbtn{border:1px solid rgba(243,241,236,.25);background:transparent;color:#F3F1EC;
- border-radius:6px;padding:10px 15px;font:600 13px inherit;cursor:pointer;white-space:nowrap}
-.bkbtn.go{background:#EDB71E;border-color:#EDB71E;color:#02252F}
-.bkbtn:disabled{opacity:.4;cursor:default}
-.bkview{position:fixed;inset:0;background:#0B0B0C;z-index:930;display:none;flex-direction:column}
-.bkview.on{display:flex}
-.bkvbar{flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:12px 20px;
- border-bottom:1px solid rgba(255,255,255,.11)}
-.bkvt{flex:1;font:600 13.5px inherit;color:#F3F1EC}
-.bkvt span{opacity:.6;font-weight:400}
-.bkvstage{flex:1;display:flex;align-items:center;justify-content:center;padding:22px;min-height:0}
-.bkspread{background:#F6F4EF;display:flex;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.55)}
-.bkspread.two{aspect-ratio:3/1;width:min(94vw,calc((100vh - 160px)*3))}
-.bkspread.solo{aspect-ratio:3/2;width:min(58vw,calc((100vh - 160px)*1.5))}
-.bpg{width:50%;height:100%;position:relative;overflow:hidden;background:#F6F4EF;
- display:flex;align-items:center;justify-content:center}
-.bkspread.solo .bpg{width:100%}
-.bpg.mat{padding:4%}
-.bpg.pair{padding:4%;gap:3.6%}
-.bpg.bleed{padding:0}
-.bpg.bleed img{width:100%;height:100%;max-width:none;max-height:none;object-fit:cover}
-.bpg[class*=" g"]{display:grid;padding:4%;gap:2.6%}
-.bpg.g2{grid-template-columns:1fr 1fr}
-.bpg.g3,.bpg.g5,.bpg.g6{grid-template-columns:1fr 1fr 1fr}
-.bpg.g4{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
-.bpg.g5,.bpg.g6{grid-template-rows:1fr 1fr}
-.bpg[class*=" g"] img{width:100%;height:100%;max-width:none;max-height:none;object-fit:cover}
-.bpg img{max-width:100%;max-height:100%;object-fit:contain;display:block}
-.bgut{position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(2,37,47,.14)}
-.bcov{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;
- justify-content:center;color:#02252F;position:relative;padding:6%}
-.bcov h3{font:400 clamp(19px,3.4vw,42px) inherit;margin:0}
-.bcov .brule{width:11%;height:3px;background:#EDB71E;margin:5% 0 3.4%}
-.bcov .bsub{font:600 clamp(8px,1.05vw,13px) inherit;margin:0;letter-spacing:.03em}
-.bcov .bcred{position:absolute;bottom:9%;font:400 clamp(8px,1vw,12.5px) inherit}
-.bpnum{flex:0 0 auto;text-align:center;padding:11px 0 15px;font:600 10px inherit;
- letter-spacing:.16em;color:rgba(255,255,255,.55)}
-.bpnum b{color:rgba(255,255,255,.85)}
-@media(max-width:600px){
- .bkgrid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr))}
- .bklanein{flex-direction:column;align-items:stretch;gap:9px}
- .bkacts{justify-content:stretch}.bkbtn{flex:1}
-}
-</style>
 
-<div id=tab-book>
- <p class=bklede>Choose the photographs for the book, then see how they lay out on the page.
- The strip along the bottom is the book in order, and it drags. Tap a photograph to see it
- full size; the ring button puts it in the book.</p>
- <div class=bkgrid id=bkgrid></div>
-</div>
-<div class=bklane id=bklane>
- <div class=bklanein>
-  <div class=bkstrip id=bkstrip></div>
-  <div class=bkacts>
-   <button class="bkbtn go" id=bksee>See the book</button>
-   <button class=bkbtn id=bksave>Save the book</button>
-  </div>
- </div>
-</div>
-<div class=bkview id=bkview>
- <div class=bkvbar>
-  <span class=bkvt id=bkvt></span>
-  <button class=bkbtn id=bkprev>Back</button>
-  <button class=bkbtn id=bknext>Next</button>
-  <button class=x id=bkclose aria-label=Close style="background:none;border:0;color:#F3F1EC;font:400 27px inherit;cursor:pointer">&times;</button>
- </div>
- <div class=bkvstage><div class=bkspread id=bkspread></div></div>
- <p class=bpnum id=bpnum></p>
-</div>
-<script>
-(function(){
-  /* THE BOOK. Pagination mirrors the PDF builder exactly: 12x8 landscape,
-     two portraits in a row paired on one page, named bleedhero spreads bled,
-     everything else matted,
-     nothing bleeding. What is approved on screen is what prints. */
-  var BK = {"R001":{"f":"Ramah2026_R001.jpg","w":2048,"h":2560},"R002":{"f":"Ramah2026_R002.jpg","w":2560,"h":1708},"R003":{"f":"Ramah2026_R003.jpg","w":2560,"h":2048},"R004":{"f":"Ramah2026_R004.jpg","w":2048,"h":2560},"R006":{"f":"Ramah2026_R006.jpg","w":2560,"h":2048},"R007":{"f":"Ramah2026_R007.jpg","w":2560,"h":1440},"R008":{"f":"Ramah2026_R008.jpg","w":2560,"h":2048},"R009":{"f":"Ramah2026_R009.jpg","w":2560,"h":1708},"R010":{"f":"Ramah2026_R010.jpg","w":2560,"h":1707},"R011":{"f":"Ramah2026_R011.jpg","w":2560,"h":1708},"R012":{"f":"Ramah2026_R012.jpg","w":2560,"h":1708},"R013":{"f":"Ramah2026_R013.jpg","w":2560,"h":1707},"R014":{"f":"Ramah2026_R014.jpg","w":2560,"h":1708},"R015":{"f":"Ramah2026_R015.jpg","w":2560,"h":1708},"R016":{"f":"Ramah2026_R016.jpg","w":2560,"h":2048},"R017":{"f":"Ramah2026_R017.jpg","w":2560,"h":1708},"R018":{"f":"Ramah2026_R018.jpg","w":2560,"h":2048},"R019":{"f":"Ramah2026_R019.jpg","w":2560,"h":1708},"R020":{"f":"Ramah2026_R020.jpg","w":2560,"h":1707},"R021":{"f":"Ramah2026_R021.jpg","w":1708,"h":2560},"R022":{"f":"Ramah2026_R022.jpg","w":2560,"h":1707},"R023":{"f":"Ramah2026_R023.jpg","w":2560,"h":1708},"R024":{"f":"Ramah2026_R024.jpg","w":2560,"h":1708},"R025":{"f":"Ramah2026_R025.jpg","w":1707,"h":2560},"R026":{"f":"Ramah2026_R026.jpg","w":1707,"h":2560},"R027":{"f":"Ramah2026_R027.jpg","w":1707,"h":2560},"R029":{"f":"Ramah2026_R029.jpg","w":2560,"h":1708},"R030":{"f":"Ramah2026_R030.jpg","w":2560,"h":1708},"R031":{"f":"Ramah2026_R031.jpg","w":2560,"h":1708},"R032":{"f":"Ramah2026_R032.jpg","w":2560,"h":1708},"R033":{"f":"Ramah2026_R033.jpg","w":2560,"h":1708},"R034":{"f":"Ramah2026_R034.jpg","w":2560,"h":1707},"R035":{"f":"Ramah2026_R035.jpg","w":1707,"h":2560},"R036":{"f":"Ramah2026_R036.jpg","w":2560,"h":1707},"R037":{"f":"Ramah2026_R037.jpg","w":2560,"h":1707},"R038":{"f":"Ramah2026_R038.jpg","w":2560,"h":1707},"R039":{"f":"Ramah2026_R039.jpg","w":2560,"h":1708},"R040":{"f":"Ramah2026_R040.jpg","w":1707,"h":2560},"R041":{"f":"Ramah2026_R041.jpg","w":2560,"h":1707},"R042":{"f":"Ramah2026_R042.jpg","w":1708,"h":2560},"R043":{"f":"Ramah2026_R043.jpg","w":2560,"h":1707},"R044":{"f":"Ramah2026_R044.jpg","w":2560,"h":1707},"R045":{"f":"Ramah2026_R045.jpg","w":2560,"h":1708},"R046":{"f":"Ramah2026_R046.jpg","w":2560,"h":1707},"R047":{"f":"Ramah2026_R047.jpg","w":2048,"h":2560},"R048":{"f":"Ramah2026_R048.jpg","w":2560,"h":1440},"R049":{"f":"Ramah2026_R049.jpg","w":2560,"h":1440},"R050":{"f":"Ramah2026_R050.jpg","w":2560,"h":1707},"R051":{"f":"Ramah2026_R051.jpg","w":2560,"h":1707},"R052":{"f":"Ramah2026_R052.jpg","w":2560,"h":1708},"R053":{"f":"Ramah2026_R053.jpg","w":2560,"h":1707},"R054":{"f":"Ramah2026_R054.jpg","w":2048,"h":2560},"R055":{"f":"Ramah2026_R055.jpg","w":2048,"h":2560},"R056":{"f":"Ramah2026_R056.jpg","w":2560,"h":1707},"R057":{"f":"Ramah2026_R057.jpg","w":2048,"h":2560},"R058":{"f":"Ramah2026_R058.jpg","w":2560,"h":1708},"R059":{"f":"Ramah2026_R059.jpg","w":2560,"h":1707},"R060":{"f":"Ramah2026_R060.jpg","w":2560,"h":1707},"R061":{"f":"Ramah2026_R061.jpg","w":2560,"h":2560},"R062":{"f":"Ramah2026_R062.jpg","w":2560,"h":1707},"R063":{"f":"Ramah2026_R063.jpg","w":2560,"h":1708},"R064":{"f":"Ramah2026_R064.jpg","w":2560,"h":1708},"R065":{"f":"Ramah2026_R065.jpg","w":2560,"h":2048},"R066":{"f":"Ramah2026_R066.jpg","w":2560,"h":1708},"R067":{"f":"Ramah2026_R067.jpg","w":1707,"h":2560},"R068":{"f":"Ramah2026_R068.jpg","w":2560,"h":1708},"R069":{"f":"Ramah2026_R069.jpg","w":2560,"h":1708},"R070":{"f":"Ramah2026_R070.jpg","w":2560,"h":1708},"R071":{"f":"Ramah2026_R071.jpg","w":2560,"h":1708},"R072":{"f":"Ramah2026_R072.jpg","w":2560,"h":1707},"R073":{"f":"Ramah2026_R073.jpg","w":2560,"h":1707},"R074":{"f":"Ramah2026_R074.jpg","w":1707,"h":2560},"R075":{"f":"Ramah2026_R075.jpg","w":2560,"h":1707},"R076":{"f":"Ramah2026_R076.jpg","w":2560,"h":1708},"R077":{"f":"Ramah2026_R077.jpg","w":2560,"h":1708},"R078":{"f":"Ramah2026_R078.jpg","w":2560,"h":2048},"R079":{"f":"Ramah2026_R079.jpg","w":2560,"h":2048},"R080":{"f":"Ramah2026_R080.jpg","w":2560,"h":1708},"R081":{"f":"Ramah2026_R081.jpg","w":2560,"h":2048},"R082":{"f":"Ramah2026_R082.jpg","w":2560,"h":1708},"R083":{"f":"Ramah2026_R083.jpg","w":2560,"h":1707},"R084":{"f":"Ramah2026_R084.jpg","w":2560,"h":2048},"R085":{"f":"Ramah2026_R085.jpg","w":2560,"h":1440},"R086":{"f":"Ramah2026_R086.jpg","w":2560,"h":1707},"R087":{"f":"Ramah2026_R087.jpg","w":2560,"h":2048},"R088":{"f":"Ramah2026_R088.jpg","w":2560,"h":2048},"R089":{"f":"Ramah2026_R089.jpg","w":2560,"h":1707},"R090":{"f":"Ramah2026_R090.jpg","w":2560,"h":1708},"R091":{"f":"Ramah2026_R091.jpg","w":2048,"h":2560},"R092":{"f":"Ramah2026_R092.jpg","w":2560,"h":1707},"R093":{"f":"Ramah2026_R093.jpg","w":2048,"h":2560},"R094":{"f":"Ramah2026_R094.jpg","w":2560,"h":1708},"R095":{"f":"Ramah2026_R095.jpg","w":2048,"h":2560},"R096":{"f":"Ramah2026_R096.jpg","w":2560,"h":1707},"R097":{"f":"Ramah2026_R097.jpg","w":2560,"h":1708},"R098":{"f":"Ramah2026_R098.jpg","w":2560,"h":2048},"R099":{"f":"Ramah2026_R099.jpg","w":2560,"h":1707},"R100":{"f":"Ramah2026_R100.jpg","w":2560,"h":2560},"R101":{"f":"Ramah2026_R101.jpg","w":2560,"h":2048},"R102":{"f":"Ramah2026_R102.jpg","w":2560,"h":1707},"R103":{"f":"Ramah2026_R103.jpg","w":2560,"h":1708},"R104":{"f":"Ramah2026_R104.jpg","w":2560,"h":1708},"R105":{"f":"Ramah2026_R105.jpg","w":2560,"h":1708},"R106":{"f":"Ramah2026_R106.jpg","w":2560,"h":1708},"R107":{"f":"Ramah2026_R107.jpg","w":2560,"h":1708},"R108":{"f":"Ramah2026_R108.jpg","w":2560,"h":1708},"R109":{"f":"Ramah2026_R109.jpg","w":2560,"h":1707},"R110":{"f":"Ramah2026_R110.jpg","w":2560,"h":1707},"R111":{"f":"Ramah2026_R111.jpg","w":2560,"h":1708},"R112":{"f":"Ramah2026_R112.jpg","w":2560,"h":1440},"R113":{"f":"Ramah2026_R113.jpg","w":2560,"h":1708},"R114":{"f":"Ramah2026_R114.jpg","w":2048,"h":2560},"R115":{"f":"Ramah2026_R115.jpg","w":2560,"h":1440},"R116":{"f":"Ramah2026_R116.jpg","w":2560,"h":2048},"R117":{"f":"Ramah2026_R117.jpg","w":2560,"h":2048},"R118":{"f":"Ramah2026_R118.jpg","w":2560,"h":2048},"R119":{"f":"Ramah2026_R119.jpg","w":2560,"h":2048},"R120":{"f":"Ramah2026_R120.jpg","w":2560,"h":2048},"R121":{"f":"Ramah2026_R121.jpg","w":2560,"h":1707},"R122":{"f":"Ramah2026_R122.jpg","w":2560,"h":1707},"R123":{"f":"Ramah2026_R123.jpg","w":2048,"h":2560},"R124":{"f":"Ramah2026_R124.jpg","w":2560,"h":1708},"R125":{"f":"Ramah2026_R125.jpg","w":2560,"h":2048},"R126":{"f":"Ramah2026_R126.jpg","w":2560,"h":1708},"R127":{"f":"Ramah2026_R127.jpg","w":2560,"h":1707},"R128":{"f":"Ramah2026_R128.jpg","w":2560,"h":1707},"R129":{"f":"Ramah2026_R129.jpg","w":2560,"h":1707},"R130":{"f":"Ramah2026_R130.jpg","w":2560,"h":1708},"R131":{"f":"Ramah2026_R131.jpg","w":2560,"h":1708},"R132":{"f":"Ramah2026_R132.jpg","w":2560,"h":1708},"R133":{"f":"Ramah2026_R133.jpg","w":2560,"h":1708},"R134":{"f":"Ramah2026_R134.jpg","w":2560,"h":1707},"R135":{"f":"Ramah2026_R135.jpg","w":2560,"h":1707},"R136":{"f":"Ramah2026_R136.jpg","w":1708,"h":2560},"R137":{"f":"Ramah2026_R137.jpg","w":2560,"h":2048},"R138":{"f":"Ramah2026_R138.jpg","w":2560,"h":2048},"R139":{"f":"Ramah2026_R139.jpg","w":2560,"h":2048},"R140":{"f":"Ramah2026_R140.jpg","w":2048,"h":2560},"R141":{"f":"Ramah2026_R141.jpg","w":2560,"h":2048},"R142":{"f":"Ramah2026_R142.jpg","w":2560,"h":2048},"R143":{"f":"Ramah2026_R143.jpg","w":2560,"h":1708},"R144":{"f":"Ramah2026_R144.jpg","w":2048,"h":2560},"R145":{"f":"Ramah2026_R145.jpg","w":2048,"h":2560},"R146":{"f":"Ramah2026_R146.jpg","w":1707,"h":2560},"R147":{"f":"Ramah2026_R147.jpg","w":2560,"h":2048},"R148":{"f":"Ramah2026_R148.jpg","w":1708,"h":2560},"R149":{"f":"Ramah2026_R149.jpg","w":2560,"h":1707},"R150":{"f":"Ramah2026_R150.jpg","w":2560,"h":1708},"R151":{"f":"Ramah2026_R151.jpg","w":2560,"h":1708},"R152":{"f":"Ramah2026_R152.jpg","w":2560,"h":2048},"R153":{"f":"Ramah2026_R153.jpg","w":2560,"h":1708},"R154":{"f":"Ramah2026_R154.jpg","w":2560,"h":1708},"R155":{"f":"Ramah2026_R155.jpg","w":2560,"h":1708},"R156":{"f":"Ramah2026_R156.jpg","w":2560,"h":1708},"R157":{"f":"Ramah2026_R157.jpg","w":2560,"h":2048},"R158":{"f":"Ramah2026_R158.jpg","w":2560,"h":1440},"R159":{"f":"Ramah2026_R159.jpg","w":2560,"h":2048},"R160":{"f":"Ramah2026_R160.jpg","w":2560,"h":1707},"R161":{"f":"Ramah2026_R161.jpg","w":2560,"h":1708},"R162":{"f":"Ramah2026_R162.jpg","w":2560,"h":2048},"R163":{"f":"Ramah2026_R163.jpg","w":2560,"h":1707},"R164":{"f":"Ramah2026_R164.jpg","w":2560,"h":2048}};
-  var SEND = {web3forms_key: "b3bc124c-7812-4c4e-8fce-6ea6b9d1c5a2", subject: "Ramah book"};
-  var KEY = "ramah-book-v1";
-  var book = [];
-  try { var s = localStorage.getItem(KEY); if (s) book = JSON.parse(s); } catch(e){}
-  book = book.filter(function(n){ return BK[n]; });
-
-  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(book)); }catch(e){} }
-  function inBook(n){ return book.indexOf(n) !== -1; }
-
-  function toggle(n){
-    var i = book.indexOf(n);
-    if (i === -1) book.push(n); else book.splice(i, 1);
-    save(); strip(); paintCard(n);
-  }
-  function paintCard(n){
-    var els = document.querySelectorAll('#bkgrid .bkcard');
-    for (var i = 0; i < els.length; i++){
-      if (els[i].getAttribute('data-n') !== n) continue;
-      els[i].className = 'bkcard' + (inBook(n) ? ' in' : '');
-      els[i].querySelector('.badd').innerHTML = inBook(n) ? '&#10003;' : '+';
-    }
-  }
-  var built = false;
-  function grid(){
-    if (built) return;
-    var g = document.getElementById('bkgrid');
-    var names = Object.keys(BK).sort();
-    var frag = document.createDocumentFragment();
-    names.forEach(function(n){
-      var r = BK[n];
-      var fig = document.createElement('figure');
-      fig.className = 'bkcard' + (inBook(n) ? ' in' : '');
-      fig.setAttribute('data-n', n);
-      fig.style.margin = 0;
-      fig.innerHTML = '<a class=ph href="img/present/' + r.f + '">' +
-        '<img loading=lazy src="img/thumb/' + r.f + '" alt="Frame ' + n + '"></a>' +
-        '<span class=bn>' + n + '</span>' +
-        '<button class=badd aria-label="Add frame ' + n + ' to the book">' +
-        (inBook(n) ? '&#10003;' : '+') + '</button>';
-      fig.querySelector('.badd').onclick = function(ev){
-        ev.preventDefault(); ev.stopPropagation(); toggle(n);
-      };
-      frag.appendChild(fig);
-    });
-    g.appendChild(frag);
-    built = true;
-  }
-
-  var drag = null;
-  function strip(){
-    var el = document.getElementById('bkstrip');
-    el.innerHTML = '';
-    if (!book.length){
-      var p = document.createElement('span');
-      p.className = 'bkempty';
-      p.textContent = 'The book is empty. Use the ring button on a photograph to start it.';
-      el.appendChild(p);
-    }
-    book.forEach(function(n, idx){
-      var r = BK[n]; if (!r) return;
-      var im = document.createElement('img');
-      im.src = 'img/thumb/' + r.f; im.draggable = true; im.alt = 'Frame ' + n;
-      im.title = 'Frame ' + n + '. Drag to reorder, double click to remove.';
-      im.ondragstart = function(){ drag = idx; };
-      im.ondragover = function(e){ e.preventDefault(); im.classList.add('over'); };
-      im.ondragleave = function(){ im.classList.remove('over'); };
-      im.ondrop = function(e){
-        e.preventDefault(); im.classList.remove('over');
-        if (drag === null || drag === idx) return;
-        var moved = book.splice(drag, 1)[0];
-        book.splice(idx, 0, moved);
-        save(); strip();
-      };
-      im.ondblclick = function(){ book.splice(idx, 1); save(); strip();
-        var g = document.querySelector('#bkgrid .bkcard[data-n="' + n + '"]');
-        if (g) paintCard(n); };
-      el.appendChild(im);
-    });
-    document.getElementById('bksee').disabled = !book.length;
-    document.getElementById('bksave').disabled = !book.length;
-  }
-
-  /* BLEEDHERO (Noah, 2026-08-27): {hero: [the frames facing it]}. One line per
-     spread, the same data build_ramah_book.py takes, so screen and press agree.
-     Empty by default; a spread exists only where Noah names one. */
-  var BLEEDHERO = {};
-  var MAXCROP = 0.12;
-  function cropLoss(w, h){ var s = Math.max(12/w, 8/h); return 1 - (12/(w*s))*(8/(h*s)); }
-
-  /* pagination: named bleedhero spreads, then portraits pair, else matte */
-  function paginate(seq){
-    var pages = [], i = 0;
-    while (i < seq.length){
-      var n = seq[i], r = BK[n];
-      var tall = r.h > r.w;
-      var nx = i + 1 < seq.length ? seq[i+1] : null;
-      var nr = nx ? BK[nx] : null;
-      var grid = (BLEEDHERO[n] || []).filter(function(g){ return BK[g]; });
-      if (grid.length){
-        if (cropLoss(r.w, r.h) <= MAXCROP){
-          pages.push({t:'bleed', n:[n], how:'full bleed, the establishing frame'});
-        } else {
-          pages.push({t:'mat', n:[n], how:'matted, bleed would crop too far'});
-        }
-        pages.push({t:'grid g' + grid.length, n:grid.slice(),
-                    how:'the ' + grid.length + ' it faces'});
-        i++; continue;
-      }
-      if (tall && nr && nr.h > nr.w){
-        pages.push({t:'pair', n:[n, nx], how:'two portraits, one page'}); i += 2; continue;
-      }
-      pages.push({t:'mat', n:[n], how: tall ? 'matted, portrait' : 'matted, landscape'});
-      i++;
-    }
-    return pages;
-  }
-  function spreads(pages){
-    var out = [{cover:true}];
-    for (var k = 0; k < pages.length; k += 2)
-      out.push({l: pages[k], r: pages[k+1] || null, first: k + 1});
-    return out;
-  }
-  var SP = [], at = 0;
-  function pageHTML(pg){
-    if (!pg) return '<div class="bpg"></div>';
-    var imgs = pg.n.map(function(n){
-      return '<img src="img/present/' + BK[n].f + '" alt="Frame ' + n + '">';
-    }).join('');
-    return '<div class="bpg ' + pg.t + '">' + imgs + '</div>';
-  }
-  function show(i){
-    if (i < 0 || i >= SP.length) return;
-    at = i;
-    var s = SP[i], sp = document.getElementById('bkspread');
-    if (s.cover){
-      sp.className = 'bkspread solo';
-      sp.innerHTML = '<div class=bcov><h3>Ramah in the Rockies</h3><div class=brule></div>' +
-        '<p class=bsub>June 2026</p>' +
-        '<span class=bcred>Photographs by Noah Gallagher</span></div>';
-      document.getElementById('bpnum').innerHTML = '<b>COVER</b>';
-    } else {
-      sp.className = 'bkspread two';
-      sp.innerHTML = pageHTML(s.l) + pageHTML(s.r) + '<span class=bgut></span>';
-      var label = s.r ? 'PAGES ' + s.first + ' AND ' + (s.first + 1) : 'PAGE ' + s.first;
-      var how = [s.l && s.l.how, s.r && s.r.how].filter(Boolean).join('  &middot;  ');
-      document.getElementById('bpnum').innerHTML = '<b>' + label + '</b>  &middot;  ' + how;
-    }
-    document.getElementById('bkvt').innerHTML = 'The book, as it lays out <span>&middot; spread ' +
-      (i + 1) + ' of ' + SP.length + '</span>';
-    document.getElementById('bkprev').disabled = i === 0;
-    document.getElementById('bknext').disabled = i === SP.length - 1;
-  }
-
-  /* one click banks the set: inbox first, local file only if the network refuses */
-  function payload(){
-    return { group: 'The book', frames: book,
-             saved: new Date().toISOString(), source: 'ramah field guide' };
-  }
-  function toInbox(p){
-    return fetch('https://api.web3forms.com/submit', {method:'POST',
-      headers:{'Content-Type':'application/json', Accept:'application/json'},
-      body: JSON.stringify({access_key: SEND.web3forms_key,
-        subject: SEND.subject + ': ' + p.frames.length + ' frames',
-        from_name: 'Ramah book', botcheck: '', saved: p.saved,
-        frames: p.frames.join(', '), lane_json: JSON.stringify(p)})})
-      .then(function(r){ return r.json(); })
-      .then(function(r){ if (r && r.success) return 'inbox'; throw new Error('refused'); });
-  }
-  function fallback(p){
-    try {
-      var b = new Blob([JSON.stringify(p, null, 1)], {type:'application/json'});
-      var u = URL.createObjectURL(b), a = document.createElement('a');
-      a.href = u; a.download = 'ramah_book.json';
-      document.body.appendChild(a); a.click(); document.body.removeChild(a);
-      setTimeout(function(){ URL.revokeObjectURL(u); }, 1000);
-      return true;
-    } catch(e){ return false; }
-  }
-
-  document.getElementById('bksee').onclick = function(){
-    if (!book.length) return;
-    SP = spreads(paginate(book));
-    document.getElementById('bkview').classList.add('on');
-    show(0);
-  };
-  document.getElementById('bkclose').onclick = function(){ document.getElementById('bkview').classList.remove('on'); };
-  document.getElementById('bknext').onclick = function(){ show(at + 1); };
-  document.getElementById('bkprev').onclick = function(){ show(at - 1); };
-  document.getElementById('bksave').onclick = function(){
-    var b = document.getElementById('bksave');
-    if (!book.length) return;
-    var p = payload();
-    var reset = function(t){ b.textContent = t;
-      setTimeout(function(){ b.textContent = 'Save the book'; b.disabled = false; }, 2600); };
-    b.disabled = true; b.textContent = 'Saving';
-    toInbox(p).then(function(w){ reset('Banked, ' + w); })
-      .catch(function(){ reset(fallback(p) ? 'No connection, saved here' : 'Could not save'); });
-  };
-  document.addEventListener('keydown', function(e){
-    var v = document.getElementById('bkview');
-    if (!v.classList.contains('on')) return;
-    if (e.key === 'Escape') v.classList.remove('on');
-    if (e.key === 'ArrowRight' || e.key === ' '){ e.preventDefault(); show(at + 1); }
-    if (e.key === 'ArrowLeft') show(at - 1);
-  });
-
-  /* The viewer needs to add to the book from full size, the way Kingswood
-     does: Noah picks by looking big, not at thumbnails. Expose the lane. */
-  window.ramahBook = {
-    has: inBook,
-    toggle: function(n){ if (BK[n]) toggle(n); return inBook(n); }
-  };
-
-  /* the tab itself: joins the two the tabs script already manages */
-  var row = document.querySelector('.rtabs');
-  if (row){
-    var b = document.createElement('button');
-    b.className = 'rtab'; b.setAttribute('role','tab');
-    b.setAttribute('data-tab','book'); b.setAttribute('aria-selected','false');
-    b.textContent = 'The Book';
-    row.appendChild(b);
-    b.onclick = function(){
-      document.querySelectorAll('.rtab').forEach(function(o){
-        o.setAttribute('aria-selected', o === b ? 'true' : 'false'); });
-      grid(); strip();
-      document.getElementById('tab-gallery').className = '';
-      document.getElementById('tab-guide').className = '';
-      document.getElementById('tab-book').className = 'on';
-      document.getElementById('bklane').className = 'bklane on';
-      window.scrollTo(0, 0);
-    };
-    /* leaving the book tab hides its lane */
-    document.querySelectorAll('.rtab').forEach(function(t){
-      if (t === b) return;
-      var prev = t.onclick;
-      t.onclick = function(){
-        document.getElementById('tab-book').className = '';
-        document.getElementById('bklane').className = 'bklane';
-        if (prev) prev.call(t);
-      };
-    });
-  }
-})();
-</script>
-<!--BOOKTAB:END-->
 </body>
 </html>
