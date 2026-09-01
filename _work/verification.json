@@ -1,0 +1,12 @@
+{
+ "when": "2026-09-01T10:47:09",
+ "clean": true,
+ "pages": {
+  "delivery.html": "clean",
+  "field-guide.html": "clean",
+  "first-look/index.html": "clean",
+  "guide2026.html": "clean",
+  "index.html": "clean",
+  "reel/index.html": "clean"
+ }
+}
