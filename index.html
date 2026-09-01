@@ -2005,7 +2005,17 @@
  text-decoration:none;padding:13px 24px;border-radius:4px;font-size:13px;
  letter-spacing:.12em;text-transform:uppercase;font-weight:600}
 </style>
+<script>
+/* #book in the URL opens the Book tab directly, so the emailed link lands
+   on the draft instead of the gallery */
+addEventListener('DOMContentLoaded',function(){
+ if(location.hash==='#book'){
+  var t=document.querySelector('.rtab[data-tab="book"]'); if(t) t.click();
+ }
+});
+</script>
 <!--/BKDRAFT-->
+
  <div class=bkwrap>
   <p class=bklede>Choose the photographs for the book, then see how they lay out on the page.
   The strip along the bottom is the book in order, and it drags. Tap a photograph to see it
